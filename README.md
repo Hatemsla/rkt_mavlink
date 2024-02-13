@@ -4,12 +4,20 @@
 
 ## Установка 
 
-Для начала плагин нужно добавить в проект. В файл pubspec.yaml добавить следующие строчки:
+Вариант 1. Для начала плагин нужно добавить в проект. В файл pubspec.yaml добавить следующие строчки:
 ```yaml
 dependencies:
   rtk_mavlink:
       git:
         url: https://github.com/Hatemsla/rkt_mavlink.git
+```
+
+Вариант 2. Если плагин ставится напрямую, то есть исходники будут лежать в приложении.
+
+```yaml
+dependencies:
+  rtk_mavlink:
+    path: plugins/rtk_mavlink
 ```
 
 ## Использование
@@ -18,6 +26,7 @@ dependencies:
 ```dart
 import 'package:rtk_mavlink/rtk_mavlink.dart';
 ```
+
 
 Далее, можно вызывать методы описанные в файле rtk_mavlink.h
 
