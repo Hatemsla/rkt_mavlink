@@ -36,4 +36,16 @@ char* global_position_int_str_result;
 uint8_t sysid_apm;                       // id дрона
 uint8_t compid_apm;                      // id автопилота
 
-FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte);
+typedef struct {
+    uint8_t tx_msg_buffer[MAVLINK_MAX_PACKET_LEN];
+    int tx_msg_len;
+} send_msg;
+
+FFI_PLUGIN_EXPORT char* update_data(uint8_t new_byte);
+
+FFI_PLUGIN_EXPORT send_msg request_attitude();
+FFI_PLUGIN_EXPORT send_msg request_sys_status();
+FFI_PLUGIN_EXPORT send_msg request_gps_status();
+FFI_PLUGIN_EXPORT send_msg request_global_position_int();
+
+FFI_PLUGIN_EXPORT void free_data();

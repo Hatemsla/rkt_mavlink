@@ -129,7 +129,7 @@ class RtkMavlinkBindings {
 
   set compid_apm(int value) => _compid_apm.value = value;
 
-  void update_data(
+  ffi.Pointer<ffi.Char> update_data(
     int new_byte,
   ) {
     return _update_data(
@@ -138,8 +138,55 @@ class RtkMavlinkBindings {
   }
 
   late final _update_dataPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Uint8)>>('update_data');
-  late final _update_data = _update_dataPtr.asFunction<void Function(int)>();
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function(ffi.Uint8)>>(
+          'update_data');
+  late final _update_data =
+      _update_dataPtr.asFunction<ffi.Pointer<ffi.Char> Function(int)>();
+
+  send_msg request_attitude() {
+    return _request_attitude();
+  }
+
+  late final _request_attitudePtr =
+      _lookup<ffi.NativeFunction<send_msg Function()>>('request_attitude');
+  late final _request_attitude =
+      _request_attitudePtr.asFunction<send_msg Function()>();
+
+  send_msg request_sys_status() {
+    return _request_sys_status();
+  }
+
+  late final _request_sys_statusPtr =
+      _lookup<ffi.NativeFunction<send_msg Function()>>('request_sys_status');
+  late final _request_sys_status =
+      _request_sys_statusPtr.asFunction<send_msg Function()>();
+
+  send_msg request_gps_status() {
+    return _request_gps_status();
+  }
+
+  late final _request_gps_statusPtr =
+      _lookup<ffi.NativeFunction<send_msg Function()>>('request_gps_status');
+  late final _request_gps_status =
+      _request_gps_statusPtr.asFunction<send_msg Function()>();
+
+  send_msg request_global_position_int() {
+    return _request_global_position_int();
+  }
+
+  late final _request_global_position_intPtr =
+      _lookup<ffi.NativeFunction<send_msg Function()>>(
+          'request_global_position_int');
+  late final _request_global_position_int =
+      _request_global_position_intPtr.asFunction<send_msg Function()>();
+
+  void free_data() {
+    return _free_data();
+  }
+
+  late final _free_dataPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>('free_data');
+  late final _free_data = _free_dataPtr.asFunction<void Function()>();
 }
 
 typedef mavlink_message_t = __mavlink_message;
@@ -461,4 +508,12 @@ final class __mavlink_global_position_int_t extends ffi.Struct {
   /// < [cdeg] Vehicle heading (yaw angle), 0.0..359.99 degrees. If unknown, set to: UINT16_MAX
   @ffi.Uint16()
   external int hdg;
+}
+
+final class send_msg extends ffi.Struct {
+  @ffi.Array.multi([280])
+  external ffi.Array<ffi.Uint8> tx_msg_buffer;
+
+  @ffi.Int()
+  external int tx_msg_len;
 }
