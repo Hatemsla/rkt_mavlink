@@ -27,11 +27,11 @@ mavlink_gps_status_t rx_gps_status;
 mavlink_attitude_t rx_attitude;
 mavlink_global_position_int_t rx_global_position_int;
 
-char* heartbeat_str_result;
-char* sys_status_str_result;
-char* gps_status_str_result;
-char* attitude_str_result;
-char* global_position_int_str_result;
+// char* heartbeat_str_result;
+// char* sys_status_str_result;
+// char* gps_status_str_result;
+// char* attitude_str_result;
+// char* global_position_int_str_result;
 
 uint8_t sysid_apm;                       // id дрона
 uint8_t compid_apm;                      // id автопилота
@@ -41,11 +41,9 @@ typedef struct {
     int tx_msg_len;
 } send_msg;
 
-FFI_PLUGIN_EXPORT char* update_data(uint8_t new_byte);
+FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte);
 
 FFI_PLUGIN_EXPORT send_msg request_attitude();
 FFI_PLUGIN_EXPORT send_msg request_sys_status();
 FFI_PLUGIN_EXPORT send_msg request_gps_status();
 FFI_PLUGIN_EXPORT send_msg request_global_position_int();
-
-FFI_PLUGIN_EXPORT void free_data();

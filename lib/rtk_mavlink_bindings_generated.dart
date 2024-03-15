@@ -69,50 +69,6 @@ class RtkMavlinkBindings {
   mavlink_global_position_int_t get rx_global_position_int =>
       _rx_global_position_int.ref;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _heartbeat_str_result =
-      _lookup<ffi.Pointer<ffi.Char>>('heartbeat_str_result');
-
-  ffi.Pointer<ffi.Char> get heartbeat_str_result => _heartbeat_str_result.value;
-
-  set heartbeat_str_result(ffi.Pointer<ffi.Char> value) =>
-      _heartbeat_str_result.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _sys_status_str_result =
-      _lookup<ffi.Pointer<ffi.Char>>('sys_status_str_result');
-
-  ffi.Pointer<ffi.Char> get sys_status_str_result =>
-      _sys_status_str_result.value;
-
-  set sys_status_str_result(ffi.Pointer<ffi.Char> value) =>
-      _sys_status_str_result.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _gps_status_str_result =
-      _lookup<ffi.Pointer<ffi.Char>>('gps_status_str_result');
-
-  ffi.Pointer<ffi.Char> get gps_status_str_result =>
-      _gps_status_str_result.value;
-
-  set gps_status_str_result(ffi.Pointer<ffi.Char> value) =>
-      _gps_status_str_result.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _attitude_str_result =
-      _lookup<ffi.Pointer<ffi.Char>>('attitude_str_result');
-
-  ffi.Pointer<ffi.Char> get attitude_str_result => _attitude_str_result.value;
-
-  set attitude_str_result(ffi.Pointer<ffi.Char> value) =>
-      _attitude_str_result.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>>
-      _global_position_int_str_result =
-      _lookup<ffi.Pointer<ffi.Char>>('global_position_int_str_result');
-
-  ffi.Pointer<ffi.Char> get global_position_int_str_result =>
-      _global_position_int_str_result.value;
-
-  set global_position_int_str_result(ffi.Pointer<ffi.Char> value) =>
-      _global_position_int_str_result.value = value;
-
   /// id дрона
   late final ffi.Pointer<ffi.Uint8> _sysid_apm =
       _lookup<ffi.Uint8>('sysid_apm');
@@ -129,7 +85,7 @@ class RtkMavlinkBindings {
 
   set compid_apm(int value) => _compid_apm.value = value;
 
-  ffi.Pointer<ffi.Char> update_data(
+  void update_data(
     int new_byte,
   ) {
     return _update_data(
@@ -138,10 +94,8 @@ class RtkMavlinkBindings {
   }
 
   late final _update_dataPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function(ffi.Uint8)>>(
-          'update_data');
-  late final _update_data =
-      _update_dataPtr.asFunction<ffi.Pointer<ffi.Char> Function(int)>();
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Uint8)>>('update_data');
+  late final _update_data = _update_dataPtr.asFunction<void Function(int)>();
 
   send_msg request_attitude() {
     return _request_attitude();
@@ -179,14 +133,6 @@ class RtkMavlinkBindings {
           'request_global_position_int');
   late final _request_global_position_int =
       _request_global_position_intPtr.asFunction<send_msg Function()>();
-
-  void free_data() {
-    return _free_data();
-  }
-
-  late final _free_dataPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function()>>('free_data');
-  late final _free_data = _free_dataPtr.asFunction<void Function()>();
 }
 
 typedef mavlink_message_t = __mavlink_message;

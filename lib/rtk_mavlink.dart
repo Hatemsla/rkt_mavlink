@@ -1,9 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: depend_on_referenced_packages
 
 import 'dart:ffi';
 import 'dart:io';
+
 import "package:ffi/ffi.dart";
 import 'package:flutter/material.dart';
+import 'package:rtk_mavlink/mavlink_classes.dart';
 
 import 'rtk_mavlink_bindings_generated.dart';
 
@@ -61,28 +64,114 @@ bool isHeartbeatAlreadyRecived = false;
   }
 }
 
-List<String> updateData(List<int> newBytes) {
-  List<String> messages = [];
+late MavlinkHeartbeat mavlinkHeartbeat;
+late MavlinkSysStatus mavlinkSystStatus;
+late MavlinkGpsStatus mavlinkGpsStatus;
+late MavlinkAttitude mavlinkAttitude;
+late MavlinkGlobalPositionInt mavlinkGlobalPositionInt;
+
+List<MavlinkMessage> updateData(List<int> newBytes) {
+  List<MavlinkMessage> messages = [];
 
   for (var i = 0; i < newBytes.length; i++) {
-    var message =
-        _bindings.update_data(newBytes[i]).cast<Utf8>().toDartString();
+    // var message =
+    //     _bindings.update_data(newBytes[i]).cast<Utf8>().toDartString();
 
-    if (message.isNotEmpty) {
-      if (message.contains("autopilot") && !isHeartbeatAlreadyRecived) {
-        isHeartbeatAlreadyRecived = true;
-        messages.add(message);
-      } else if (!message.contains('autopilot')) {
-        messages.add(message);
-      } else {
-        continue;
-      }
-    }
+    // if (message.isNotEmpty) {
+    //   if (message.contains("autopilot") && !isHeartbeatAlreadyRecived) {
+    //     isHeartbeatAlreadyRecived = true;
+    //     messages.add(message);
+    //   } else if (!message.contains('autopilot')) {
+    //     messages.add(message);
+    //   } else {
+    //     continue;
+    //   }
+    // }
+
+    _bindings.update_data(newBytes[i]);
+
+    mavlinkHeartbeat = MavlinkHeartbeat(
+        type: _bindings.rx_heartbeat.type,
+        autopilot: _bindings.rx_heartbeat.autopilot,
+        baseMode: _bindings.rx_heartbeat.base_mode,
+        customMode: _bindings.rx_heartbeat.custom_mode,
+        systemStatus: _bindings.rx_heartbeat.system_status,
+        mavlinkVersion: _bindings.rx_heartbeat.mavlink_version);
+
+    mavlinkSystStatus = MavlinkSysStatus(
+        onboardControlSensorsPresent:
+            _bindings.rx_sys_status.onboard_control_sensors_present,
+        onboardControlSensorsEnabled:
+            _bindings.rx_sys_status.onboard_control_sensors_enabled,
+        onboardControlSensorsHealth:
+            _bindings.rx_sys_status.onboard_control_sensors_health,
+        load: _bindings.rx_sys_status.load,
+        voltageBattery: _bindings.rx_sys_status.voltage_battery,
+        currentBattery: _bindings.rx_sys_status.current_battery,
+        batteryRemaining: _bindings.rx_sys_status.battery_remaining,
+        dropRateComm: _bindings.rx_sys_status.drop_rate_comm,
+        errorsComm: _bindings.rx_sys_status.errors_comm,
+        errorsCount1: _bindings.rx_sys_status.errors_count1,
+        errorsCount2: _bindings.rx_sys_status.errors_count2,
+        errorsCount3: _bindings.rx_sys_status.errors_count3,
+        errorsCount4: _bindings.rx_sys_status.errors_count4);
+
+    mavlinkGpsStatus = MavlinkGpsStatus(
+        satellitesVisible: _bindings.rx_gps_status.satellites_visible,
+        satelliteUsed: convertFfiArrayToListInt(
+            _bindings.rx_gps_status.satellite_used, 20),
+        satellitePrn:
+            convertFfiArrayToListInt(_bindings.rx_gps_status.satellite_prn, 20),
+        satelliteElevation: convertFfiArrayToListInt(
+            _bindings.rx_gps_status.satellite_elevation, 20),
+        satelliteAzimuth: convertFfiArrayToListInt(
+            _bindings.rx_gps_status.satellite_azimuth, 20),
+        satelliteSnr: convertFfiArrayToListInt(
+            _bindings.rx_gps_status.satellite_snr, 20));
+
+    mavlinkAttitude = MavlinkAttitude(
+        timeBootMs: _bindings.rx_attitude.time_boot_ms,
+        roll: _bindings.rx_attitude.roll,
+        pitch: _bindings.rx_attitude.pitch,
+        yaw: _bindings.rx_attitude.yaw,
+        rollSpeed: _bindings.rx_attitude.rollspeed,
+        pitchSpeed: _bindings.rx_attitude.pitchspeed,
+        yawSpeed: _bindings.rx_attitude.yawspeed);
+
+    mavlinkGlobalPositionInt = MavlinkGlobalPositionInt(
+        timeBootMs: _bindings.rx_global_position_int.time_boot_ms,
+        lat: _bindings.rx_global_position_int.lat,
+        lon: _bindings.rx_global_position_int.lon,
+        alt: _bindings.rx_global_position_int.alt,
+        relativeAlt: _bindings.rx_global_position_int.relative_alt,
+        vx: _bindings.rx_global_position_int.vx,
+        vy: _bindings.rx_global_position_int.vy,
+        vz: _bindings.rx_global_position_int.vz,
+        hdg: _bindings.rx_global_position_int.hdg);
+
+    debugPrint("mavlink_heartbeat_t: ${_bindings.rx_heartbeat.autopilot}");
+    debugPrint("mavlinkHeartbeat: ${mavlinkHeartbeat.autopilot}");
+
+    messages.add(mavlinkHeartbeat);
+    messages.add(mavlinkSystStatus);
+    messages.add(mavlinkGpsStatus);
+    messages.add(mavlinkAttitude);
+    messages.add(mavlinkGlobalPositionInt);
   }
 
-  // _bindings.free_data();
-
   return messages;
+}
+
+List<int> convertFfiArrayToListInt(Array<Uint8> ffiArray, int length) {
+  // Инициализация пустого списка для хранения результата
+  List<int> resultList = [];
+
+  // Перебор элементов ffi.Array и добавление их в список
+  for (int i = 0; i < length; i++) {
+    resultList.add(ffiArray[i]);
+  }
+
+  return resultList;
 }
 
 /// The dynamic library in which the symbols for [RtkMavlinkBindings] can be found.
