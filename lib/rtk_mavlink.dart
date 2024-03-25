@@ -64,30 +64,16 @@ bool isHeartbeatAlreadyRecived = false;
   }
 }
 
-late MavlinkHeartbeat mavlinkHeartbeat;
-late MavlinkSysStatus mavlinkSystStatus;
-late MavlinkGpsStatus mavlinkGpsStatus;
-late MavlinkAttitude mavlinkAttitude;
-late MavlinkGlobalPositionInt mavlinkGlobalPositionInt;
+MavlinkHeartbeat? mavlinkHeartbeat;
+MavlinkSysStatus? mavlinkSystStatus;
+MavlinkGpsStatus? mavlinkGpsStatus;
+MavlinkAttitude? mavlinkAttitude;
+MavlinkGlobalPositionInt? mavlinkGlobalPositionInt;
 
 List<MavlinkMessage> updateData(List<int> newBytes) {
   List<MavlinkMessage> messages = [];
 
   for (var i = 0; i < newBytes.length; i++) {
-    // var message =
-    //     _bindings.update_data(newBytes[i]).cast<Utf8>().toDartString();
-
-    // if (message.isNotEmpty) {
-    //   if (message.contains("autopilot") && !isHeartbeatAlreadyRecived) {
-    //     isHeartbeatAlreadyRecived = true;
-    //     messages.add(message);
-    //   } else if (!message.contains('autopilot')) {
-    //     messages.add(message);
-    //   } else {
-    //     continue;
-    //   }
-    // }
-
     _bindings.update_data(newBytes[i]);
 
     mavlinkHeartbeat = MavlinkHeartbeat(
@@ -149,14 +135,15 @@ List<MavlinkMessage> updateData(List<int> newBytes) {
         vz: _bindings.rx_global_position_int.vz,
         hdg: _bindings.rx_global_position_int.hdg);
 
-    debugPrint("mavlink_heartbeat_t: ${_bindings.rx_heartbeat.autopilot}");
-    debugPrint("mavlinkHeartbeat: ${mavlinkHeartbeat.autopilot}");
+    debugPrint("roll: ${mavlinkAttitude!.roll}");
+    debugPrint("pitch: ${mavlinkAttitude!.pitch}");
+    debugPrint("yaw: ${mavlinkAttitude!.yaw}");
 
-    messages.add(mavlinkHeartbeat);
-    messages.add(mavlinkSystStatus);
-    messages.add(mavlinkGpsStatus);
-    messages.add(mavlinkAttitude);
-    messages.add(mavlinkGlobalPositionInt);
+    messages.add(mavlinkHeartbeat!);
+    messages.add(mavlinkSystStatus!);
+    messages.add(mavlinkGpsStatus!);
+    messages.add(mavlinkAttitude!);
+    messages.add(mavlinkGlobalPositionInt!);
   }
 
   return messages;

@@ -11,6 +11,7 @@ add_library(rtk_mavlink SHARED
 
 set_target_properties(rtk_mavlink PROPERTIES
   PUBLIC_HEADER rtk_mavlink.h
+  
   OUTPUT_NAME "rtk_mavlink"
 )
 

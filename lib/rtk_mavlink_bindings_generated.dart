@@ -69,6 +69,1091 @@ class RtkMavlinkBindings {
   mavlink_global_position_int_t get rx_global_position_int =>
       _rx_global_position_int.ref;
 
+  late final ffi.Pointer<mavlink_system_time_t> _rx_system_time =
+      _lookup<mavlink_system_time_t>('rx_system_time');
+
+  mavlink_system_time_t get rx_system_time => _rx_system_time.ref;
+
+  late final ffi.Pointer<mavlink_ping_t> _rx_ping =
+      _lookup<mavlink_ping_t>('rx_ping');
+
+  mavlink_ping_t get rx_ping => _rx_ping.ref;
+
+  late final ffi.Pointer<mavlink_change_operator_control_t>
+      _rx_change_operator_control =
+      _lookup<mavlink_change_operator_control_t>('rx_change_operator_control');
+
+  mavlink_change_operator_control_t get rx_change_operator_control =>
+      _rx_change_operator_control.ref;
+
+  late final ffi.Pointer<mavlink_change_operator_control_ack_t>
+      _rx_change_operator_control_ack =
+      _lookup<mavlink_change_operator_control_ack_t>(
+          'rx_change_operator_control_ack');
+
+  mavlink_change_operator_control_ack_t get rx_change_operator_control_ack =>
+      _rx_change_operator_control_ack.ref;
+
+  late final ffi.Pointer<mavlink_auth_key_t> _rx_auth_key =
+      _lookup<mavlink_auth_key_t>('rx_auth_key');
+
+  mavlink_auth_key_t get rx_auth_key => _rx_auth_key.ref;
+
+  late final ffi.Pointer<mavlink_param_request_read_t> _rx_param_request_read =
+      _lookup<mavlink_param_request_read_t>('rx_param_request_read');
+
+  mavlink_param_request_read_t get rx_param_request_read =>
+      _rx_param_request_read.ref;
+
+  late final ffi.Pointer<mavlink_param_request_list_t> _rx_param_request_list =
+      _lookup<mavlink_param_request_list_t>('rx_param_request_list');
+
+  mavlink_param_request_list_t get rx_param_request_list =>
+      _rx_param_request_list.ref;
+
+  late final ffi.Pointer<mavlink_param_value_t> _rx_param_value =
+      _lookup<mavlink_param_value_t>('rx_param_value');
+
+  mavlink_param_value_t get rx_param_value => _rx_param_value.ref;
+
+  late final ffi.Pointer<mavlink_param_set_t> _rx_param_set =
+      _lookup<mavlink_param_set_t>('rx_param_set');
+
+  mavlink_param_set_t get rx_param_set => _rx_param_set.ref;
+
+  late final ffi.Pointer<mavlink_gps_raw_int_t> _rx_gps_raw_int =
+      _lookup<mavlink_gps_raw_int_t>('rx_gps_raw_int');
+
+  mavlink_gps_raw_int_t get rx_gps_raw_int => _rx_gps_raw_int.ref;
+
+  late final ffi.Pointer<mavlink_scaled_imu_t> _rx_scaled_imu =
+      _lookup<mavlink_scaled_imu_t>('rx_scaled_imu');
+
+  mavlink_scaled_imu_t get rx_scaled_imu => _rx_scaled_imu.ref;
+
+  late final ffi.Pointer<mavlink_raw_imu_t> _rx_raw_imu =
+      _lookup<mavlink_raw_imu_t>('rx_raw_imu');
+
+  mavlink_raw_imu_t get rx_raw_imu => _rx_raw_imu.ref;
+
+  late final ffi.Pointer<mavlink_raw_pressure_t> _rx_raw_pressure =
+      _lookup<mavlink_raw_pressure_t>('rx_raw_pressure');
+
+  mavlink_raw_pressure_t get rx_raw_pressure => _rx_raw_pressure.ref;
+
+  late final ffi.Pointer<mavlink_scaled_pressure_t> _rx_scaled_pressure =
+      _lookup<mavlink_scaled_pressure_t>('rx_scaled_pressure');
+
+  mavlink_scaled_pressure_t get rx_scaled_pressure => _rx_scaled_pressure.ref;
+
+  late final ffi.Pointer<mavlink_attitude_quaternion_t>
+      _rx_attitude_quaternion =
+      _lookup<mavlink_attitude_quaternion_t>('rx_attitude_quaternion');
+
+  mavlink_attitude_quaternion_t get rx_attitude_quaternion =>
+      _rx_attitude_quaternion.ref;
+
+  late final ffi.Pointer<mavlink_local_position_ned_t> _rx_local_position_ned =
+      _lookup<mavlink_local_position_ned_t>('rx_local_position_ned');
+
+  mavlink_local_position_ned_t get rx_local_position_ned =>
+      _rx_local_position_ned.ref;
+
+  late final ffi.Pointer<mavlink_rc_channels_scaled_t> _rx_rc_channels_scaled =
+      _lookup<mavlink_rc_channels_scaled_t>('rx_rc_channels_scaled');
+
+  mavlink_rc_channels_scaled_t get rx_rc_channels_scaled =>
+      _rx_rc_channels_scaled.ref;
+
+  late final ffi.Pointer<mavlink_rc_channels_raw_t> _rx_rc_channels_raw =
+      _lookup<mavlink_rc_channels_raw_t>('rx_rc_channels_raw');
+
+  mavlink_rc_channels_raw_t get rx_rc_channels_raw => _rx_rc_channels_raw.ref;
+
+  late final ffi.Pointer<mavlink_servo_output_raw_t> _rx_servo_output_raw =
+      _lookup<mavlink_servo_output_raw_t>('rx_servo_output_raw');
+
+  mavlink_servo_output_raw_t get rx_servo_output_raw =>
+      _rx_servo_output_raw.ref;
+
+  late final ffi.Pointer<mavlink_mission_request_partial_list_t>
+      _rx_mission_request_partial_list =
+      _lookup<mavlink_mission_request_partial_list_t>(
+          'rx_mission_request_partial_list');
+
+  mavlink_mission_request_partial_list_t get rx_mission_request_partial_list =>
+      _rx_mission_request_partial_list.ref;
+
+  late final ffi.Pointer<mavlink_mission_write_partial_list_t>
+      _rx_mission_write_partial_list =
+      _lookup<mavlink_mission_write_partial_list_t>(
+          'rx_mission_write_partial_list');
+
+  mavlink_mission_write_partial_list_t get rx_mission_write_partial_list =>
+      _rx_mission_write_partial_list.ref;
+
+  late final ffi.Pointer<mavlink_mission_current_t> _rx_mission_current =
+      _lookup<mavlink_mission_current_t>('rx_mission_current');
+
+  mavlink_mission_current_t get rx_mission_current => _rx_mission_current.ref;
+
+  late final ffi.Pointer<mavlink_mission_request_list_t>
+      _rx_mission_request_list =
+      _lookup<mavlink_mission_request_list_t>('rx_mission_request_list');
+
+  mavlink_mission_request_list_t get rx_mission_request_list =>
+      _rx_mission_request_list.ref;
+
+  late final ffi.Pointer<mavlink_mission_count_t> _rx_mission_count =
+      _lookup<mavlink_mission_count_t>('rx_mission_count');
+
+  mavlink_mission_count_t get rx_mission_count => _rx_mission_count.ref;
+
+  late final ffi.Pointer<mavlink_mission_clear_all_t> _rx_mission_clear_all =
+      _lookup<mavlink_mission_clear_all_t>('rx_mission_clear_all');
+
+  mavlink_mission_clear_all_t get rx_mission_clear_all =>
+      _rx_mission_clear_all.ref;
+
+  late final ffi.Pointer<mavlink_mission_item_reached_t>
+      _rx_mission_item_reached =
+      _lookup<mavlink_mission_item_reached_t>('rx_mission_item_reached');
+
+  mavlink_mission_item_reached_t get rx_mission_item_reached =>
+      _rx_mission_item_reached.ref;
+
+  late final ffi.Pointer<mavlink_mission_ack_t> _rx_mission_ack =
+      _lookup<mavlink_mission_ack_t>('rx_mission_ack');
+
+  mavlink_mission_ack_t get rx_mission_ack => _rx_mission_ack.ref;
+
+  late final ffi.Pointer<mavlink_set_gps_global_origin_t>
+      _rx_set_gps_global_origin =
+      _lookup<mavlink_set_gps_global_origin_t>('rx_set_gps_global_origin');
+
+  mavlink_set_gps_global_origin_t get rx_set_gps_global_origin =>
+      _rx_set_gps_global_origin.ref;
+
+  late final ffi.Pointer<mavlink_gps_global_origin_t> _rx_gps_global_origin =
+      _lookup<mavlink_gps_global_origin_t>('rx_gps_global_origin');
+
+  mavlink_gps_global_origin_t get rx_gps_global_origin =>
+      _rx_gps_global_origin.ref;
+
+  late final ffi.Pointer<mavlink_param_map_rc_t> _rx_param_map_rc =
+      _lookup<mavlink_param_map_rc_t>('rx_param_map_rc');
+
+  mavlink_param_map_rc_t get rx_param_map_rc => _rx_param_map_rc.ref;
+
+  late final ffi.Pointer<mavlink_mission_request_int_t>
+      _rx_mission_request_int =
+      _lookup<mavlink_mission_request_int_t>('rx_mission_request_int');
+
+  mavlink_mission_request_int_t get rx_mission_request_int =>
+      _rx_mission_request_int.ref;
+
+  late final ffi.Pointer<mavlink_safety_set_allowed_area_t>
+      _rx_safety_set_allowed_area =
+      _lookup<mavlink_safety_set_allowed_area_t>('rx_safety_set_allowed_area');
+
+  mavlink_safety_set_allowed_area_t get rx_safety_set_allowed_area =>
+      _rx_safety_set_allowed_area.ref;
+
+  late final ffi.Pointer<mavlink_safety_allowed_area_t>
+      _rx_safety_allowed_area =
+      _lookup<mavlink_safety_allowed_area_t>('rx_safety_allowed_area');
+
+  mavlink_safety_allowed_area_t get rx_safety_allowed_area =>
+      _rx_safety_allowed_area.ref;
+
+  late final ffi.Pointer<mavlink_attitude_quaternion_cov_t>
+      _rx_attitude_quaternion_cov =
+      _lookup<mavlink_attitude_quaternion_cov_t>('rx_attitude_quaternion_cov');
+
+  mavlink_attitude_quaternion_cov_t get rx_attitude_quaternion_cov =>
+      _rx_attitude_quaternion_cov.ref;
+
+  late final ffi.Pointer<mavlink_nav_controller_output_t>
+      _rx_nav_controller_output =
+      _lookup<mavlink_nav_controller_output_t>('rx_nav_controller_output');
+
+  mavlink_nav_controller_output_t get rx_nav_controller_output =>
+      _rx_nav_controller_output.ref;
+
+  late final ffi.Pointer<mavlink_global_position_int_cov_t>
+      _rx_global_position_int_cov =
+      _lookup<mavlink_global_position_int_cov_t>('rx_global_position_int_cov');
+
+  mavlink_global_position_int_cov_t get rx_global_position_int_cov =>
+      _rx_global_position_int_cov.ref;
+
+  late final ffi.Pointer<mavlink_local_position_ned_cov_t>
+      _rx_local_position_ned_cov =
+      _lookup<mavlink_local_position_ned_cov_t>('rx_local_position_ned_cov');
+
+  mavlink_local_position_ned_cov_t get rx_local_position_ned_cov =>
+      _rx_local_position_ned_cov.ref;
+
+  late final ffi.Pointer<mavlink_rc_channels_t> _rx_rc_channels =
+      _lookup<mavlink_rc_channels_t>('rx_rc_channels');
+
+  mavlink_rc_channels_t get rx_rc_channels => _rx_rc_channels.ref;
+
+  late final ffi.Pointer<mavlink_manual_control_t> _rx_manual_control =
+      _lookup<mavlink_manual_control_t>('rx_manual_control');
+
+  mavlink_manual_control_t get rx_manual_control => _rx_manual_control.ref;
+
+  late final ffi.Pointer<mavlink_rc_channels_override_t>
+      _rx_rc_channels_override =
+      _lookup<mavlink_rc_channels_override_t>('rx_rc_channels_override');
+
+  mavlink_rc_channels_override_t get rx_rc_channels_override =>
+      _rx_rc_channels_override.ref;
+
+  late final ffi.Pointer<mavlink_mission_item_int_t> _rx_mission_item_int =
+      _lookup<mavlink_mission_item_int_t>('rx_mission_item_int');
+
+  mavlink_mission_item_int_t get rx_mission_item_int =>
+      _rx_mission_item_int.ref;
+
+  late final ffi.Pointer<mavlink_vfr_hud_t> _rx_vfr_hud =
+      _lookup<mavlink_vfr_hud_t>('rx_vfr_hud');
+
+  mavlink_vfr_hud_t get rx_vfr_hud => _rx_vfr_hud.ref;
+
+  late final ffi.Pointer<mavlink_command_int_t> _rx_command_int =
+      _lookup<mavlink_command_int_t>('rx_command_int');
+
+  mavlink_command_int_t get rx_command_int => _rx_command_int.ref;
+
+  late final ffi.Pointer<mavlink_command_long_t> _rx_command_long =
+      _lookup<mavlink_command_long_t>('rx_command_long');
+
+  mavlink_command_long_t get rx_command_long => _rx_command_long.ref;
+
+  late final ffi.Pointer<mavlink_manual_setpoint_t> _rx_manual_setpoint =
+      _lookup<mavlink_manual_setpoint_t>('rx_manual_setpoint');
+
+  mavlink_manual_setpoint_t get rx_manual_setpoint => _rx_manual_setpoint.ref;
+
+  late final ffi.Pointer<mavlink_set_attitude_target_t>
+      _rx_set_attitude_target =
+      _lookup<mavlink_set_attitude_target_t>('rx_set_attitude_target');
+
+  mavlink_set_attitude_target_t get rx_set_attitude_target =>
+      _rx_set_attitude_target.ref;
+
+  late final ffi.Pointer<mavlink_attitude_target_t> _rx_attitude_target =
+      _lookup<mavlink_attitude_target_t>('rx_attitude_target');
+
+  mavlink_attitude_target_t get rx_attitude_target => _rx_attitude_target.ref;
+
+  late final ffi.Pointer<mavlink_set_position_target_local_ned_t>
+      _rx_set_position_target_local_ned =
+      _lookup<mavlink_set_position_target_local_ned_t>(
+          'rx_set_position_target_local_ned');
+
+  mavlink_set_position_target_local_ned_t
+      get rx_set_position_target_local_ned =>
+          _rx_set_position_target_local_ned.ref;
+
+  late final ffi.Pointer<mavlink_position_target_local_ned_t>
+      _rx_position_target_local_ned =
+      _lookup<mavlink_position_target_local_ned_t>(
+          'rx_position_target_local_ned');
+
+  mavlink_position_target_local_ned_t get rx_position_target_local_ned =>
+      _rx_position_target_local_ned.ref;
+
+  late final ffi.Pointer<mavlink_set_position_target_global_int_t>
+      _rx_set_position_target_global_int =
+      _lookup<mavlink_set_position_target_global_int_t>(
+          'rx_set_position_target_global_int');
+
+  mavlink_set_position_target_global_int_t
+      get rx_set_position_target_global_int =>
+          _rx_set_position_target_global_int.ref;
+
+  late final ffi.Pointer<mavlink_position_target_global_int_t>
+      _rx_position_target_global_int =
+      _lookup<mavlink_position_target_global_int_t>(
+          'rx_position_target_global_int');
+
+  mavlink_position_target_global_int_t get rx_position_target_global_int =>
+      _rx_position_target_global_int.ref;
+
+  late final ffi.Pointer<mavlink_local_position_ned_system_global_offset_t>
+      _rx_local_position_ned_system_global_offset =
+      _lookup<mavlink_local_position_ned_system_global_offset_t>(
+          'rx_local_position_ned_system_global_offset');
+
+  mavlink_local_position_ned_system_global_offset_t
+      get rx_local_position_ned_system_global_offset =>
+          _rx_local_position_ned_system_global_offset.ref;
+
+  late final ffi.Pointer<mavlink_hil_controls_t> _rx_hil_controls =
+      _lookup<mavlink_hil_controls_t>('rx_hil_controls');
+
+  mavlink_hil_controls_t get rx_hil_controls => _rx_hil_controls.ref;
+
+  late final ffi.Pointer<mavlink_hil_rc_inputs_raw_t> _rx_hil_rc_inputs_raw =
+      _lookup<mavlink_hil_rc_inputs_raw_t>('rx_hil_rc_inputs_raw');
+
+  mavlink_hil_rc_inputs_raw_t get rx_hil_rc_inputs_raw =>
+      _rx_hil_rc_inputs_raw.ref;
+
+  late final ffi.Pointer<mavlink_hil_actuator_controls_t>
+      _rx_hil_actuator_controls =
+      _lookup<mavlink_hil_actuator_controls_t>('rx_hil_actuator_controls');
+
+  mavlink_hil_actuator_controls_t get rx_hil_actuator_controls =>
+      _rx_hil_actuator_controls.ref;
+
+  late final ffi.Pointer<mavlink_hil_optical_flow_t> _rx_hil_optical_flow =
+      _lookup<mavlink_hil_optical_flow_t>('rx_hil_optical_flow');
+
+  mavlink_hil_optical_flow_t get rx_hil_optical_flow =>
+      _rx_hil_optical_flow.ref;
+
+  late final ffi.Pointer<mavlink_global_vision_position_estimate_t>
+      _rx_global_vision_position_estimate =
+      _lookup<mavlink_global_vision_position_estimate_t>(
+          'rx_global_vision_position_estimate');
+
+  mavlink_global_vision_position_estimate_t
+      get rx_global_vision_position_estimate =>
+          _rx_global_vision_position_estimate.ref;
+
+  late final ffi.Pointer<mavlink_vision_position_estimate_t>
+      _rx_vision_position_estimate =
+      _lookup<mavlink_vision_position_estimate_t>(
+          'rx_vision_position_estimate');
+
+  mavlink_vision_position_estimate_t get rx_vision_position_estimate =>
+      _rx_vision_position_estimate.ref;
+
+  late final ffi.Pointer<mavlink_vision_speed_estimate_t>
+      _rx_vision_speed_estimate =
+      _lookup<mavlink_vision_speed_estimate_t>('rx_vision_speed_estimate');
+
+  mavlink_vision_speed_estimate_t get rx_vision_speed_estimate =>
+      _rx_vision_speed_estimate.ref;
+
+  late final ffi.Pointer<mavlink_optical_flow_t> _rx_optical_flow =
+      _lookup<mavlink_optical_flow_t>('rx_optical_flow');
+
+  mavlink_optical_flow_t get rx_optical_flow => _rx_optical_flow.ref;
+
+  late final ffi.Pointer<mavlink_hil_sensor_t> _rx_hil_sensor =
+      _lookup<mavlink_hil_sensor_t>('rx_hil_sensor');
+
+  mavlink_hil_sensor_t get rx_hil_sensor => _rx_hil_sensor.ref;
+
+  late final ffi.Pointer<mavlink_sim_state_t> _rx_sim_state =
+      _lookup<mavlink_sim_state_t>('rx_sim_state');
+
+  mavlink_sim_state_t get rx_sim_state => _rx_sim_state.ref;
+
+  late final ffi.Pointer<mavlink_radio_status_t> _rx_radio_status =
+      _lookup<mavlink_radio_status_t>('rx_radio_status');
+
+  mavlink_radio_status_t get rx_radio_status => _rx_radio_status.ref;
+
+  late final ffi.Pointer<mavlink_file_transfer_protocol_t>
+      _rx_file_transfer_protocol =
+      _lookup<mavlink_file_transfer_protocol_t>('rx_file_transfer_protocol');
+
+  mavlink_file_transfer_protocol_t get rx_file_transfer_protocol =>
+      _rx_file_transfer_protocol.ref;
+
+  late final ffi.Pointer<mavlink_timesync_t> _rx_timesync =
+      _lookup<mavlink_timesync_t>('rx_timesync');
+
+  mavlink_timesync_t get rx_timesync => _rx_timesync.ref;
+
+  late final ffi.Pointer<mavlink_camera_trigger_t> _rx_camera_trigger =
+      _lookup<mavlink_camera_trigger_t>('rx_camera_trigger');
+
+  mavlink_camera_trigger_t get rx_camera_trigger => _rx_camera_trigger.ref;
+
+  late final ffi.Pointer<mavlink_hil_gps_t> _rx_hil_gps =
+      _lookup<mavlink_hil_gps_t>('rx_hil_gps');
+
+  mavlink_hil_gps_t get rx_hil_gps => _rx_hil_gps.ref;
+
+  late final ffi.Pointer<mavlink_hil_state_quaternion_t>
+      _rx_hil_state_quaternion =
+      _lookup<mavlink_hil_state_quaternion_t>('rx_hil_state_quaternion');
+
+  mavlink_hil_state_quaternion_t get rx_hil_state_quaternion =>
+      _rx_hil_state_quaternion.ref;
+
+  late final ffi.Pointer<mavlink_scaled_imu2_t> _rx_scaled_imu2 =
+      _lookup<mavlink_scaled_imu2_t>('rx_scaled_imu2');
+
+  mavlink_scaled_imu2_t get rx_scaled_imu2 => _rx_scaled_imu2.ref;
+
+  late final ffi.Pointer<mavlink_log_request_list_t> _rx_log_request_list =
+      _lookup<mavlink_log_request_list_t>('rx_log_request_list');
+
+  mavlink_log_request_list_t get rx_log_request_list =>
+      _rx_log_request_list.ref;
+
+  late final ffi.Pointer<mavlink_log_entry_t> _rx_log_entry =
+      _lookup<mavlink_log_entry_t>('rx_log_entry');
+
+  mavlink_log_entry_t get rx_log_entry => _rx_log_entry.ref;
+
+  late final ffi.Pointer<mavlink_log_request_data_t> _rx_log_request_data =
+      _lookup<mavlink_log_request_data_t>('rx_log_request_data');
+
+  mavlink_log_request_data_t get rx_log_request_data =>
+      _rx_log_request_data.ref;
+
+  late final ffi.Pointer<mavlink_log_data_t> _rx_log_data =
+      _lookup<mavlink_log_data_t>('rx_log_data');
+
+  mavlink_log_data_t get rx_log_data => _rx_log_data.ref;
+
+  late final ffi.Pointer<mavlink_log_erase_t> _rx_log_erase =
+      _lookup<mavlink_log_erase_t>('rx_log_erase');
+
+  mavlink_log_erase_t get rx_log_erase => _rx_log_erase.ref;
+
+  late final ffi.Pointer<mavlink_log_request_end_t> _rx_log_request_end =
+      _lookup<mavlink_log_request_end_t>('rx_log_request_end');
+
+  mavlink_log_request_end_t get rx_log_request_end => _rx_log_request_end.ref;
+
+  late final ffi.Pointer<mavlink_gps2_raw_t> _rx_gps2_raw =
+      _lookup<mavlink_gps2_raw_t>('rx_gps2_raw');
+
+  mavlink_gps2_raw_t get rx_gps2_raw => _rx_gps2_raw.ref;
+
+  late final ffi.Pointer<mavlink_power_status_t> _rx_power_status =
+      _lookup<mavlink_power_status_t>('rx_power_status');
+
+  mavlink_power_status_t get rx_power_status => _rx_power_status.ref;
+
+  late final ffi.Pointer<mavlink_serial_control_t> _rx_serial_control =
+      _lookup<mavlink_serial_control_t>('rx_serial_control');
+
+  mavlink_serial_control_t get rx_serial_control => _rx_serial_control.ref;
+
+  late final ffi.Pointer<mavlink_gps_rtk_t> _rx_gps_rtk =
+      _lookup<mavlink_gps_rtk_t>('rx_gps_rtk');
+
+  mavlink_gps_rtk_t get rx_gps_rtk => _rx_gps_rtk.ref;
+
+  late final ffi.Pointer<mavlink_gps2_rtk_t> _rx_gps2_rtk =
+      _lookup<mavlink_gps2_rtk_t>('rx_gps2_rtk');
+
+  mavlink_gps2_rtk_t get rx_gps2_rtk => _rx_gps2_rtk.ref;
+
+  late final ffi.Pointer<mavlink_scaled_imu3_t> _rx_scaled_imu3 =
+      _lookup<mavlink_scaled_imu3_t>('rx_scaled_imu3');
+
+  mavlink_scaled_imu3_t get rx_scaled_imu3 => _rx_scaled_imu3.ref;
+
+  late final ffi.Pointer<mavlink_data_transmission_handshake_t>
+      _rx_data_transmission_handshake =
+      _lookup<mavlink_data_transmission_handshake_t>(
+          'rx_data_transmission_handshake');
+
+  mavlink_data_transmission_handshake_t get rx_data_transmission_handshake =>
+      _rx_data_transmission_handshake.ref;
+
+  late final ffi.Pointer<mavlink_encapsulated_data_t> _rx_encapsulated_data =
+      _lookup<mavlink_encapsulated_data_t>('rx_encapsulated_data');
+
+  mavlink_encapsulated_data_t get rx_encapsulated_data =>
+      _rx_encapsulated_data.ref;
+
+  late final ffi.Pointer<mavlink_distance_sensor_t> _rx_distance_sensor =
+      _lookup<mavlink_distance_sensor_t>('rx_distance_sensor');
+
+  mavlink_distance_sensor_t get rx_distance_sensor => _rx_distance_sensor.ref;
+
+  late final ffi.Pointer<mavlink_terrain_request_t> _rx_terrain_request =
+      _lookup<mavlink_terrain_request_t>('rx_terrain_request');
+
+  mavlink_terrain_request_t get rx_terrain_request => _rx_terrain_request.ref;
+
+  late final ffi.Pointer<mavlink_terrain_data_t> _rx_terrain_data =
+      _lookup<mavlink_terrain_data_t>('rx_terrain_data');
+
+  mavlink_terrain_data_t get rx_terrain_data => _rx_terrain_data.ref;
+
+  late final ffi.Pointer<mavlink_terrain_check_t> _rx_terrain_check =
+      _lookup<mavlink_terrain_check_t>('rx_terrain_check');
+
+  mavlink_terrain_check_t get rx_terrain_check => _rx_terrain_check.ref;
+
+  late final ffi.Pointer<mavlink_terrain_report_t> _rx_terrain_report =
+      _lookup<mavlink_terrain_report_t>('rx_terrain_report');
+
+  mavlink_terrain_report_t get rx_terrain_report => _rx_terrain_report.ref;
+
+  late final ffi.Pointer<mavlink_scaled_pressure2_t> _rx_scaled_pressure2 =
+      _lookup<mavlink_scaled_pressure2_t>('rx_scaled_pressure2');
+
+  mavlink_scaled_pressure2_t get rx_scaled_pressure2 =>
+      _rx_scaled_pressure2.ref;
+
+  late final ffi.Pointer<mavlink_att_pos_mocap_t> _rx_att_pos_mocap =
+      _lookup<mavlink_att_pos_mocap_t>('rx_att_pos_mocap');
+
+  mavlink_att_pos_mocap_t get rx_att_pos_mocap => _rx_att_pos_mocap.ref;
+
+  late final ffi.Pointer<mavlink_set_actuator_control_target_t>
+      _rx_set_actuator_control_target =
+      _lookup<mavlink_set_actuator_control_target_t>(
+          'rx_set_actuator_control_target');
+
+  mavlink_set_actuator_control_target_t get rx_set_actuator_control_target =>
+      _rx_set_actuator_control_target.ref;
+
+  late final ffi.Pointer<mavlink_actuator_control_target_t>
+      _rx_actuator_control_target =
+      _lookup<mavlink_actuator_control_target_t>('rx_actuator_control_target');
+
+  mavlink_actuator_control_target_t get rx_actuator_control_target =>
+      _rx_actuator_control_target.ref;
+
+  late final ffi.Pointer<mavlink_altitude_t> _rx_altitude =
+      _lookup<mavlink_altitude_t>('rx_altitude');
+
+  mavlink_altitude_t get rx_altitude => _rx_altitude.ref;
+
+  late final ffi.Pointer<mavlink_resource_request_t> _rx_resource_request =
+      _lookup<mavlink_resource_request_t>('rx_resource_request');
+
+  mavlink_resource_request_t get rx_resource_request =>
+      _rx_resource_request.ref;
+
+  late final ffi.Pointer<mavlink_scaled_pressure3_t> _rx_scaled_pressure3 =
+      _lookup<mavlink_scaled_pressure3_t>('rx_scaled_pressure3');
+
+  mavlink_scaled_pressure3_t get rx_scaled_pressure3 =>
+      _rx_scaled_pressure3.ref;
+
+  late final ffi.Pointer<mavlink_follow_target_t> _rx_follow_target =
+      _lookup<mavlink_follow_target_t>('rx_follow_target');
+
+  mavlink_follow_target_t get rx_follow_target => _rx_follow_target.ref;
+
+  late final ffi.Pointer<mavlink_control_system_state_t>
+      _rx_control_system_state =
+      _lookup<mavlink_control_system_state_t>('rx_control_system_state');
+
+  mavlink_control_system_state_t get rx_control_system_state =>
+      _rx_control_system_state.ref;
+
+  late final ffi.Pointer<mavlink_battery_status_t> _rx_battery_status =
+      _lookup<mavlink_battery_status_t>('rx_battery_status');
+
+  mavlink_battery_status_t get rx_battery_status => _rx_battery_status.ref;
+
+  late final ffi.Pointer<mavlink_autopilot_version_t> _rx_autopilot_version =
+      _lookup<mavlink_autopilot_version_t>('rx_autopilot_version');
+
+  mavlink_autopilot_version_t get rx_autopilot_version =>
+      _rx_autopilot_version.ref;
+
+  late final ffi.Pointer<mavlink_landing_target_t> _rx_landing_target =
+      _lookup<mavlink_landing_target_t>('rx_landing_target');
+
+  mavlink_landing_target_t get rx_landing_target => _rx_landing_target.ref;
+
+  late final ffi.Pointer<mavlink_fence_status_t> _rx_fence_status =
+      _lookup<mavlink_fence_status_t>('rx_fence_status');
+
+  mavlink_fence_status_t get rx_fence_status => _rx_fence_status.ref;
+
+  late final ffi.Pointer<mavlink_mag_cal_report_t> _rx_mag_cal_report =
+      _lookup<mavlink_mag_cal_report_t>('rx_mag_cal_report');
+
+  mavlink_mag_cal_report_t get rx_mag_cal_report => _rx_mag_cal_report.ref;
+
+  late final ffi.Pointer<mavlink_efi_status_t> _rx_efi_status =
+      _lookup<mavlink_efi_status_t>('rx_efi_status');
+
+  mavlink_efi_status_t get rx_efi_status => _rx_efi_status.ref;
+
+  late final ffi.Pointer<mavlink_estimator_status_t> _rx_estimator_status =
+      _lookup<mavlink_estimator_status_t>('rx_estimator_status');
+
+  mavlink_estimator_status_t get rx_estimator_status =>
+      _rx_estimator_status.ref;
+
+  late final ffi.Pointer<mavlink_wind_cov_t> _rx_wind_cov =
+      _lookup<mavlink_wind_cov_t>('rx_wind_cov');
+
+  mavlink_wind_cov_t get rx_wind_cov => _rx_wind_cov.ref;
+
+  late final ffi.Pointer<mavlink_gps_input_t> _rx_gps_input =
+      _lookup<mavlink_gps_input_t>('rx_gps_input');
+
+  mavlink_gps_input_t get rx_gps_input => _rx_gps_input.ref;
+
+  late final ffi.Pointer<mavlink_gps_rtcm_data_t> _rx_gps_rtcm_data =
+      _lookup<mavlink_gps_rtcm_data_t>('rx_gps_rtcm_data');
+
+  mavlink_gps_rtcm_data_t get rx_gps_rtcm_data => _rx_gps_rtcm_data.ref;
+
+  late final ffi.Pointer<mavlink_high_latency2_t> _rx_high_latency2 =
+      _lookup<mavlink_high_latency2_t>('rx_high_latency2');
+
+  mavlink_high_latency2_t get rx_high_latency2 => _rx_high_latency2.ref;
+
+  late final ffi.Pointer<mavlink_vibration_t> _rx_vibration =
+      _lookup<mavlink_vibration_t>('rx_vibration');
+
+  mavlink_vibration_t get rx_vibration => _rx_vibration.ref;
+
+  late final ffi.Pointer<mavlink_home_position_t> _rx_home_position =
+      _lookup<mavlink_home_position_t>('rx_home_position');
+
+  mavlink_home_position_t get rx_home_position => _rx_home_position.ref;
+
+  late final ffi.Pointer<mavlink_message_interval_t> _rx_message_interval =
+      _lookup<mavlink_message_interval_t>('rx_message_interval');
+
+  mavlink_message_interval_t get rx_message_interval =>
+      _rx_message_interval.ref;
+
+  late final ffi.Pointer<mavlink_extended_sys_state_t> _rx_extended_sys_state =
+      _lookup<mavlink_extended_sys_state_t>('rx_extended_sys_state');
+
+  mavlink_extended_sys_state_t get rx_extended_sys_state =>
+      _rx_extended_sys_state.ref;
+
+  late final ffi.Pointer<mavlink_adsb_vehicle_t> _rx_adsb_vehicle =
+      _lookup<mavlink_adsb_vehicle_t>('rx_adsb_vehicle');
+
+  mavlink_adsb_vehicle_t get rx_adsb_vehicle => _rx_adsb_vehicle.ref;
+
+  late final ffi.Pointer<mavlink_collision_t> _rx_collision =
+      _lookup<mavlink_collision_t>('rx_collision');
+
+  mavlink_collision_t get rx_collision => _rx_collision.ref;
+
+  late final ffi.Pointer<mavlink_v2_extension_t> _rx_v2_extension =
+      _lookup<mavlink_v2_extension_t>('rx_v2_extension');
+
+  mavlink_v2_extension_t get rx_v2_extension => _rx_v2_extension.ref;
+
+  late final ffi.Pointer<mavlink_memory_vect_t> _rx_memory_vect =
+      _lookup<mavlink_memory_vect_t>('rx_memory_vect');
+
+  mavlink_memory_vect_t get rx_memory_vect => _rx_memory_vect.ref;
+
+  late final ffi.Pointer<mavlink_debug_vect_t> _rx_debug_vect =
+      _lookup<mavlink_debug_vect_t>('rx_debug_vect');
+
+  mavlink_debug_vect_t get rx_debug_vect => _rx_debug_vect.ref;
+
+  late final ffi.Pointer<mavlink_named_value_float_t> _rx_named_value_float =
+      _lookup<mavlink_named_value_float_t>('rx_named_value_float');
+
+  mavlink_named_value_float_t get rx_named_value_float =>
+      _rx_named_value_float.ref;
+
+  late final ffi.Pointer<mavlink_named_value_int_t> _rx_named_value_int =
+      _lookup<mavlink_named_value_int_t>('rx_named_value_int');
+
+  mavlink_named_value_int_t get rx_named_value_int => _rx_named_value_int.ref;
+
+  late final ffi.Pointer<mavlink_statustext_t> _rx_statustext =
+      _lookup<mavlink_statustext_t>('rx_statustext');
+
+  mavlink_statustext_t get rx_statustext => _rx_statustext.ref;
+
+  late final ffi.Pointer<mavlink_debug_t> _rx_debug =
+      _lookup<mavlink_debug_t>('rx_debug');
+
+  mavlink_debug_t get rx_debug => _rx_debug.ref;
+
+  late final ffi.Pointer<mavlink_setup_signing_t> _rx_setup_signing =
+      _lookup<mavlink_setup_signing_t>('rx_setup_signing');
+
+  mavlink_setup_signing_t get rx_setup_signing => _rx_setup_signing.ref;
+
+  late final ffi.Pointer<mavlink_button_change_t> _rx_button_change =
+      _lookup<mavlink_button_change_t>('rx_button_change');
+
+  mavlink_button_change_t get rx_button_change => _rx_button_change.ref;
+
+  late final ffi.Pointer<mavlink_camera_information_t> _rx_camera_information =
+      _lookup<mavlink_camera_information_t>('rx_camera_information');
+
+  mavlink_camera_information_t get rx_camera_information =>
+      _rx_camera_information.ref;
+
+  late final ffi.Pointer<mavlink_camera_settings_t> _rx_camera_settings =
+      _lookup<mavlink_camera_settings_t>('rx_camera_settings');
+
+  mavlink_camera_settings_t get rx_camera_settings => _rx_camera_settings.ref;
+
+  late final ffi.Pointer<mavlink_storage_information_t>
+      _rx_storage_information =
+      _lookup<mavlink_storage_information_t>('rx_storage_information');
+
+  mavlink_storage_information_t get rx_storage_information =>
+      _rx_storage_information.ref;
+
+  late final ffi.Pointer<mavlink_camera_capture_status_t>
+      _rx_camera_capture_status =
+      _lookup<mavlink_camera_capture_status_t>('rx_camera_capture_status');
+
+  mavlink_camera_capture_status_t get rx_camera_capture_status =>
+      _rx_camera_capture_status.ref;
+
+  late final ffi.Pointer<mavlink_camera_image_captured_t>
+      _rx_camera_image_captured =
+      _lookup<mavlink_camera_image_captured_t>('rx_camera_image_captured');
+
+  mavlink_camera_image_captured_t get rx_camera_image_captured =>
+      _rx_camera_image_captured.ref;
+
+  late final ffi.Pointer<mavlink_flight_information_t> _rx_flight_information =
+      _lookup<mavlink_flight_information_t>('rx_flight_information');
+
+  mavlink_flight_information_t get rx_flight_information =>
+      _rx_flight_information.ref;
+
+  late final ffi.Pointer<mavlink_logging_data_t> _rx_logging_data =
+      _lookup<mavlink_logging_data_t>('rx_logging_data');
+
+  mavlink_logging_data_t get rx_logging_data => _rx_logging_data.ref;
+
+  late final ffi.Pointer<mavlink_logging_data_acked_t> _rx_logging_data_acked =
+      _lookup<mavlink_logging_data_acked_t>('rx_logging_data_acked');
+
+  mavlink_logging_data_acked_t get rx_logging_data_acked =>
+      _rx_logging_data_acked.ref;
+
+  late final ffi.Pointer<mavlink_logging_ack_t> _rx_logging_ack =
+      _lookup<mavlink_logging_ack_t>('rx_logging_ack');
+
+  mavlink_logging_ack_t get rx_logging_ack => _rx_logging_ack.ref;
+
+  late final ffi.Pointer<mavlink_video_stream_information_t>
+      _rx_video_stream_information =
+      _lookup<mavlink_video_stream_information_t>(
+          'rx_video_stream_information');
+
+  mavlink_video_stream_information_t get rx_video_stream_information =>
+      _rx_video_stream_information.ref;
+
+  late final ffi.Pointer<mavlink_video_stream_status_t>
+      _rx_video_stream_status =
+      _lookup<mavlink_video_stream_status_t>('rx_video_stream_status');
+
+  mavlink_video_stream_status_t get rx_video_stream_status =>
+      _rx_video_stream_status.ref;
+
+  late final ffi.Pointer<mavlink_camera_fov_status_t> _rx_camera_fov_status =
+      _lookup<mavlink_camera_fov_status_t>('rx_camera_fov_status');
+
+  mavlink_camera_fov_status_t get rx_camera_fov_status =>
+      _rx_camera_fov_status.ref;
+
+  late final ffi.Pointer<mavlink_camera_tracking_image_status_t>
+      _rx_camera_tracking_image_status =
+      _lookup<mavlink_camera_tracking_image_status_t>(
+          'rx_camera_tracking_image_status');
+
+  mavlink_camera_tracking_image_status_t get rx_camera_tracking_image_status =>
+      _rx_camera_tracking_image_status.ref;
+
+  late final ffi.Pointer<mavlink_camera_tracking_geo_status_t>
+      _rx_camera_tracking_geo_status =
+      _lookup<mavlink_camera_tracking_geo_status_t>(
+          'rx_camera_tracking_geo_status');
+
+  mavlink_camera_tracking_geo_status_t get rx_camera_tracking_geo_status =>
+      _rx_camera_tracking_geo_status.ref;
+
+  late final ffi.Pointer<mavlink_gimbal_manager_information_t>
+      _rx_gimbal_manager_information =
+      _lookup<mavlink_gimbal_manager_information_t>(
+          'rx_gimbal_manager_information');
+
+  mavlink_gimbal_manager_information_t get rx_gimbal_manager_information =>
+      _rx_gimbal_manager_information.ref;
+
+  late final ffi.Pointer<mavlink_gimbal_manager_status_t>
+      _rx_gimbal_manager_status =
+      _lookup<mavlink_gimbal_manager_status_t>('rx_gimbal_manager_status');
+
+  mavlink_gimbal_manager_status_t get rx_gimbal_manager_status =>
+      _rx_gimbal_manager_status.ref;
+
+  late final ffi.Pointer<mavlink_gimbal_manager_set_attitude_t>
+      _rx_gimbal_manager_set_attitude =
+      _lookup<mavlink_gimbal_manager_set_attitude_t>(
+          'rx_gimbal_manager_set_attitude');
+
+  mavlink_gimbal_manager_set_attitude_t get rx_gimbal_manager_set_attitude =>
+      _rx_gimbal_manager_set_attitude.ref;
+
+  late final ffi.Pointer<mavlink_gimbal_device_information_t>
+      _rx_gimbal_device_information =
+      _lookup<mavlink_gimbal_device_information_t>(
+          'rx_gimbal_device_information');
+
+  mavlink_gimbal_device_information_t get rx_gimbal_device_information =>
+      _rx_gimbal_device_information.ref;
+
+  late final ffi.Pointer<mavlink_gimbal_device_set_attitude_t>
+      _rx_gimbal_device_set_attitude =
+      _lookup<mavlink_gimbal_device_set_attitude_t>(
+          'rx_gimbal_device_set_attitude');
+
+  mavlink_gimbal_device_set_attitude_t get rx_gimbal_device_set_attitude =>
+      _rx_gimbal_device_set_attitude.ref;
+
+  late final ffi.Pointer<mavlink_gimbal_device_attitude_status_t>
+      _rx_gimbal_device_attitude_status =
+      _lookup<mavlink_gimbal_device_attitude_status_t>(
+          'rx_gimbal_device_attitude_status');
+
+  mavlink_gimbal_device_attitude_status_t
+      get rx_gimbal_device_attitude_status =>
+          _rx_gimbal_device_attitude_status.ref;
+
+  late final ffi.Pointer<mavlink_autopilot_state_for_gimbal_device_t>
+      _rx_autopilot_state_for_gimbal_device =
+      _lookup<mavlink_autopilot_state_for_gimbal_device_t>(
+          'rx_autopilot_state_for_gimbal_device');
+
+  mavlink_autopilot_state_for_gimbal_device_t
+      get rx_autopilot_state_for_gimbal_device =>
+          _rx_autopilot_state_for_gimbal_device.ref;
+
+  late final ffi.Pointer<mavlink_gimbal_manager_set_pitchyaw_t>
+      _rx_gimbal_manager_set_pitchyaw =
+      _lookup<mavlink_gimbal_manager_set_pitchyaw_t>(
+          'rx_gimbal_manager_set_pitchyaw');
+
+  mavlink_gimbal_manager_set_pitchyaw_t get rx_gimbal_manager_set_pitchyaw =>
+      _rx_gimbal_manager_set_pitchyaw.ref;
+
+  late final ffi.Pointer<mavlink_gimbal_manager_set_manual_control_t>
+      _rx_gimbal_manager_set_manual_control =
+      _lookup<mavlink_gimbal_manager_set_manual_control_t>(
+          'rx_gimbal_manager_set_manual_control');
+
+  mavlink_gimbal_manager_set_manual_control_t
+      get rx_gimbal_manager_set_manual_control =>
+          _rx_gimbal_manager_set_manual_control.ref;
+
+  late final ffi.Pointer<mavlink_wifi_config_ap_t> _rx_wifi_config_ap =
+      _lookup<mavlink_wifi_config_ap_t>('rx_wifi_config_ap');
+
+  mavlink_wifi_config_ap_t get rx_wifi_config_ap => _rx_wifi_config_ap.ref;
+
+  late final ffi.Pointer<mavlink_ais_vessel_t> _rx_ais_vessel =
+      _lookup<mavlink_ais_vessel_t>('rx_ais_vessel');
+
+  mavlink_ais_vessel_t get rx_ais_vessel => _rx_ais_vessel.ref;
+
+  late final ffi.Pointer<mavlink_uavcan_node_status_t> _rx_uavcan_node_status =
+      _lookup<mavlink_uavcan_node_status_t>('rx_uavcan_node_status');
+
+  mavlink_uavcan_node_status_t get rx_uavcan_node_status =>
+      _rx_uavcan_node_status.ref;
+
+  late final ffi.Pointer<mavlink_uavcan_node_info_t> _rx_uavcan_node_info =
+      _lookup<mavlink_uavcan_node_info_t>('rx_uavcan_node_info');
+
+  mavlink_uavcan_node_info_t get rx_uavcan_node_info =>
+      _rx_uavcan_node_info.ref;
+
+  late final ffi.Pointer<mavlink_param_ext_request_read_t>
+      _rx_param_ext_request_read =
+      _lookup<mavlink_param_ext_request_read_t>('rx_param_ext_request_read');
+
+  mavlink_param_ext_request_read_t get rx_param_ext_request_read =>
+      _rx_param_ext_request_read.ref;
+
+  late final ffi.Pointer<mavlink_param_ext_request_list_t>
+      _rx_param_ext_request_list =
+      _lookup<mavlink_param_ext_request_list_t>('rx_param_ext_request_list');
+
+  mavlink_param_ext_request_list_t get rx_param_ext_request_list =>
+      _rx_param_ext_request_list.ref;
+
+  late final ffi.Pointer<mavlink_param_ext_value_t> _rx_param_ext_value =
+      _lookup<mavlink_param_ext_value_t>('rx_param_ext_value');
+
+  mavlink_param_ext_value_t get rx_param_ext_value => _rx_param_ext_value.ref;
+
+  late final ffi.Pointer<mavlink_param_ext_set_t> _rx_param_ext_set =
+      _lookup<mavlink_param_ext_set_t>('rx_param_ext_set');
+
+  mavlink_param_ext_set_t get rx_param_ext_set => _rx_param_ext_set.ref;
+
+  late final ffi.Pointer<mavlink_param_ext_ack_t> _rx_param_ext_ack =
+      _lookup<mavlink_param_ext_ack_t>('rx_param_ext_ack');
+
+  mavlink_param_ext_ack_t get rx_param_ext_ack => _rx_param_ext_ack.ref;
+
+  late final ffi.Pointer<mavlink_obstacle_distance_t> _rx_obstacle_distance =
+      _lookup<mavlink_obstacle_distance_t>('rx_obstacle_distance');
+
+  mavlink_obstacle_distance_t get rx_obstacle_distance =>
+      _rx_obstacle_distance.ref;
+
+  late final ffi.Pointer<mavlink_odometry_t> _rx_odometry =
+      _lookup<mavlink_odometry_t>('rx_odometry');
+
+  mavlink_odometry_t get rx_odometry => _rx_odometry.ref;
+
+  late final ffi.Pointer<mavlink_isbd_link_status_t> _rx_isbd_link_status =
+      _lookup<mavlink_isbd_link_status_t>('rx_isbd_link_status');
+
+  mavlink_isbd_link_status_t get rx_isbd_link_status =>
+      _rx_isbd_link_status.ref;
+
+  late final ffi.Pointer<mavlink_raw_rpm_t> _rx_raw_rpm =
+      _lookup<mavlink_raw_rpm_t>('rx_raw_rpm');
+
+  mavlink_raw_rpm_t get rx_raw_rpm => _rx_raw_rpm.ref;
+
+  late final ffi.Pointer<mavlink_utm_global_position_t>
+      _rx_utm_global_position =
+      _lookup<mavlink_utm_global_position_t>('rx_utm_global_position');
+
+  mavlink_utm_global_position_t get rx_utm_global_position =>
+      _rx_utm_global_position.ref;
+
+  late final ffi.Pointer<mavlink_debug_float_array_t> _rx_debug_float_array =
+      _lookup<mavlink_debug_float_array_t>('rx_debug_float_array');
+
+  mavlink_debug_float_array_t get rx_debug_float_array =>
+      _rx_debug_float_array.ref;
+
+  late final ffi.Pointer<mavlink_generator_status_t> _rx_generator_status =
+      _lookup<mavlink_generator_status_t>('rx_generator_status');
+
+  mavlink_generator_status_t get rx_generator_status =>
+      _rx_generator_status.ref;
+
+  late final ffi.Pointer<mavlink_actuator_output_status_t>
+      _rx_actuator_output_status =
+      _lookup<mavlink_actuator_output_status_t>('rx_actuator_output_status');
+
+  mavlink_actuator_output_status_t get rx_actuator_output_status =>
+      _rx_actuator_output_status.ref;
+
+  late final ffi.Pointer<mavlink_tunnel_t> _rx_tunnel =
+      _lookup<mavlink_tunnel_t>('rx_tunnel');
+
+  mavlink_tunnel_t get rx_tunnel => _rx_tunnel.ref;
+
+  late final ffi.Pointer<mavlink_can_frame_t> _rx_can_frame =
+      _lookup<mavlink_can_frame_t>('rx_can_frame');
+
+  mavlink_can_frame_t get rx_can_frame => _rx_can_frame.ref;
+
+  late final ffi.Pointer<mavlink_canfd_frame_t> _rx_canfd_frame =
+      _lookup<mavlink_canfd_frame_t>('rx_canfd_frame');
+
+  mavlink_canfd_frame_t get rx_canfd_frame => _rx_canfd_frame.ref;
+
+  late final ffi.Pointer<mavlink_can_filter_modify_t> _rx_can_filter_modify =
+      _lookup<mavlink_can_filter_modify_t>('rx_can_filter_modify');
+
+  mavlink_can_filter_modify_t get rx_can_filter_modify =>
+      _rx_can_filter_modify.ref;
+
+  late final ffi.Pointer<mavlink_wheel_distance_t> _rx_wheel_distance =
+      _lookup<mavlink_wheel_distance_t>('rx_wheel_distance');
+
+  mavlink_wheel_distance_t get rx_wheel_distance => _rx_wheel_distance.ref;
+
+  late final ffi.Pointer<mavlink_winch_status_t> _rx_winch_status =
+      _lookup<mavlink_winch_status_t>('rx_winch_status');
+
+  mavlink_winch_status_t get rx_winch_status => _rx_winch_status.ref;
+
+  late final ffi.Pointer<mavlink_open_drone_id_basic_id_t>
+      _rx_open_drone_id_basic_id =
+      _lookup<mavlink_open_drone_id_basic_id_t>('rx_open_drone_id_basic_id');
+
+  mavlink_open_drone_id_basic_id_t get rx_open_drone_id_basic_id =>
+      _rx_open_drone_id_basic_id.ref;
+
+  late final ffi.Pointer<mavlink_open_drone_id_location_t>
+      _rx_open_drone_id_location =
+      _lookup<mavlink_open_drone_id_location_t>('rx_open_drone_id_location');
+
+  mavlink_open_drone_id_location_t get rx_open_drone_id_location =>
+      _rx_open_drone_id_location.ref;
+
+  late final ffi.Pointer<mavlink_open_drone_id_authentication_t>
+      _rx_open_drone_id_authentication =
+      _lookup<mavlink_open_drone_id_authentication_t>(
+          'rx_open_drone_id_authentication');
+
+  mavlink_open_drone_id_authentication_t get rx_open_drone_id_authentication =>
+      _rx_open_drone_id_authentication.ref;
+
+  late final ffi.Pointer<mavlink_open_drone_id_self_id_t>
+      _rx_open_drone_id_self_id =
+      _lookup<mavlink_open_drone_id_self_id_t>('rx_open_drone_id_self_id');
+
+  mavlink_open_drone_id_self_id_t get rx_open_drone_id_self_id =>
+      _rx_open_drone_id_self_id.ref;
+
+  late final ffi.Pointer<mavlink_open_drone_id_system_t>
+      _rx_open_drone_id_system =
+      _lookup<mavlink_open_drone_id_system_t>('rx_open_drone_id_system');
+
+  mavlink_open_drone_id_system_t get rx_open_drone_id_system =>
+      _rx_open_drone_id_system.ref;
+
+  late final ffi.Pointer<mavlink_open_drone_id_operator_id_t>
+      _rx_open_drone_id_operator_id =
+      _lookup<mavlink_open_drone_id_operator_id_t>(
+          'rx_open_drone_id_operator_id');
+
+  mavlink_open_drone_id_operator_id_t get rx_open_drone_id_operator_id =>
+      _rx_open_drone_id_operator_id.ref;
+
+  late final ffi.Pointer<mavlink_open_drone_id_message_pack_t>
+      _rx_open_drone_id_message_pack =
+      _lookup<mavlink_open_drone_id_message_pack_t>(
+          'rx_open_drone_id_message_pack');
+
+  mavlink_open_drone_id_message_pack_t get rx_open_drone_id_message_pack =>
+      _rx_open_drone_id_message_pack.ref;
+
+  late final ffi.Pointer<mavlink_open_drone_id_arm_status_t>
+      _rx_open_drone_id_arm_status =
+      _lookup<mavlink_open_drone_id_arm_status_t>(
+          'rx_open_drone_id_arm_status');
+
+  mavlink_open_drone_id_arm_status_t get rx_open_drone_id_arm_status =>
+      _rx_open_drone_id_arm_status.ref;
+
+  late final ffi.Pointer<mavlink_open_drone_id_system_update_t>
+      _rx_open_drone_id_system_update =
+      _lookup<mavlink_open_drone_id_system_update_t>(
+          'rx_open_drone_id_system_update');
+
+  mavlink_open_drone_id_system_update_t get rx_open_drone_id_system_update =>
+      _rx_open_drone_id_system_update.ref;
+
+  late final ffi.Pointer<mavlink_hygrometer_sensor_t> _rx_hygrometer_sensor =
+      _lookup<mavlink_hygrometer_sensor_t>('rx_hygrometer_sensor');
+
+  mavlink_hygrometer_sensor_t get rx_hygrometer_sensor =>
+      _rx_hygrometer_sensor.ref;
+
   /// id дрона
   late final ffi.Pointer<ffi.Uint8> _sysid_apm =
       _lookup<ffi.Uint8>('sysid_apm');
@@ -454,6 +1539,6354 @@ final class __mavlink_global_position_int_t extends ffi.Struct {
   /// < [cdeg] Vehicle heading (yaw angle), 0.0..359.99 degrees. If unknown, set to: UINT16_MAX
   @ffi.Uint16()
   external int hdg;
+}
+
+typedef mavlink_system_time_t = __mavlink_system_time_t;
+
+final class __mavlink_system_time_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX epoch time).
+  @ffi.Uint64()
+  external int time_unix_usec;
+
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+}
+
+typedef mavlink_ping_t = __mavlink_ping_t;
+
+final class __mavlink_ping_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  PING sequence
+  @ffi.Uint32()
+  external int seq;
+
+  /// <  0: request ping from all receiving systems. If greater than 0: message is a ping response and number is the system id of the requesting system
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  0: request ping from all receiving components. If greater than 0: message is a ping response and number is the component id of the requesting component.
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_change_operator_control_t = __mavlink_change_operator_control_t;
+
+final class __mavlink_change_operator_control_t extends ffi.Struct {
+  /// <  System the GCS requests control for
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  0: request control of this MAV, 1: Release control of this MAV
+  @ffi.Uint8()
+  external int control_request;
+
+  /// < [rad] 0: key as plaintext, 1-255: future, different hashing/encryption variants. The GCS should in general use the safest mode possible initially and then gradually move down the encryption level if it gets a NACK message indicating an encryption mismatch.
+  @ffi.Uint8()
+  external int version;
+
+  /// <  Password / Key, depending on version plaintext or encrypted. 25 or less characters, NULL terminated. The characters may involve A-Z, a-z, 0-9, and "!?,.-"
+  @ffi.Array.multi([25])
+  external ffi.Array<ffi.Char> passkey;
+}
+
+typedef mavlink_change_operator_control_ack_t
+    = __mavlink_change_operator_control_ack_t;
+
+final class __mavlink_change_operator_control_ack_t extends ffi.Struct {
+  /// <  ID of the GCS this message
+  @ffi.Uint8()
+  external int gcs_system_id;
+
+  /// <  0: request control of this MAV, 1: Release control of this MAV
+  @ffi.Uint8()
+  external int control_request;
+
+  /// <  0: ACK, 1: NACK: Wrong passkey, 2: NACK: Unsupported passkey encryption method, 3: NACK: Already under control
+  @ffi.Uint8()
+  external int ack;
+}
+
+typedef mavlink_auth_key_t = __mavlink_auth_key_t;
+
+final class __mavlink_auth_key_t extends ffi.Struct {
+  /// <  key
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Char> key;
+}
+
+typedef mavlink_param_request_read_t = __mavlink_param_request_read_t;
+
+final class __mavlink_param_request_read_t extends ffi.Struct {
+  /// <  Parameter index. Send -1 to use the param ID field as identifier (else the param id will be ignored)
+  @ffi.Int16()
+  external int param_index;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Onboard parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Char> param_id;
+}
+
+typedef mavlink_param_request_list_t = __mavlink_param_request_list_t;
+
+final class __mavlink_param_request_list_t extends ffi.Struct {
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_param_value_t = __mavlink_param_value_t;
+
+final class __mavlink_param_value_t extends ffi.Struct {
+  /// <  Onboard parameter value
+  @ffi.Float()
+  external double param_value;
+
+  /// <  Total number of onboard parameters
+  @ffi.Uint16()
+  external int param_count;
+
+  /// <  Index of this onboard parameter
+  @ffi.Uint16()
+  external int param_index;
+
+  /// <  Onboard parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Char> param_id;
+
+  /// <  Onboard parameter type.
+  @ffi.Uint8()
+  external int param_type;
+}
+
+typedef mavlink_param_set_t = __mavlink_param_set_t;
+
+final class __mavlink_param_set_t extends ffi.Struct {
+  /// <  Onboard parameter value
+  @ffi.Float()
+  external double param_value;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Onboard parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Char> param_id;
+
+  /// <  Onboard parameter type.
+  @ffi.Uint8()
+  external int param_type;
+}
+
+typedef mavlink_gps_raw_int_t = __mavlink_gps_raw_int_t;
+
+@ffi.Packed(1)
+final class __mavlink_gps_raw_int_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int time_usec;
+
+  @ffi.Int32()
+  external int lat;
+
+  @ffi.Int32()
+  external int lon;
+
+  @ffi.Int32()
+  external int alt;
+
+  @ffi.Uint16()
+  external int eph;
+
+  @ffi.Uint16()
+  external int epv;
+
+  @ffi.Uint16()
+  external int vel;
+
+  @ffi.Uint16()
+  external int cog;
+
+  @ffi.Uint8()
+  external int fix_type;
+
+  @ffi.Uint8()
+  external int satellites_visible;
+
+  @ffi.Int32()
+  external int alt_ellipsoid;
+
+  @ffi.Uint32()
+  external int h_acc;
+
+  @ffi.Uint32()
+  external int v_acc;
+
+  @ffi.Uint32()
+  external int vel_acc;
+
+  @ffi.Uint32()
+  external int hdg_acc;
+
+  @ffi.Uint16()
+  external int yaw;
+}
+
+typedef mavlink_scaled_imu_t = __mavlink_scaled_imu_t;
+
+final class __mavlink_scaled_imu_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [mG] X acceleration
+  @ffi.Int16()
+  external int xacc;
+
+  /// < [mG] Y acceleration
+  @ffi.Int16()
+  external int yacc;
+
+  /// < [mG] Z acceleration
+  @ffi.Int16()
+  external int zacc;
+
+  /// < [mrad/s] Angular speed around X axis
+  @ffi.Int16()
+  external int xgyro;
+
+  /// < [mrad/s] Angular speed around Y axis
+  @ffi.Int16()
+  external int ygyro;
+
+  /// < [mrad/s] Angular speed around Z axis
+  @ffi.Int16()
+  external int zgyro;
+
+  /// < [mgauss] X Magnetic field
+  @ffi.Int16()
+  external int xmag;
+
+  /// < [mgauss] Y Magnetic field
+  @ffi.Int16()
+  external int ymag;
+
+  /// < [mgauss] Z Magnetic field
+  @ffi.Int16()
+  external int zmag;
+
+  /// < [cdegC] Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
+  @ffi.Int16()
+  external int temperature;
+}
+
+typedef mavlink_raw_imu_t = __mavlink_raw_imu_t;
+
+@ffi.Packed(1)
+final class __mavlink_raw_imu_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int time_usec;
+
+  @ffi.Int16()
+  external int xacc;
+
+  @ffi.Int16()
+  external int yacc;
+
+  @ffi.Int16()
+  external int zacc;
+
+  @ffi.Int16()
+  external int xgyro;
+
+  @ffi.Int16()
+  external int ygyro;
+
+  @ffi.Int16()
+  external int zgyro;
+
+  @ffi.Int16()
+  external int xmag;
+
+  @ffi.Int16()
+  external int ymag;
+
+  @ffi.Int16()
+  external int zmag;
+
+  @ffi.Uint8()
+  external int id;
+
+  @ffi.Int16()
+  external int temperature;
+}
+
+typedef mavlink_raw_pressure_t = __mavlink_raw_pressure_t;
+
+final class __mavlink_raw_pressure_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Absolute pressure (raw)
+  @ffi.Int16()
+  external int press_abs;
+
+  /// <  Differential pressure 1 (raw, 0 if nonexistent)
+  @ffi.Int16()
+  external int press_diff1;
+
+  /// <  Differential pressure 2 (raw, 0 if nonexistent)
+  @ffi.Int16()
+  external int press_diff2;
+
+  /// <  Raw Temperature measurement (raw)
+  @ffi.Int16()
+  external int temperature;
+}
+
+typedef mavlink_scaled_pressure_t = __mavlink_scaled_pressure_t;
+
+final class __mavlink_scaled_pressure_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [hPa] Absolute pressure
+  @ffi.Float()
+  external double press_abs;
+
+  /// < [hPa] Differential pressure 1
+  @ffi.Float()
+  external double press_diff;
+
+  /// < [cdegC] Absolute pressure temperature
+  @ffi.Int16()
+  external int temperature;
+
+  /// < [cdegC] Differential pressure temperature (0, if not available). Report values of 0 (or 1) as 1 cdegC.
+  @ffi.Int16()
+  external int temperature_press_diff;
+}
+
+typedef mavlink_attitude_quaternion_t = __mavlink_attitude_quaternion_t;
+
+final class __mavlink_attitude_quaternion_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  Quaternion component 1, w (1 in null-rotation)
+  @ffi.Float()
+  external double q1;
+
+  /// <  Quaternion component 2, x (0 in null-rotation)
+  @ffi.Float()
+  external double q2;
+
+  /// <  Quaternion component 3, y (0 in null-rotation)
+  @ffi.Float()
+  external double q3;
+
+  /// <  Quaternion component 4, z (0 in null-rotation)
+  @ffi.Float()
+  external double q4;
+
+  /// < [rad/s] Roll angular speed
+  @ffi.Float()
+  external double rollspeed;
+
+  /// < [rad/s] Pitch angular speed
+  @ffi.Float()
+  external double pitchspeed;
+
+  /// < [rad/s] Yaw angular speed
+  @ffi.Float()
+  external double yawspeed;
+
+  /// <  Rotation offset by which the attitude quaternion and angular speed vector should be rotated for user display (quaternion with [w, x, y, z] order, zero-rotation is [1, 0, 0, 0], send [0, 0, 0, 0] if field not supported). This field is intended for systems in which the reference attitude may change during flight. For example, tailsitters VTOLs rotate their reference attitude by 90 degrees between hover mode and fixed wing mode, thus repr_offset_q is equal to [1, 0, 0, 0] in hover mode and equal to [0.7071, 0, 0.7071, 0] in fixed wing mode.
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> repr_offset_q;
+}
+
+typedef mavlink_local_position_ned_t = __mavlink_local_position_ned_t;
+
+final class __mavlink_local_position_ned_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [m] X Position
+  @ffi.Float()
+  external double x;
+
+  /// < [m] Y Position
+  @ffi.Float()
+  external double y;
+
+  /// < [m] Z Position
+  @ffi.Float()
+  external double z;
+
+  /// < [m/s] X Speed
+  @ffi.Float()
+  external double vx;
+
+  /// < [m/s] Y Speed
+  @ffi.Float()
+  external double vy;
+
+  /// < [m/s] Z Speed
+  @ffi.Float()
+  external double vz;
+}
+
+typedef mavlink_rc_channels_scaled_t = __mavlink_rc_channels_scaled_t;
+
+final class __mavlink_rc_channels_scaled_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  RC channel 1 value scaled.
+  @ffi.Int16()
+  external int chan1_scaled;
+
+  /// <  RC channel 2 value scaled.
+  @ffi.Int16()
+  external int chan2_scaled;
+
+  /// <  RC channel 3 value scaled.
+  @ffi.Int16()
+  external int chan3_scaled;
+
+  /// <  RC channel 4 value scaled.
+  @ffi.Int16()
+  external int chan4_scaled;
+
+  /// <  RC channel 5 value scaled.
+  @ffi.Int16()
+  external int chan5_scaled;
+
+  /// <  RC channel 6 value scaled.
+  @ffi.Int16()
+  external int chan6_scaled;
+
+  /// <  RC channel 7 value scaled.
+  @ffi.Int16()
+  external int chan7_scaled;
+
+  /// <  RC channel 8 value scaled.
+  @ffi.Int16()
+  external int chan8_scaled;
+
+  /// <  Servo output port (set of 8 outputs = 1 port). Flight stacks running on Pixhawk should use: 0 = MAIN, 1 = AUX.
+  @ffi.Uint8()
+  external int port;
+
+  /// <  Receive signal strength indicator in device-dependent units/scale. Values: [0-254], 255: invalid/unknown.
+  @ffi.Uint8()
+  external int rssi;
+}
+
+typedef mavlink_rc_channels_raw_t = __mavlink_rc_channels_raw_t;
+
+final class __mavlink_rc_channels_raw_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [us] RC channel 1 value.
+  @ffi.Uint16()
+  external int chan1_raw;
+
+  /// < [us] RC channel 2 value.
+  @ffi.Uint16()
+  external int chan2_raw;
+
+  /// < [us] RC channel 3 value.
+  @ffi.Uint16()
+  external int chan3_raw;
+
+  /// < [us] RC channel 4 value.
+  @ffi.Uint16()
+  external int chan4_raw;
+
+  /// < [us] RC channel 5 value.
+  @ffi.Uint16()
+  external int chan5_raw;
+
+  /// < [us] RC channel 6 value.
+  @ffi.Uint16()
+  external int chan6_raw;
+
+  /// < [us] RC channel 7 value.
+  @ffi.Uint16()
+  external int chan7_raw;
+
+  /// < [us] RC channel 8 value.
+  @ffi.Uint16()
+  external int chan8_raw;
+
+  /// <  Servo output port (set of 8 outputs = 1 port). Flight stacks running on Pixhawk should use: 0 = MAIN, 1 = AUX.
+  @ffi.Uint8()
+  external int port;
+
+  /// <  Receive signal strength indicator in device-dependent units/scale. Values: [0-254], 255: invalid/unknown.
+  @ffi.Uint8()
+  external int rssi;
+}
+
+typedef mavlink_servo_output_raw_t = __mavlink_servo_output_raw_t;
+
+@ffi.Packed(1)
+final class __mavlink_servo_output_raw_t extends ffi.Struct {
+  @ffi.Uint32()
+  external int time_usec;
+
+  @ffi.Uint16()
+  external int servo1_raw;
+
+  @ffi.Uint16()
+  external int servo2_raw;
+
+  @ffi.Uint16()
+  external int servo3_raw;
+
+  @ffi.Uint16()
+  external int servo4_raw;
+
+  @ffi.Uint16()
+  external int servo5_raw;
+
+  @ffi.Uint16()
+  external int servo6_raw;
+
+  @ffi.Uint16()
+  external int servo7_raw;
+
+  @ffi.Uint16()
+  external int servo8_raw;
+
+  @ffi.Uint8()
+  external int port;
+
+  @ffi.Uint16()
+  external int servo9_raw;
+
+  @ffi.Uint16()
+  external int servo10_raw;
+
+  @ffi.Uint16()
+  external int servo11_raw;
+
+  @ffi.Uint16()
+  external int servo12_raw;
+
+  @ffi.Uint16()
+  external int servo13_raw;
+
+  @ffi.Uint16()
+  external int servo14_raw;
+
+  @ffi.Uint16()
+  external int servo15_raw;
+
+  @ffi.Uint16()
+  external int servo16_raw;
+}
+
+typedef mavlink_mission_request_partial_list_t
+    = __mavlink_mission_request_partial_list_t;
+
+final class __mavlink_mission_request_partial_list_t extends ffi.Struct {
+  /// <  Start index
+  @ffi.Int16()
+  external int start_index;
+
+  /// <  End index, -1 by default (-1: send list to end). Else a valid index of the list
+  @ffi.Int16()
+  external int end_index;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Mission type.
+  @ffi.Uint8()
+  external int mission_type;
+}
+
+typedef mavlink_mission_write_partial_list_t
+    = __mavlink_mission_write_partial_list_t;
+
+final class __mavlink_mission_write_partial_list_t extends ffi.Struct {
+  /// <  Start index. Must be smaller / equal to the largest index of the current onboard list.
+  @ffi.Int16()
+  external int start_index;
+
+  /// <  End index, equal or greater than start index.
+  @ffi.Int16()
+  external int end_index;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Mission type.
+  @ffi.Uint8()
+  external int mission_type;
+}
+
+typedef mavlink_mission_current_t = __mavlink_mission_current_t;
+
+final class __mavlink_mission_current_t extends ffi.Struct {
+  /// <  Sequence
+  @ffi.Uint16()
+  external int seq;
+
+  /// <  Total number of mission items on vehicle (on last item, sequence == total). If the autopilot stores its home location as part of the mission this will be excluded from the total. 0: Not supported, UINT16_MAX if no mission is present on the vehicle.
+  @ffi.Uint16()
+  external int total;
+
+  /// <  Mission state machine state. MISSION_STATE_UNKNOWN if state reporting not supported.
+  @ffi.Uint8()
+  external int mission_state;
+
+  /// <  Vehicle is in a mode that can execute mission items or suspended. 0: Unknown, 1: In mission mode, 2: Suspended (not in mission mode).
+  @ffi.Uint8()
+  external int mission_mode;
+}
+
+typedef mavlink_mission_request_list_t = __mavlink_mission_request_list_t;
+
+final class __mavlink_mission_request_list_t extends ffi.Struct {
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Mission type.
+  @ffi.Uint8()
+  external int mission_type;
+}
+
+typedef mavlink_mission_count_t = __mavlink_mission_count_t;
+
+final class __mavlink_mission_count_t extends ffi.Struct {
+  /// <  Number of mission items in the sequence
+  @ffi.Uint16()
+  external int count;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Mission type.
+  @ffi.Uint8()
+  external int mission_type;
+}
+
+typedef mavlink_mission_clear_all_t = __mavlink_mission_clear_all_t;
+
+final class __mavlink_mission_clear_all_t extends ffi.Struct {
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Mission type.
+  @ffi.Uint8()
+  external int mission_type;
+}
+
+typedef mavlink_mission_item_reached_t = __mavlink_mission_item_reached_t;
+
+final class __mavlink_mission_item_reached_t extends ffi.Struct {
+  /// <  Sequence
+  @ffi.Uint16()
+  external int seq;
+}
+
+typedef mavlink_mission_ack_t = __mavlink_mission_ack_t;
+
+final class __mavlink_mission_ack_t extends ffi.Struct {
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Mission result.
+  @ffi.Uint8()
+  external int type;
+
+  /// <  Mission type.
+  @ffi.Uint8()
+  external int mission_type;
+}
+
+typedef mavlink_set_gps_global_origin_t = __mavlink_set_gps_global_origin_t;
+
+@ffi.Packed(1)
+final class __mavlink_set_gps_global_origin_t extends ffi.Struct {
+  @ffi.Int32()
+  external int latitude;
+
+  @ffi.Int32()
+  external int longitude;
+
+  @ffi.Int32()
+  external int altitude;
+
+  @ffi.Uint8()
+  external int target_system;
+
+  @ffi.Uint64()
+  external int time_usec;
+}
+
+typedef mavlink_gps_global_origin_t = __mavlink_gps_global_origin_t;
+
+@ffi.Packed(1)
+final class __mavlink_gps_global_origin_t extends ffi.Struct {
+  @ffi.Int32()
+  external int latitude;
+
+  @ffi.Int32()
+  external int longitude;
+
+  @ffi.Int32()
+  external int altitude;
+
+  @ffi.Uint64()
+  external int time_usec;
+}
+
+typedef mavlink_param_map_rc_t = __mavlink_param_map_rc_t;
+
+final class __mavlink_param_map_rc_t extends ffi.Struct {
+  /// <  Initial parameter value
+  @ffi.Float()
+  external double param_value0;
+
+  /// <  Scale, maps the RC range [-1, 1] to a parameter value
+  @ffi.Float()
+  external double scale;
+
+  /// <  Minimum param value. The protocol does not define if this overwrites an onboard minimum value. (Depends on implementation)
+  @ffi.Float()
+  external double param_value_min;
+
+  /// <  Maximum param value. The protocol does not define if this overwrites an onboard maximum value. (Depends on implementation)
+  @ffi.Float()
+  external double param_value_max;
+
+  /// <  Parameter index. Send -1 to use the param ID field as identifier (else the param id will be ignored), send -2 to disable any existing map for this rc_channel_index.
+  @ffi.Int16()
+  external int param_index;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Onboard parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Char> param_id;
+
+  /// <  Index of parameter RC channel. Not equal to the RC channel id. Typically corresponds to a potentiometer-knob on the RC.
+  @ffi.Uint8()
+  external int parameter_rc_channel_index;
+}
+
+typedef mavlink_mission_request_int_t = __mavlink_mission_request_int_t;
+
+final class __mavlink_mission_request_int_t extends ffi.Struct {
+  /// <  Sequence
+  @ffi.Uint16()
+  external int seq;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Mission type.
+  @ffi.Uint8()
+  external int mission_type;
+}
+
+typedef mavlink_safety_set_allowed_area_t = __mavlink_safety_set_allowed_area_t;
+
+final class __mavlink_safety_set_allowed_area_t extends ffi.Struct {
+  /// < [m] x position 1 / Latitude 1
+  @ffi.Float()
+  external double p1x;
+
+  /// < [m] y position 1 / Longitude 1
+  @ffi.Float()
+  external double p1y;
+
+  /// < [m] z position 1 / Altitude 1
+  @ffi.Float()
+  external double p1z;
+
+  /// < [m] x position 2 / Latitude 2
+  @ffi.Float()
+  external double p2x;
+
+  /// < [m] y position 2 / Longitude 2
+  @ffi.Float()
+  external double p2y;
+
+  /// < [m] z position 2 / Altitude 2
+  @ffi.Float()
+  external double p2z;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Coordinate frame. Can be either global, GPS, right-handed with Z axis up or local, right handed, Z axis down.
+  @ffi.Uint8()
+  external int frame;
+}
+
+typedef mavlink_safety_allowed_area_t = __mavlink_safety_allowed_area_t;
+
+final class __mavlink_safety_allowed_area_t extends ffi.Struct {
+  /// < [m] x position 1 / Latitude 1
+  @ffi.Float()
+  external double p1x;
+
+  /// < [m] y position 1 / Longitude 1
+  @ffi.Float()
+  external double p1y;
+
+  /// < [m] z position 1 / Altitude 1
+  @ffi.Float()
+  external double p1z;
+
+  /// < [m] x position 2 / Latitude 2
+  @ffi.Float()
+  external double p2x;
+
+  /// < [m] y position 2 / Longitude 2
+  @ffi.Float()
+  external double p2y;
+
+  /// < [m] z position 2 / Altitude 2
+  @ffi.Float()
+  external double p2z;
+
+  /// <  Coordinate frame. Can be either global, GPS, right-handed with Z axis up or local, right handed, Z axis down.
+  @ffi.Uint8()
+  external int frame;
+}
+
+typedef mavlink_attitude_quaternion_cov_t = __mavlink_attitude_quaternion_cov_t;
+
+final class __mavlink_attitude_quaternion_cov_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Quaternion components, w, x, y, z (1 0 0 0 is the null-rotation)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [rad/s] Roll angular speed
+  @ffi.Float()
+  external double rollspeed;
+
+  /// < [rad/s] Pitch angular speed
+  @ffi.Float()
+  external double pitchspeed;
+
+  /// < [rad/s] Yaw angular speed
+  @ffi.Float()
+  external double yawspeed;
+
+  /// <  Row-major representation of a 3x3 attitude covariance matrix (states: roll, pitch, yaw; first three entries are the first ROW, next three entries are the second row, etc.). If unknown, assign NaN value to first element in the array.
+  @ffi.Array.multi([9])
+  external ffi.Array<ffi.Float> covariance;
+}
+
+typedef mavlink_nav_controller_output_t = __mavlink_nav_controller_output_t;
+
+final class __mavlink_nav_controller_output_t extends ffi.Struct {
+  /// < [deg] Current desired roll
+  @ffi.Float()
+  external double nav_roll;
+
+  /// < [deg] Current desired pitch
+  @ffi.Float()
+  external double nav_pitch;
+
+  /// < [m] Current altitude error
+  @ffi.Float()
+  external double alt_error;
+
+  /// < [m/s] Current airspeed error
+  @ffi.Float()
+  external double aspd_error;
+
+  /// < [m] Current crosstrack error on x-y plane
+  @ffi.Float()
+  external double xtrack_error;
+
+  /// < [deg] Current desired heading
+  @ffi.Int16()
+  external int nav_bearing;
+
+  /// < [deg] Bearing to current waypoint/target
+  @ffi.Int16()
+  external int target_bearing;
+
+  /// < [m] Distance to active waypoint
+  @ffi.Uint16()
+  external int wp_dist;
+}
+
+typedef mavlink_global_position_int_cov_t = __mavlink_global_position_int_cov_t;
+
+final class __mavlink_global_position_int_cov_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [degE7] Latitude
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude
+  @ffi.Int32()
+  external int lon;
+
+  /// < [mm] Altitude in meters above MSL
+  @ffi.Int32()
+  external int alt;
+
+  /// < [mm] Altitude above ground
+  @ffi.Int32()
+  external int relative_alt;
+
+  /// < [m/s] Ground X Speed (Latitude)
+  @ffi.Float()
+  external double vx;
+
+  /// < [m/s] Ground Y Speed (Longitude)
+  @ffi.Float()
+  external double vy;
+
+  /// < [m/s] Ground Z Speed (Altitude)
+  @ffi.Float()
+  external double vz;
+
+  /// <  Row-major representation of a 6x6 position and velocity 6x6 cross-covariance matrix (states: lat, lon, alt, vx, vy, vz; first six entries are the first ROW, next six entries are the second row, etc.). If unknown, assign NaN value to first element in the array.
+  @ffi.Array.multi([36])
+  external ffi.Array<ffi.Float> covariance;
+
+  /// <  Class id of the estimator this estimate originated from.
+  @ffi.Uint8()
+  external int estimator_type;
+}
+
+typedef mavlink_local_position_ned_cov_t = __mavlink_local_position_ned_cov_t;
+
+final class __mavlink_local_position_ned_cov_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [m] X Position
+  @ffi.Float()
+  external double x;
+
+  /// < [m] Y Position
+  @ffi.Float()
+  external double y;
+
+  /// < [m] Z Position
+  @ffi.Float()
+  external double z;
+
+  /// < [m/s] X Speed
+  @ffi.Float()
+  external double vx;
+
+  /// < [m/s] Y Speed
+  @ffi.Float()
+  external double vy;
+
+  /// < [m/s] Z Speed
+  @ffi.Float()
+  external double vz;
+
+  /// < [m/s/s] X Acceleration
+  @ffi.Float()
+  external double ax;
+
+  /// < [m/s/s] Y Acceleration
+  @ffi.Float()
+  external double ay;
+
+  /// < [m/s/s] Z Acceleration
+  @ffi.Float()
+  external double az;
+
+  /// <  Row-major representation of position, velocity and acceleration 9x9 cross-covariance matrix upper right triangle (states: x, y, z, vx, vy, vz, ax, ay, az; first nine entries are the first ROW, next eight entries are the second row, etc.). If unknown, assign NaN value to first element in the array.
+  @ffi.Array.multi([45])
+  external ffi.Array<ffi.Float> covariance;
+
+  /// <  Class id of the estimator this estimate originated from.
+  @ffi.Uint8()
+  external int estimator_type;
+}
+
+typedef mavlink_rc_channels_t = __mavlink_rc_channels_t;
+
+final class __mavlink_rc_channels_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [us] RC channel 1 value.
+  @ffi.Uint16()
+  external int chan1_raw;
+
+  /// < [us] RC channel 2 value.
+  @ffi.Uint16()
+  external int chan2_raw;
+
+  /// < [us] RC channel 3 value.
+  @ffi.Uint16()
+  external int chan3_raw;
+
+  /// < [us] RC channel 4 value.
+  @ffi.Uint16()
+  external int chan4_raw;
+
+  /// < [us] RC channel 5 value.
+  @ffi.Uint16()
+  external int chan5_raw;
+
+  /// < [us] RC channel 6 value.
+  @ffi.Uint16()
+  external int chan6_raw;
+
+  /// < [us] RC channel 7 value.
+  @ffi.Uint16()
+  external int chan7_raw;
+
+  /// < [us] RC channel 8 value.
+  @ffi.Uint16()
+  external int chan8_raw;
+
+  /// < [us] RC channel 9 value.
+  @ffi.Uint16()
+  external int chan9_raw;
+
+  /// < [us] RC channel 10 value.
+  @ffi.Uint16()
+  external int chan10_raw;
+
+  /// < [us] RC channel 11 value.
+  @ffi.Uint16()
+  external int chan11_raw;
+
+  /// < [us] RC channel 12 value.
+  @ffi.Uint16()
+  external int chan12_raw;
+
+  /// < [us] RC channel 13 value.
+  @ffi.Uint16()
+  external int chan13_raw;
+
+  /// < [us] RC channel 14 value.
+  @ffi.Uint16()
+  external int chan14_raw;
+
+  /// < [us] RC channel 15 value.
+  @ffi.Uint16()
+  external int chan15_raw;
+
+  /// < [us] RC channel 16 value.
+  @ffi.Uint16()
+  external int chan16_raw;
+
+  /// < [us] RC channel 17 value.
+  @ffi.Uint16()
+  external int chan17_raw;
+
+  /// < [us] RC channel 18 value.
+  @ffi.Uint16()
+  external int chan18_raw;
+
+  /// <  Total number of RC channels being received. This can be larger than 18, indicating that more channels are available but not given in this message. This value should be 0 when no RC channels are available.
+  @ffi.Uint8()
+  external int chancount;
+
+  /// <  Receive signal strength indicator in device-dependent units/scale. Values: [0-254], 255: invalid/unknown.
+  @ffi.Uint8()
+  external int rssi;
+}
+
+typedef mavlink_manual_control_t = __mavlink_manual_control_t;
+
+@ffi.Packed(1)
+final class __mavlink_manual_control_t extends ffi.Struct {
+  @ffi.Int16()
+  external int x;
+
+  @ffi.Int16()
+  external int y;
+
+  @ffi.Int16()
+  external int z;
+
+  @ffi.Int16()
+  external int r;
+
+  @ffi.Uint16()
+  external int buttons;
+
+  @ffi.Uint8()
+  external int target;
+
+  @ffi.Uint16()
+  external int buttons2;
+
+  @ffi.Uint8()
+  external int enabled_extensions;
+
+  @ffi.Int16()
+  external int s;
+
+  @ffi.Int16()
+  external int t;
+
+  @ffi.Int16()
+  external int aux1;
+
+  @ffi.Int16()
+  external int aux2;
+
+  @ffi.Int16()
+  external int aux3;
+
+  @ffi.Int16()
+  external int aux4;
+
+  @ffi.Int16()
+  external int aux5;
+
+  @ffi.Int16()
+  external int aux6;
+}
+
+typedef mavlink_rc_channels_override_t = __mavlink_rc_channels_override_t;
+
+final class __mavlink_rc_channels_override_t extends ffi.Struct {
+  /// < [us] RC channel 1 value. A value of UINT16_MAX means to ignore this field. A value of 0 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan1_raw;
+
+  /// < [us] RC channel 2 value. A value of UINT16_MAX means to ignore this field. A value of 0 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan2_raw;
+
+  /// < [us] RC channel 3 value. A value of UINT16_MAX means to ignore this field. A value of 0 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan3_raw;
+
+  /// < [us] RC channel 4 value. A value of UINT16_MAX means to ignore this field. A value of 0 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan4_raw;
+
+  /// < [us] RC channel 5 value. A value of UINT16_MAX means to ignore this field. A value of 0 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan5_raw;
+
+  /// < [us] RC channel 6 value. A value of UINT16_MAX means to ignore this field. A value of 0 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan6_raw;
+
+  /// < [us] RC channel 7 value. A value of UINT16_MAX means to ignore this field. A value of 0 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan7_raw;
+
+  /// < [us] RC channel 8 value. A value of UINT16_MAX means to ignore this field. A value of 0 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan8_raw;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// < [us] RC channel 9 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan9_raw;
+
+  /// < [us] RC channel 10 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan10_raw;
+
+  /// < [us] RC channel 11 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan11_raw;
+
+  /// < [us] RC channel 12 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan12_raw;
+
+  /// < [us] RC channel 13 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan13_raw;
+
+  /// < [us] RC channel 14 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan14_raw;
+
+  /// < [us] RC channel 15 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan15_raw;
+
+  /// < [us] RC channel 16 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan16_raw;
+
+  /// < [us] RC channel 17 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan17_raw;
+
+  /// < [us] RC channel 18 value. A value of 0 or UINT16_MAX means to ignore this field. A value of UINT16_MAX-1 means to release this channel back to the RC radio.
+  @ffi.Uint16()
+  external int chan18_raw;
+}
+
+typedef mavlink_mission_item_int_t = __mavlink_mission_item_int_t;
+
+final class __mavlink_mission_item_int_t extends ffi.Struct {
+  /// <  PARAM1, see MAV_CMD enum
+  @ffi.Float()
+  external double param1;
+
+  /// <  PARAM2, see MAV_CMD enum
+  @ffi.Float()
+  external double param2;
+
+  /// <  PARAM3, see MAV_CMD enum
+  @ffi.Float()
+  external double param3;
+
+  /// <  PARAM4, see MAV_CMD enum
+  @ffi.Float()
+  external double param4;
+
+  /// <  PARAM5 / local: x position in meters * 1e4, global: latitude in degrees * 10^7
+  @ffi.Int32()
+  external int x;
+
+  /// <  PARAM6 / y position: local: x position in meters * 1e4, global: longitude in degrees *10^7
+  @ffi.Int32()
+  external int y;
+
+  /// <  PARAM7 / z position: global: altitude in meters (relative or absolute, depending on frame.
+  @ffi.Float()
+  external double z;
+
+  /// <  Waypoint ID (sequence number). Starts at zero. Increases monotonically for each waypoint, no gaps in the sequence (0,1,2,3,4).
+  @ffi.Uint16()
+  external int seq;
+
+  /// <  The scheduled action for the waypoint.
+  @ffi.Uint16()
+  external int command;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  The coordinate system of the waypoint.
+  @ffi.Uint8()
+  external int frame;
+
+  /// <  false:0, true:1
+  @ffi.Uint8()
+  external int current;
+
+  /// <  Autocontinue to next waypoint
+  @ffi.Uint8()
+  external int autocontinue;
+
+  /// <  Mission type.
+  @ffi.Uint8()
+  external int mission_type;
+}
+
+typedef mavlink_vfr_hud_t = __mavlink_vfr_hud_t;
+
+final class __mavlink_vfr_hud_t extends ffi.Struct {
+  /// < [m/s] Vehicle speed in form appropriate for vehicle type. For standard aircraft this is typically calibrated airspeed (CAS) or indicated airspeed (IAS) - either of which can be used by a pilot to estimate stall speed.
+  @ffi.Float()
+  external double airspeed;
+
+  /// < [m/s] Current ground speed.
+  @ffi.Float()
+  external double groundspeed;
+
+  /// < [m] Current altitude (MSL).
+  @ffi.Float()
+  external double alt;
+
+  /// < [m/s] Current climb rate.
+  @ffi.Float()
+  external double climb;
+
+  /// < [deg] Current heading in compass units (0-360, 0=north).
+  @ffi.Int16()
+  external int heading;
+
+  /// < [%] Current throttle setting (0 to 100).
+  @ffi.Uint16()
+  external int throttle;
+}
+
+typedef mavlink_command_int_t = __mavlink_command_int_t;
+
+final class __mavlink_command_int_t extends ffi.Struct {
+  /// <  PARAM1, see MAV_CMD enum
+  @ffi.Float()
+  external double param1;
+
+  /// <  PARAM2, see MAV_CMD enum
+  @ffi.Float()
+  external double param2;
+
+  /// <  PARAM3, see MAV_CMD enum
+  @ffi.Float()
+  external double param3;
+
+  /// <  PARAM4, see MAV_CMD enum
+  @ffi.Float()
+  external double param4;
+
+  /// <  PARAM5 / local: x position in meters * 1e4, global: latitude in degrees * 10^7
+  @ffi.Int32()
+  external int x;
+
+  /// <  PARAM6 / local: y position in meters * 1e4, global: longitude in degrees * 10^7
+  @ffi.Int32()
+  external int y;
+
+  /// <  PARAM7 / z position: global: altitude in meters (relative or absolute, depending on frame).
+  @ffi.Float()
+  external double z;
+
+  /// <  The scheduled action for the mission item.
+  @ffi.Uint16()
+  external int command;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  The coordinate system of the COMMAND.
+  @ffi.Uint8()
+  external int frame;
+
+  /// <  Not used.
+  @ffi.Uint8()
+  external int current;
+
+  /// <  Not used (set 0).
+  @ffi.Uint8()
+  external int autocontinue;
+}
+
+typedef mavlink_command_long_t = __mavlink_command_long_t;
+
+final class __mavlink_command_long_t extends ffi.Struct {
+  /// <  Parameter 1 (for the specific command).
+  @ffi.Float()
+  external double param1;
+
+  /// <  Parameter 2 (for the specific command).
+  @ffi.Float()
+  external double param2;
+
+  /// <  Parameter 3 (for the specific command).
+  @ffi.Float()
+  external double param3;
+
+  /// <  Parameter 4 (for the specific command).
+  @ffi.Float()
+  external double param4;
+
+  /// <  Parameter 5 (for the specific command).
+  @ffi.Float()
+  external double param5;
+
+  /// <  Parameter 6 (for the specific command).
+  @ffi.Float()
+  external double param6;
+
+  /// <  Parameter 7 (for the specific command).
+  @ffi.Float()
+  external double param7;
+
+  /// <  Command ID (of command to send).
+  @ffi.Uint16()
+  external int command;
+
+  /// <  System which should execute the command
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component which should execute the command, 0 for all components
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  0: First transmission of this command. 1-255: Confirmation transmissions (e.g. for kill command)
+  @ffi.Uint8()
+  external int confirmation;
+}
+
+typedef mavlink_manual_setpoint_t = __mavlink_manual_setpoint_t;
+
+final class __mavlink_manual_setpoint_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [rad/s] Desired roll rate
+  @ffi.Float()
+  external double roll;
+
+  /// < [rad/s] Desired pitch rate
+  @ffi.Float()
+  external double pitch;
+
+  /// < [rad/s] Desired yaw rate
+  @ffi.Float()
+  external double yaw;
+
+  /// <  Collective thrust, normalized to 0 .. 1
+  @ffi.Float()
+  external double thrust;
+
+  /// <  Flight mode switch position, 0.. 255
+  @ffi.Uint8()
+  external int mode_switch;
+
+  /// <  Override mode switch position, 0.. 255
+  @ffi.Uint8()
+  external int manual_override_switch;
+}
+
+typedef mavlink_set_attitude_target_t = __mavlink_set_attitude_target_t;
+
+final class __mavlink_set_attitude_target_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [rad/s] Body roll rate
+  @ffi.Float()
+  external double body_roll_rate;
+
+  /// < [rad/s] Body pitch rate
+  @ffi.Float()
+  external double body_pitch_rate;
+
+  /// < [rad/s] Body yaw rate
+  @ffi.Float()
+  external double body_yaw_rate;
+
+  /// <  Collective thrust, normalized to 0 .. 1 (-1 .. 1 for vehicles capable of reverse trust)
+  @ffi.Float()
+  external double thrust;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Bitmap to indicate which dimensions should be ignored by the vehicle.
+  @ffi.Uint8()
+  external int type_mask;
+}
+
+typedef mavlink_attitude_target_t = __mavlink_attitude_target_t;
+
+final class __mavlink_attitude_target_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [rad/s] Body roll rate
+  @ffi.Float()
+  external double body_roll_rate;
+
+  /// < [rad/s] Body pitch rate
+  @ffi.Float()
+  external double body_pitch_rate;
+
+  /// < [rad/s] Body yaw rate
+  @ffi.Float()
+  external double body_yaw_rate;
+
+  /// <  Collective thrust, normalized to 0 .. 1 (-1 .. 1 for vehicles capable of reverse trust)
+  @ffi.Float()
+  external double thrust;
+
+  /// <  Bitmap to indicate which dimensions should be ignored by the vehicle.
+  @ffi.Uint8()
+  external int type_mask;
+}
+
+typedef mavlink_set_position_target_local_ned_t
+    = __mavlink_set_position_target_local_ned_t;
+
+final class __mavlink_set_position_target_local_ned_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [m] X Position in NED frame
+  @ffi.Float()
+  external double x;
+
+  /// < [m] Y Position in NED frame
+  @ffi.Float()
+  external double y;
+
+  /// < [m] Z Position in NED frame (note, altitude is negative in NED)
+  @ffi.Float()
+  external double z;
+
+  /// < [m/s] X velocity in NED frame
+  @ffi.Float()
+  external double vx;
+
+  /// < [m/s] Y velocity in NED frame
+  @ffi.Float()
+  external double vy;
+
+  /// < [m/s] Z velocity in NED frame
+  @ffi.Float()
+  external double vz;
+
+  /// < [m/s/s] X acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afx;
+
+  /// < [m/s/s] Y acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afy;
+
+  /// < [m/s/s] Z acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afz;
+
+  /// < [rad] yaw setpoint
+  @ffi.Float()
+  external double yaw;
+
+  /// < [rad/s] yaw rate setpoint
+  @ffi.Float()
+  external double yaw_rate;
+
+  /// <  Bitmap to indicate which dimensions should be ignored by the vehicle.
+  @ffi.Uint16()
+  external int type_mask;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Valid options are: MAV_FRAME_LOCAL_NED = 1, MAV_FRAME_LOCAL_OFFSET_NED = 7, MAV_FRAME_BODY_NED = 8, MAV_FRAME_BODY_OFFSET_NED = 9
+  @ffi.Uint8()
+  external int coordinate_frame;
+}
+
+typedef mavlink_position_target_local_ned_t
+    = __mavlink_position_target_local_ned_t;
+
+final class __mavlink_position_target_local_ned_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [m] X Position in NED frame
+  @ffi.Float()
+  external double x;
+
+  /// < [m] Y Position in NED frame
+  @ffi.Float()
+  external double y;
+
+  /// < [m] Z Position in NED frame (note, altitude is negative in NED)
+  @ffi.Float()
+  external double z;
+
+  /// < [m/s] X velocity in NED frame
+  @ffi.Float()
+  external double vx;
+
+  /// < [m/s] Y velocity in NED frame
+  @ffi.Float()
+  external double vy;
+
+  /// < [m/s] Z velocity in NED frame
+  @ffi.Float()
+  external double vz;
+
+  /// < [m/s/s] X acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afx;
+
+  /// < [m/s/s] Y acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afy;
+
+  /// < [m/s/s] Z acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afz;
+
+  /// < [rad] yaw setpoint
+  @ffi.Float()
+  external double yaw;
+
+  /// < [rad/s] yaw rate setpoint
+  @ffi.Float()
+  external double yaw_rate;
+
+  /// <  Bitmap to indicate which dimensions should be ignored by the vehicle.
+  @ffi.Uint16()
+  external int type_mask;
+
+  /// <  Valid options are: MAV_FRAME_LOCAL_NED = 1, MAV_FRAME_LOCAL_OFFSET_NED = 7, MAV_FRAME_BODY_NED = 8, MAV_FRAME_BODY_OFFSET_NED = 9
+  @ffi.Uint8()
+  external int coordinate_frame;
+}
+
+typedef mavlink_set_position_target_global_int_t
+    = __mavlink_set_position_target_global_int_t;
+
+final class __mavlink_set_position_target_global_int_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot). The rationale for the timestamp in the setpoint is to allow the system to compensate for the transport delay of the setpoint. This allows the system to compensate processing latency.
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [degE7] X Position in WGS84 frame
+  @ffi.Int32()
+  external int lat_int;
+
+  /// < [degE7] Y Position in WGS84 frame
+  @ffi.Int32()
+  external int lon_int;
+
+  /// < [m] Altitude (MSL, Relative to home, or AGL - depending on frame)
+  @ffi.Float()
+  external double alt;
+
+  /// < [m/s] X velocity in NED frame
+  @ffi.Float()
+  external double vx;
+
+  /// < [m/s] Y velocity in NED frame
+  @ffi.Float()
+  external double vy;
+
+  /// < [m/s] Z velocity in NED frame
+  @ffi.Float()
+  external double vz;
+
+  /// < [m/s/s] X acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afx;
+
+  /// < [m/s/s] Y acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afy;
+
+  /// < [m/s/s] Z acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afz;
+
+  /// < [rad] yaw setpoint
+  @ffi.Float()
+  external double yaw;
+
+  /// < [rad/s] yaw rate setpoint
+  @ffi.Float()
+  external double yaw_rate;
+
+  /// <  Bitmap to indicate which dimensions should be ignored by the vehicle.
+  @ffi.Uint16()
+  external int type_mask;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Valid options are: MAV_FRAME_GLOBAL_INT = 5, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT = 6, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT = 11
+  @ffi.Uint8()
+  external int coordinate_frame;
+}
+
+typedef mavlink_position_target_global_int_t
+    = __mavlink_position_target_global_int_t;
+
+final class __mavlink_position_target_global_int_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot). The rationale for the timestamp in the setpoint is to allow the system to compensate for the transport delay of the setpoint. This allows the system to compensate processing latency.
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [degE7] X Position in WGS84 frame
+  @ffi.Int32()
+  external int lat_int;
+
+  /// < [degE7] Y Position in WGS84 frame
+  @ffi.Int32()
+  external int lon_int;
+
+  /// < [m] Altitude (MSL, AGL or relative to home altitude, depending on frame)
+  @ffi.Float()
+  external double alt;
+
+  /// < [m/s] X velocity in NED frame
+  @ffi.Float()
+  external double vx;
+
+  /// < [m/s] Y velocity in NED frame
+  @ffi.Float()
+  external double vy;
+
+  /// < [m/s] Z velocity in NED frame
+  @ffi.Float()
+  external double vz;
+
+  /// < [m/s/s] X acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afx;
+
+  /// < [m/s/s] Y acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afy;
+
+  /// < [m/s/s] Z acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N
+  @ffi.Float()
+  external double afz;
+
+  /// < [rad] yaw setpoint
+  @ffi.Float()
+  external double yaw;
+
+  /// < [rad/s] yaw rate setpoint
+  @ffi.Float()
+  external double yaw_rate;
+
+  /// <  Bitmap to indicate which dimensions should be ignored by the vehicle.
+  @ffi.Uint16()
+  external int type_mask;
+
+  /// <  Valid options are: MAV_FRAME_GLOBAL_INT = 5, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT = 6, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT = 11
+  @ffi.Uint8()
+  external int coordinate_frame;
+}
+
+typedef mavlink_local_position_ned_system_global_offset_t
+    = __mavlink_local_position_ned_system_global_offset_t;
+
+final class __mavlink_local_position_ned_system_global_offset_t
+    extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [m] X Position
+  @ffi.Float()
+  external double x;
+
+  /// < [m] Y Position
+  @ffi.Float()
+  external double y;
+
+  /// < [m] Z Position
+  @ffi.Float()
+  external double z;
+
+  /// < [rad] Roll
+  @ffi.Float()
+  external double roll;
+
+  /// < [rad] Pitch
+  @ffi.Float()
+  external double pitch;
+
+  /// < [rad] Yaw
+  @ffi.Float()
+  external double yaw;
+}
+
+typedef mavlink_hil_controls_t = __mavlink_hil_controls_t;
+
+final class __mavlink_hil_controls_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Control output -1 .. 1
+  @ffi.Float()
+  external double roll_ailerons;
+
+  /// <  Control output -1 .. 1
+  @ffi.Float()
+  external double pitch_elevator;
+
+  /// <  Control output -1 .. 1
+  @ffi.Float()
+  external double yaw_rudder;
+
+  /// <  Throttle 0 .. 1
+  @ffi.Float()
+  external double throttle;
+
+  /// <  Aux 1, -1 .. 1
+  @ffi.Float()
+  external double aux1;
+
+  /// <  Aux 2, -1 .. 1
+  @ffi.Float()
+  external double aux2;
+
+  /// <  Aux 3, -1 .. 1
+  @ffi.Float()
+  external double aux3;
+
+  /// <  Aux 4, -1 .. 1
+  @ffi.Float()
+  external double aux4;
+
+  /// <  System mode.
+  @ffi.Uint8()
+  external int mode;
+
+  /// <  Navigation mode (MAV_NAV_MODE)
+  @ffi.Uint8()
+  external int nav_mode;
+}
+
+typedef mavlink_hil_rc_inputs_raw_t = __mavlink_hil_rc_inputs_raw_t;
+
+final class __mavlink_hil_rc_inputs_raw_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [us] RC channel 1 value
+  @ffi.Uint16()
+  external int chan1_raw;
+
+  /// < [us] RC channel 2 value
+  @ffi.Uint16()
+  external int chan2_raw;
+
+  /// < [us] RC channel 3 value
+  @ffi.Uint16()
+  external int chan3_raw;
+
+  /// < [us] RC channel 4 value
+  @ffi.Uint16()
+  external int chan4_raw;
+
+  /// < [us] RC channel 5 value
+  @ffi.Uint16()
+  external int chan5_raw;
+
+  /// < [us] RC channel 6 value
+  @ffi.Uint16()
+  external int chan6_raw;
+
+  /// < [us] RC channel 7 value
+  @ffi.Uint16()
+  external int chan7_raw;
+
+  /// < [us] RC channel 8 value
+  @ffi.Uint16()
+  external int chan8_raw;
+
+  /// < [us] RC channel 9 value
+  @ffi.Uint16()
+  external int chan9_raw;
+
+  /// < [us] RC channel 10 value
+  @ffi.Uint16()
+  external int chan10_raw;
+
+  /// < [us] RC channel 11 value
+  @ffi.Uint16()
+  external int chan11_raw;
+
+  /// < [us] RC channel 12 value
+  @ffi.Uint16()
+  external int chan12_raw;
+
+  /// <  Receive signal strength indicator in device-dependent units/scale. Values: [0-254], 255: invalid/unknown.
+  @ffi.Uint8()
+  external int rssi;
+}
+
+typedef mavlink_hil_actuator_controls_t = __mavlink_hil_actuator_controls_t;
+
+final class __mavlink_hil_actuator_controls_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Flags as bitfield, 1: indicate simulation using lockstep.
+  @ffi.Uint64()
+  external int flags;
+
+  /// <  Control outputs -1 .. 1. Channel assignment depends on the simulated hardware.
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Float> controls;
+
+  /// <  System mode. Includes arming state.
+  @ffi.Uint8()
+  external int mode;
+}
+
+typedef mavlink_hil_optical_flow_t = __mavlink_hil_optical_flow_t;
+
+final class __mavlink_hil_optical_flow_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [us] Integration time. Divide integrated_x and integrated_y by the integration time to obtain average flow. The integration time also indicates the.
+  @ffi.Uint32()
+  external int integration_time_us;
+
+  /// < [rad] Flow in radians around X axis (Sensor RH rotation about the X axis induces a positive flow. Sensor linear motion along the positive Y axis induces a negative flow.)
+  @ffi.Float()
+  external double integrated_x;
+
+  /// < [rad] Flow in radians around Y axis (Sensor RH rotation about the Y axis induces a positive flow. Sensor linear motion along the positive X axis induces a positive flow.)
+  @ffi.Float()
+  external double integrated_y;
+
+  /// < [rad] RH rotation around X axis
+  @ffi.Float()
+  external double integrated_xgyro;
+
+  /// < [rad] RH rotation around Y axis
+  @ffi.Float()
+  external double integrated_ygyro;
+
+  /// < [rad] RH rotation around Z axis
+  @ffi.Float()
+  external double integrated_zgyro;
+
+  /// < [us] Time since the distance was sampled.
+  @ffi.Uint32()
+  external int time_delta_distance_us;
+
+  /// < [m] Distance to the center of the flow field. Positive value (including zero): distance known. Negative value: Unknown distance.
+  @ffi.Float()
+  external double distance;
+
+  /// < [cdegC] Temperature
+  @ffi.Int16()
+  external int temperature;
+
+  /// <  Sensor ID
+  @ffi.Uint8()
+  external int sensor_id;
+
+  /// <  Optical flow quality / confidence. 0: no valid flow, 255: maximum quality
+  @ffi.Uint8()
+  external int quality;
+}
+
+typedef mavlink_global_vision_position_estimate_t
+    = __mavlink_global_vision_position_estimate_t;
+
+final class __mavlink_global_vision_position_estimate_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX time or since system boot)
+  @ffi.Uint64()
+  external int usec;
+
+  /// < [m] Global X position
+  @ffi.Float()
+  external double x;
+
+  /// < [m] Global Y position
+  @ffi.Float()
+  external double y;
+
+  /// < [m] Global Z position
+  @ffi.Float()
+  external double z;
+
+  /// < [rad] Roll angle
+  @ffi.Float()
+  external double roll;
+
+  /// < [rad] Pitch angle
+  @ffi.Float()
+  external double pitch;
+
+  /// < [rad] Yaw angle
+  @ffi.Float()
+  external double yaw;
+
+  /// <  Row-major representation of pose 6x6 cross-covariance matrix upper right triangle (states: x_global, y_global, z_global, roll, pitch, yaw; first six entries are the first ROW, next five entries are the second ROW, etc.). If unknown, assign NaN value to first element in the array.
+  @ffi.Array.multi([21])
+  external ffi.Array<ffi.Float> covariance;
+
+  /// <  Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
+  @ffi.Uint8()
+  external int reset_counter;
+}
+
+typedef mavlink_vision_position_estimate_t
+    = __mavlink_vision_position_estimate_t;
+
+final class __mavlink_vision_position_estimate_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX time or time since system boot)
+  @ffi.Uint64()
+  external int usec;
+
+  /// < [m] Local X position
+  @ffi.Float()
+  external double x;
+
+  /// < [m] Local Y position
+  @ffi.Float()
+  external double y;
+
+  /// < [m] Local Z position
+  @ffi.Float()
+  external double z;
+
+  /// < [rad] Roll angle
+  @ffi.Float()
+  external double roll;
+
+  /// < [rad] Pitch angle
+  @ffi.Float()
+  external double pitch;
+
+  /// < [rad] Yaw angle
+  @ffi.Float()
+  external double yaw;
+
+  /// <  Row-major representation of pose 6x6 cross-covariance matrix upper right triangle (states: x, y, z, roll, pitch, yaw; first six entries are the first ROW, next five entries are the second ROW, etc.). If unknown, assign NaN value to first element in the array.
+  @ffi.Array.multi([21])
+  external ffi.Array<ffi.Float> covariance;
+
+  /// <  Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
+  @ffi.Uint8()
+  external int reset_counter;
+}
+
+typedef mavlink_vision_speed_estimate_t = __mavlink_vision_speed_estimate_t;
+
+final class __mavlink_vision_speed_estimate_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX time or time since system boot)
+  @ffi.Uint64()
+  external int usec;
+
+  /// < [m/s] Global X speed
+  @ffi.Float()
+  external double x;
+
+  /// < [m/s] Global Y speed
+  @ffi.Float()
+  external double y;
+
+  /// < [m/s] Global Z speed
+  @ffi.Float()
+  external double z;
+
+  /// <  Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.
+  @ffi.Array.multi([9])
+  external ffi.Array<ffi.Float> covariance;
+
+  /// <  Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
+  @ffi.Uint8()
+  external int reset_counter;
+}
+
+typedef mavlink_optical_flow_t = __mavlink_optical_flow_t;
+
+@ffi.Packed(1)
+final class __mavlink_optical_flow_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int time_usec;
+
+  @ffi.Float()
+  external double flow_comp_m_x;
+
+  @ffi.Float()
+  external double flow_comp_m_y;
+
+  @ffi.Float()
+  external double ground_distance;
+
+  @ffi.Int16()
+  external int flow_x;
+
+  @ffi.Int16()
+  external int flow_y;
+
+  @ffi.Uint8()
+  external int sensor_id;
+
+  @ffi.Uint8()
+  external int quality;
+
+  @ffi.Float()
+  external double flow_rate_x;
+
+  @ffi.Float()
+  external double flow_rate_y;
+}
+
+typedef mavlink_hil_sensor_t = __mavlink_hil_sensor_t;
+
+final class __mavlink_hil_sensor_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [m/s/s] X acceleration
+  @ffi.Float()
+  external double xacc;
+
+  /// < [m/s/s] Y acceleration
+  @ffi.Float()
+  external double yacc;
+
+  /// < [m/s/s] Z acceleration
+  @ffi.Float()
+  external double zacc;
+
+  /// < [rad/s] Angular speed around X axis in body frame
+  @ffi.Float()
+  external double xgyro;
+
+  /// < [rad/s] Angular speed around Y axis in body frame
+  @ffi.Float()
+  external double ygyro;
+
+  /// < [rad/s] Angular speed around Z axis in body frame
+  @ffi.Float()
+  external double zgyro;
+
+  /// < [gauss] X Magnetic field
+  @ffi.Float()
+  external double xmag;
+
+  /// < [gauss] Y Magnetic field
+  @ffi.Float()
+  external double ymag;
+
+  /// < [gauss] Z Magnetic field
+  @ffi.Float()
+  external double zmag;
+
+  /// < [hPa] Absolute pressure
+  @ffi.Float()
+  external double abs_pressure;
+
+  /// < [hPa] Differential pressure (airspeed)
+  @ffi.Float()
+  external double diff_pressure;
+
+  /// <  Altitude calculated from pressure
+  @ffi.Float()
+  external double pressure_alt;
+
+  /// < [degC] Temperature
+  @ffi.Float()
+  external double temperature;
+
+  /// <  Bitmap for fields that have updated since last message, bit 0 = xacc, bit 12: temperature, bit 31: full reset of attitude/position/velocities/etc was performed in sim.
+  @ffi.Uint32()
+  external int fields_updated;
+
+  /// <  Sensor ID (zero indexed). Used for multiple sensor inputs
+  @ffi.Uint8()
+  external int id;
+}
+
+typedef mavlink_sim_state_t = __mavlink_sim_state_t;
+
+final class __mavlink_sim_state_t extends ffi.Struct {
+  /// <  True attitude quaternion component 1, w (1 in null-rotation)
+  @ffi.Float()
+  external double q1;
+
+  /// <  True attitude quaternion component 2, x (0 in null-rotation)
+  @ffi.Float()
+  external double q2;
+
+  /// <  True attitude quaternion component 3, y (0 in null-rotation)
+  @ffi.Float()
+  external double q3;
+
+  /// <  True attitude quaternion component 4, z (0 in null-rotation)
+  @ffi.Float()
+  external double q4;
+
+  /// <  Attitude roll expressed as Euler angles, not recommended except for human-readable outputs
+  @ffi.Float()
+  external double roll;
+
+  /// <  Attitude pitch expressed as Euler angles, not recommended except for human-readable outputs
+  @ffi.Float()
+  external double pitch;
+
+  /// <  Attitude yaw expressed as Euler angles, not recommended except for human-readable outputs
+  @ffi.Float()
+  external double yaw;
+
+  /// < [m/s/s] X acceleration
+  @ffi.Float()
+  external double xacc;
+
+  /// < [m/s/s] Y acceleration
+  @ffi.Float()
+  external double yacc;
+
+  /// < [m/s/s] Z acceleration
+  @ffi.Float()
+  external double zacc;
+
+  /// < [rad/s] Angular speed around X axis
+  @ffi.Float()
+  external double xgyro;
+
+  /// < [rad/s] Angular speed around Y axis
+  @ffi.Float()
+  external double ygyro;
+
+  /// < [rad/s] Angular speed around Z axis
+  @ffi.Float()
+  external double zgyro;
+
+  /// < [deg] Latitude
+  @ffi.Float()
+  external double lat;
+
+  /// < [deg] Longitude
+  @ffi.Float()
+  external double lon;
+
+  /// < [m] Altitude
+  @ffi.Float()
+  external double alt;
+
+  /// <  Horizontal position standard deviation
+  @ffi.Float()
+  external double std_dev_horz;
+
+  /// <  Vertical position standard deviation
+  @ffi.Float()
+  external double std_dev_vert;
+
+  /// < [m/s] True velocity in north direction in earth-fixed NED frame
+  @ffi.Float()
+  external double vn;
+
+  /// < [m/s] True velocity in east direction in earth-fixed NED frame
+  @ffi.Float()
+  external double ve;
+
+  /// < [m/s] True velocity in down direction in earth-fixed NED frame
+  @ffi.Float()
+  external double vd;
+
+  /// < [degE7] Latitude (higher precision). If 0, recipients should use the lat field value (otherwise this field is preferred).
+  @ffi.Int32()
+  external int lat_int;
+
+  /// < [degE7] Longitude (higher precision). If 0, recipients should use the lon field value (otherwise this field is preferred).
+  @ffi.Int32()
+  external int lon_int;
+}
+
+typedef mavlink_radio_status_t = __mavlink_radio_status_t;
+
+final class __mavlink_radio_status_t extends ffi.Struct {
+  /// <  Count of radio packet receive errors (since boot).
+  @ffi.Uint16()
+  external int rxerrors;
+
+  /// <  Count of error corrected radio packets (since boot).
+  @ffi.Uint16()
+  external int fixed;
+
+  /// <  Local (message sender) recieved signal strength indication in device-dependent units/scale. Values: [0-254], 255: invalid/unknown.
+  @ffi.Uint8()
+  external int rssi;
+
+  /// <  Remote (message receiver) signal strength indication in device-dependent units/scale. Values: [0-254], 255: invalid/unknown.
+  @ffi.Uint8()
+  external int remrssi;
+
+  /// < [%] Remaining free transmitter buffer space.
+  @ffi.Uint8()
+  external int txbuf;
+
+  /// <  Local background noise level. These are device dependent RSSI values (scale as approx 2x dB on SiK radios). Values: [0-254], 255: invalid/unknown.
+  @ffi.Uint8()
+  external int noise;
+
+  /// <  Remote background noise level. These are device dependent RSSI values (scale as approx 2x dB on SiK radios). Values: [0-254], 255: invalid/unknown.
+  @ffi.Uint8()
+  external int remnoise;
+}
+
+typedef mavlink_file_transfer_protocol_t = __mavlink_file_transfer_protocol_t;
+
+final class __mavlink_file_transfer_protocol_t extends ffi.Struct {
+  /// <  Network ID (0 for broadcast)
+  @ffi.Uint8()
+  external int target_network;
+
+  /// <  System ID (0 for broadcast)
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast)
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Variable length payload. The length is defined by the remaining message length when subtracting the header and other fields.  The entire content of this block is opaque unless you understand any the encoding message_type.  The particular encoding used can be extension specific and might not always be documented as part of the mavlink specification.
+  @ffi.Array.multi([251])
+  external ffi.Array<ffi.Uint8> payload;
+}
+
+typedef mavlink_timesync_t = __mavlink_timesync_t;
+
+final class __mavlink_timesync_t extends ffi.Struct {
+  /// <  Time sync timestamp 1
+  @ffi.Int64()
+  external int tc1;
+
+  /// <  Time sync timestamp 2
+  @ffi.Int64()
+  external int ts1;
+}
+
+typedef mavlink_camera_trigger_t = __mavlink_camera_trigger_t;
+
+final class __mavlink_camera_trigger_t extends ffi.Struct {
+  /// < [us] Timestamp for image frame (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Image frame sequence
+  @ffi.Uint32()
+  external int seq;
+}
+
+typedef mavlink_hil_gps_t = __mavlink_hil_gps_t;
+
+@ffi.Packed(1)
+final class __mavlink_hil_gps_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int time_usec;
+
+  @ffi.Int32()
+  external int lat;
+
+  @ffi.Int32()
+  external int lon;
+
+  @ffi.Int32()
+  external int alt;
+
+  @ffi.Uint16()
+  external int eph;
+
+  @ffi.Uint16()
+  external int epv;
+
+  @ffi.Uint16()
+  external int vel;
+
+  @ffi.Int16()
+  external int vn;
+
+  @ffi.Int16()
+  external int ve;
+
+  @ffi.Int16()
+  external int vd;
+
+  @ffi.Uint16()
+  external int cog;
+
+  @ffi.Uint8()
+  external int fix_type;
+
+  @ffi.Uint8()
+  external int satellites_visible;
+
+  @ffi.Uint8()
+  external int id;
+
+  @ffi.Uint16()
+  external int yaw;
+}
+
+typedef mavlink_hil_state_quaternion_t = __mavlink_hil_state_quaternion_t;
+
+final class __mavlink_hil_state_quaternion_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Vehicle attitude expressed as normalized quaternion in w, x, y, z order (with 1 0 0 0 being the null-rotation)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> attitude_quaternion;
+
+  /// < [rad/s] Body frame roll / phi angular speed
+  @ffi.Float()
+  external double rollspeed;
+
+  /// < [rad/s] Body frame pitch / theta angular speed
+  @ffi.Float()
+  external double pitchspeed;
+
+  /// < [rad/s] Body frame yaw / psi angular speed
+  @ffi.Float()
+  external double yawspeed;
+
+  /// < [degE7] Latitude
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude
+  @ffi.Int32()
+  external int lon;
+
+  /// < [mm] Altitude
+  @ffi.Int32()
+  external int alt;
+
+  /// < [cm/s] Ground X Speed (Latitude)
+  @ffi.Int16()
+  external int vx;
+
+  /// < [cm/s] Ground Y Speed (Longitude)
+  @ffi.Int16()
+  external int vy;
+
+  /// < [cm/s] Ground Z Speed (Altitude)
+  @ffi.Int16()
+  external int vz;
+
+  /// < [cm/s] Indicated airspeed
+  @ffi.Uint16()
+  external int ind_airspeed;
+
+  /// < [cm/s] True airspeed
+  @ffi.Uint16()
+  external int true_airspeed;
+
+  /// < [mG] X acceleration
+  @ffi.Int16()
+  external int xacc;
+
+  /// < [mG] Y acceleration
+  @ffi.Int16()
+  external int yacc;
+
+  /// < [mG] Z acceleration
+  @ffi.Int16()
+  external int zacc;
+}
+
+typedef mavlink_scaled_imu2_t = __mavlink_scaled_imu2_t;
+
+final class __mavlink_scaled_imu2_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [mG] X acceleration
+  @ffi.Int16()
+  external int xacc;
+
+  /// < [mG] Y acceleration
+  @ffi.Int16()
+  external int yacc;
+
+  /// < [mG] Z acceleration
+  @ffi.Int16()
+  external int zacc;
+
+  /// < [mrad/s] Angular speed around X axis
+  @ffi.Int16()
+  external int xgyro;
+
+  /// < [mrad/s] Angular speed around Y axis
+  @ffi.Int16()
+  external int ygyro;
+
+  /// < [mrad/s] Angular speed around Z axis
+  @ffi.Int16()
+  external int zgyro;
+
+  /// < [mgauss] X Magnetic field
+  @ffi.Int16()
+  external int xmag;
+
+  /// < [mgauss] Y Magnetic field
+  @ffi.Int16()
+  external int ymag;
+
+  /// < [mgauss] Z Magnetic field
+  @ffi.Int16()
+  external int zmag;
+
+  /// < [cdegC] Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
+  @ffi.Int16()
+  external int temperature;
+}
+
+typedef mavlink_log_request_list_t = __mavlink_log_request_list_t;
+
+final class __mavlink_log_request_list_t extends ffi.Struct {
+  /// <  First log id (0 for first available)
+  @ffi.Uint16()
+  external int start;
+
+  /// <  Last log id (0xffff for last available)
+  @ffi.Uint16()
+  external int end;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_log_entry_t = __mavlink_log_entry_t;
+
+final class __mavlink_log_entry_t extends ffi.Struct {
+  /// < [s] UTC timestamp of log since 1970, or 0 if not available
+  @ffi.Uint32()
+  external int time_utc;
+
+  /// < [bytes] Size of the log (may be approximate)
+  @ffi.Uint32()
+  external int size;
+
+  /// <  Log id
+  @ffi.Uint16()
+  external int id;
+
+  /// <  Total number of logs
+  @ffi.Uint16()
+  external int num_logs;
+
+  /// <  High log number
+  @ffi.Uint16()
+  external int last_log_num;
+}
+
+typedef mavlink_log_request_data_t = __mavlink_log_request_data_t;
+
+final class __mavlink_log_request_data_t extends ffi.Struct {
+  /// <  Offset into the log
+  @ffi.Uint32()
+  external int ofs;
+
+  /// < [bytes] Number of bytes
+  @ffi.Uint32()
+  external int count;
+
+  /// <  Log id (from LOG_ENTRY reply)
+  @ffi.Uint16()
+  external int id;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_log_data_t = __mavlink_log_data_t;
+
+final class __mavlink_log_data_t extends ffi.Struct {
+  /// <  Offset into the log
+  @ffi.Uint32()
+  external int ofs;
+
+  /// <  Log id (from LOG_ENTRY reply)
+  @ffi.Uint16()
+  external int id;
+
+  /// < [bytes] Number of bytes (zero for end of log)
+  @ffi.Uint8()
+  external int count;
+
+  /// <  log data
+  @ffi.Array.multi([90])
+  external ffi.Array<ffi.Uint8> data;
+}
+
+typedef mavlink_log_erase_t = __mavlink_log_erase_t;
+
+final class __mavlink_log_erase_t extends ffi.Struct {
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_log_request_end_t = __mavlink_log_request_end_t;
+
+final class __mavlink_log_request_end_t extends ffi.Struct {
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_gps2_raw_t = __mavlink_gps2_raw_t;
+
+@ffi.Packed(1)
+final class __mavlink_gps2_raw_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int time_usec;
+
+  @ffi.Int32()
+  external int lat;
+
+  @ffi.Int32()
+  external int lon;
+
+  @ffi.Int32()
+  external int alt;
+
+  @ffi.Uint32()
+  external int dgps_age;
+
+  @ffi.Uint16()
+  external int eph;
+
+  @ffi.Uint16()
+  external int epv;
+
+  @ffi.Uint16()
+  external int vel;
+
+  @ffi.Uint16()
+  external int cog;
+
+  @ffi.Uint8()
+  external int fix_type;
+
+  @ffi.Uint8()
+  external int satellites_visible;
+
+  @ffi.Uint8()
+  external int dgps_numch;
+
+  @ffi.Uint16()
+  external int yaw;
+
+  @ffi.Int32()
+  external int alt_ellipsoid;
+
+  @ffi.Uint32()
+  external int h_acc;
+
+  @ffi.Uint32()
+  external int v_acc;
+
+  @ffi.Uint32()
+  external int vel_acc;
+
+  @ffi.Uint32()
+  external int hdg_acc;
+}
+
+typedef mavlink_power_status_t = __mavlink_power_status_t;
+
+final class __mavlink_power_status_t extends ffi.Struct {
+  /// < [mV] 5V rail voltage.
+  @ffi.Uint16()
+  external int Vcc;
+
+  /// < [mV] Servo rail voltage.
+  @ffi.Uint16()
+  external int Vservo;
+
+  /// <  Bitmap of power supply status flags.
+  @ffi.Uint16()
+  external int flags;
+}
+
+typedef mavlink_serial_control_t = __mavlink_serial_control_t;
+
+final class __mavlink_serial_control_t extends ffi.Struct {
+  /// < [bits/s] Baudrate of transfer. Zero means no change.
+  @ffi.Uint32()
+  external int baudrate;
+
+  /// < [ms] Timeout for reply data
+  @ffi.Uint16()
+  external int timeout;
+
+  /// <  Serial control device type.
+  @ffi.Uint8()
+  external int device;
+
+  /// <  Bitmap of serial control flags.
+  @ffi.Uint8()
+  external int flags;
+
+  /// < [bytes] how many bytes in this transfer
+  @ffi.Uint8()
+  external int count;
+
+  /// <  serial data
+  @ffi.Array.multi([70])
+  external ffi.Array<ffi.Uint8> data;
+}
+
+typedef mavlink_gps_rtk_t = __mavlink_gps_rtk_t;
+
+final class __mavlink_gps_rtk_t extends ffi.Struct {
+  /// < [ms] Time since boot of last baseline message received.
+  @ffi.Uint32()
+  external int time_last_baseline_ms;
+
+  /// < [ms] GPS Time of Week of last baseline
+  @ffi.Uint32()
+  external int tow;
+
+  /// < [mm] Current baseline in ECEF x or NED north component.
+  @ffi.Int32()
+  external int baseline_a_mm;
+
+  /// < [mm] Current baseline in ECEF y or NED east component.
+  @ffi.Int32()
+  external int baseline_b_mm;
+
+  /// < [mm] Current baseline in ECEF z or NED down component.
+  @ffi.Int32()
+  external int baseline_c_mm;
+
+  /// <  Current estimate of baseline accuracy.
+  @ffi.Uint32()
+  external int accuracy;
+
+  /// <  Current number of integer ambiguity hypotheses.
+  @ffi.Int32()
+  external int iar_num_hypotheses;
+
+  /// <  GPS Week Number of last baseline
+  @ffi.Uint16()
+  external int wn;
+
+  /// <  Identification of connected RTK receiver.
+  @ffi.Uint8()
+  external int rtk_receiver_id;
+
+  /// <  GPS-specific health report for RTK data.
+  @ffi.Uint8()
+  external int rtk_health;
+
+  /// < [Hz] Rate of baseline messages being received by GPS
+  @ffi.Uint8()
+  external int rtk_rate;
+
+  /// <  Current number of sats used for RTK calculation.
+  @ffi.Uint8()
+  external int nsats;
+
+  /// <  Coordinate system of baseline
+  @ffi.Uint8()
+  external int baseline_coords_type;
+}
+
+typedef mavlink_gps2_rtk_t = __mavlink_gps2_rtk_t;
+
+final class __mavlink_gps2_rtk_t extends ffi.Struct {
+  /// < [ms] Time since boot of last baseline message received.
+  @ffi.Uint32()
+  external int time_last_baseline_ms;
+
+  /// < [ms] GPS Time of Week of last baseline
+  @ffi.Uint32()
+  external int tow;
+
+  /// < [mm] Current baseline in ECEF x or NED north component.
+  @ffi.Int32()
+  external int baseline_a_mm;
+
+  /// < [mm] Current baseline in ECEF y or NED east component.
+  @ffi.Int32()
+  external int baseline_b_mm;
+
+  /// < [mm] Current baseline in ECEF z or NED down component.
+  @ffi.Int32()
+  external int baseline_c_mm;
+
+  /// <  Current estimate of baseline accuracy.
+  @ffi.Uint32()
+  external int accuracy;
+
+  /// <  Current number of integer ambiguity hypotheses.
+  @ffi.Int32()
+  external int iar_num_hypotheses;
+
+  /// <  GPS Week Number of last baseline
+  @ffi.Uint16()
+  external int wn;
+
+  /// <  Identification of connected RTK receiver.
+  @ffi.Uint8()
+  external int rtk_receiver_id;
+
+  /// <  GPS-specific health report for RTK data.
+  @ffi.Uint8()
+  external int rtk_health;
+
+  /// < [Hz] Rate of baseline messages being received by GPS
+  @ffi.Uint8()
+  external int rtk_rate;
+
+  /// <  Current number of sats used for RTK calculation.
+  @ffi.Uint8()
+  external int nsats;
+
+  /// <  Coordinate system of baseline
+  @ffi.Uint8()
+  external int baseline_coords_type;
+}
+
+typedef mavlink_scaled_imu3_t = __mavlink_scaled_imu3_t;
+
+final class __mavlink_scaled_imu3_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [mG] X acceleration
+  @ffi.Int16()
+  external int xacc;
+
+  /// < [mG] Y acceleration
+  @ffi.Int16()
+  external int yacc;
+
+  /// < [mG] Z acceleration
+  @ffi.Int16()
+  external int zacc;
+
+  /// < [mrad/s] Angular speed around X axis
+  @ffi.Int16()
+  external int xgyro;
+
+  /// < [mrad/s] Angular speed around Y axis
+  @ffi.Int16()
+  external int ygyro;
+
+  /// < [mrad/s] Angular speed around Z axis
+  @ffi.Int16()
+  external int zgyro;
+
+  /// < [mgauss] X Magnetic field
+  @ffi.Int16()
+  external int xmag;
+
+  /// < [mgauss] Y Magnetic field
+  @ffi.Int16()
+  external int ymag;
+
+  /// < [mgauss] Z Magnetic field
+  @ffi.Int16()
+  external int zmag;
+
+  /// < [cdegC] Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
+  @ffi.Int16()
+  external int temperature;
+}
+
+typedef mavlink_data_transmission_handshake_t
+    = __mavlink_data_transmission_handshake_t;
+
+final class __mavlink_data_transmission_handshake_t extends ffi.Struct {
+  /// < [bytes] total data size (set on ACK only).
+  @ffi.Uint32()
+  external int size;
+
+  /// <  Width of a matrix or image.
+  @ffi.Uint16()
+  external int width;
+
+  /// <  Height of a matrix or image.
+  @ffi.Uint16()
+  external int height;
+
+  /// <  Number of packets being sent (set on ACK only).
+  @ffi.Uint16()
+  external int packets;
+
+  /// <  Type of requested/acknowledged data.
+  @ffi.Uint8()
+  external int type;
+
+  /// < [bytes] Payload size per packet (normally 253 byte, see DATA field size in message ENCAPSULATED_DATA) (set on ACK only).
+  @ffi.Uint8()
+  external int payload;
+
+  /// < [%] JPEG quality. Values: [1-100].
+  @ffi.Uint8()
+  external int jpg_quality;
+}
+
+typedef mavlink_encapsulated_data_t = __mavlink_encapsulated_data_t;
+
+final class __mavlink_encapsulated_data_t extends ffi.Struct {
+  /// <  sequence number (starting with 0 on every transmission)
+  @ffi.Uint16()
+  external int seqnr;
+
+  /// <  image data bytes
+  @ffi.Array.multi([253])
+  external ffi.Array<ffi.Uint8> data;
+}
+
+typedef mavlink_distance_sensor_t = __mavlink_distance_sensor_t;
+
+@ffi.Packed(1)
+final class __mavlink_distance_sensor_t extends ffi.Struct {
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  @ffi.Uint16()
+  external int min_distance;
+
+  @ffi.Uint16()
+  external int max_distance;
+
+  @ffi.Uint16()
+  external int current_distance;
+
+  @ffi.Uint8()
+  external int type;
+
+  @ffi.Uint8()
+  external int id;
+
+  @ffi.Uint8()
+  external int orientation;
+
+  @ffi.Uint8()
+  external int covariance;
+
+  @ffi.Float()
+  external double horizontal_fov;
+
+  @ffi.Float()
+  external double vertical_fov;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> quaternion;
+
+  @ffi.Uint8()
+  external int signal_quality;
+}
+
+typedef mavlink_terrain_request_t = __mavlink_terrain_request_t;
+
+final class __mavlink_terrain_request_t extends ffi.Struct {
+  /// <  Bitmask of requested 4x4 grids (row major 8x7 array of grids, 56 bits)
+  @ffi.Uint64()
+  external int mask;
+
+  /// < [degE7] Latitude of SW corner of first grid
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude of SW corner of first grid
+  @ffi.Int32()
+  external int lon;
+
+  /// < [m] Grid spacing
+  @ffi.Uint16()
+  external int grid_spacing;
+}
+
+typedef mavlink_terrain_data_t = __mavlink_terrain_data_t;
+
+final class __mavlink_terrain_data_t extends ffi.Struct {
+  /// < [degE7] Latitude of SW corner of first grid
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude of SW corner of first grid
+  @ffi.Int32()
+  external int lon;
+
+  /// < [m] Grid spacing
+  @ffi.Uint16()
+  external int grid_spacing;
+
+  /// < [m] Terrain data MSL
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Int16> data;
+
+  /// <  bit within the terrain request mask
+  @ffi.Uint8()
+  external int gridbit;
+}
+
+typedef mavlink_terrain_check_t = __mavlink_terrain_check_t;
+
+final class __mavlink_terrain_check_t extends ffi.Struct {
+  /// < [degE7] Latitude
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude
+  @ffi.Int32()
+  external int lon;
+}
+
+typedef mavlink_terrain_report_t = __mavlink_terrain_report_t;
+
+final class __mavlink_terrain_report_t extends ffi.Struct {
+  /// < [degE7] Latitude
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude
+  @ffi.Int32()
+  external int lon;
+
+  /// < [m] Terrain height MSL
+  @ffi.Float()
+  external double terrain_height;
+
+  /// < [m] Current vehicle height above lat/lon terrain height
+  @ffi.Float()
+  external double current_height;
+
+  /// <  grid spacing (zero if terrain at this location unavailable)
+  @ffi.Uint16()
+  external int spacing;
+
+  /// <  Number of 4x4 terrain blocks waiting to be received or read from disk
+  @ffi.Uint16()
+  external int pending;
+
+  /// <  Number of 4x4 terrain blocks in memory
+  @ffi.Uint16()
+  external int loaded;
+}
+
+typedef mavlink_scaled_pressure2_t = __mavlink_scaled_pressure2_t;
+
+final class __mavlink_scaled_pressure2_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [hPa] Absolute pressure
+  @ffi.Float()
+  external double press_abs;
+
+  /// < [hPa] Differential pressure
+  @ffi.Float()
+  external double press_diff;
+
+  /// < [cdegC] Absolute pressure temperature
+  @ffi.Int16()
+  external int temperature;
+
+  /// < [cdegC] Differential pressure temperature (0, if not available). Report values of 0 (or 1) as 1 cdegC.
+  @ffi.Int16()
+  external int temperature_press_diff;
+}
+
+typedef mavlink_att_pos_mocap_t = __mavlink_att_pos_mocap_t;
+
+final class __mavlink_att_pos_mocap_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [m] X position (NED)
+  @ffi.Float()
+  external double x;
+
+  /// < [m] Y position (NED)
+  @ffi.Float()
+  external double y;
+
+  /// < [m] Z position (NED)
+  @ffi.Float()
+  external double z;
+
+  /// <  Row-major representation of a pose 6x6 cross-covariance matrix upper right triangle (states: x, y, z, roll, pitch, yaw; first six entries are the first ROW, next five entries are the second ROW, etc.). If unknown, assign NaN value to first element in the array.
+  @ffi.Array.multi([21])
+  external ffi.Array<ffi.Float> covariance;
+}
+
+typedef mavlink_set_actuator_control_target_t
+    = __mavlink_set_actuator_control_target_t;
+
+final class __mavlink_set_actuator_control_target_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Actuator controls. Normed to -1..+1 where 0 is neutral position. Throttle for single rotation direction motors is 0..1, negative range for reverse direction. Standard mapping for attitude controls (group 0): (index 0-7): roll, pitch, yaw, throttle, flaps, spoilers, airbrakes, landing gear. Load a pass-through mixer to repurpose them as generic outputs.
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Float> controls;
+
+  /// <  Actuator group. The "_mlx" indicates this is a multi-instance message and a MAVLink parser should use this field to difference between instances.
+  @ffi.Uint8()
+  external int group_mlx;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_actuator_control_target_t = __mavlink_actuator_control_target_t;
+
+final class __mavlink_actuator_control_target_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Actuator controls. Normed to -1..+1 where 0 is neutral position. Throttle for single rotation direction motors is 0..1, negative range for reverse direction. Standard mapping for attitude controls (group 0): (index 0-7): roll, pitch, yaw, throttle, flaps, spoilers, airbrakes, landing gear. Load a pass-through mixer to repurpose them as generic outputs.
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Float> controls;
+
+  /// <  Actuator group. The "_mlx" indicates this is a multi-instance message and a MAVLink parser should use this field to difference between instances.
+  @ffi.Uint8()
+  external int group_mlx;
+}
+
+typedef mavlink_altitude_t = __mavlink_altitude_t;
+
+final class __mavlink_altitude_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [m] This altitude measure is initialized on system boot and monotonic (it is never reset, but represents the local altitude change). The only guarantee on this field is that it will never be reset and is consistent within a flight. The recommended value for this field is the uncorrected barometric altitude at boot time. This altitude will also drift and vary between flights.
+  @ffi.Float()
+  external double altitude_monotonic;
+
+  /// < [m] This altitude measure is strictly above mean sea level and might be non-monotonic (it might reset on events like GPS lock or when a new QNH value is set). It should be the altitude to which global altitude waypoints are compared to. Note that it is *not* the GPS altitude, however, most GPS modules already output MSL by default and not the WGS84 altitude.
+  @ffi.Float()
+  external double altitude_amsl;
+
+  /// < [m] This is the local altitude in the local coordinate frame. It is not the altitude above home, but in reference to the coordinate origin (0, 0, 0). It is up-positive.
+  @ffi.Float()
+  external double altitude_local;
+
+  /// < [m] This is the altitude above the home position. It resets on each change of the current home position.
+  @ffi.Float()
+  external double altitude_relative;
+
+  /// < [m] This is the altitude above terrain. It might be fed by a terrain database or an altimeter. Values smaller than -1000 should be interpreted as unknown.
+  @ffi.Float()
+  external double altitude_terrain;
+
+  /// < [m] This is not the altitude, but the clear space below the system according to the fused clearance estimate. It generally should max out at the maximum range of e.g. the laser altimeter. It is generally a moving target. A negative value indicates no measurement available.
+  @ffi.Float()
+  external double bottom_clearance;
+}
+
+typedef mavlink_resource_request_t = __mavlink_resource_request_t;
+
+final class __mavlink_resource_request_t extends ffi.Struct {
+  /// <  Request ID. This ID should be re-used when sending back URI contents
+  @ffi.Uint8()
+  external int request_id;
+
+  /// <  The type of requested URI. 0 = a file via URL. 1 = a UAVCAN binary
+  @ffi.Uint8()
+  external int uri_type;
+
+  /// <  The requested unique resource identifier (URI). It is not necessarily a straight domain name (depends on the URI type enum)
+  @ffi.Array.multi([120])
+  external ffi.Array<ffi.Uint8> uri;
+
+  /// <  The way the autopilot wants to receive the URI. 0 = MAVLink FTP. 1 = binary stream.
+  @ffi.Uint8()
+  external int transfer_type;
+
+  /// <  The storage path the autopilot wants the URI to be stored in. Will only be valid if the transfer_type has a storage associated (e.g. MAVLink FTP).
+  @ffi.Array.multi([120])
+  external ffi.Array<ffi.Uint8> storage;
+}
+
+typedef mavlink_scaled_pressure3_t = __mavlink_scaled_pressure3_t;
+
+final class __mavlink_scaled_pressure3_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [hPa] Absolute pressure
+  @ffi.Float()
+  external double press_abs;
+
+  /// < [hPa] Differential pressure
+  @ffi.Float()
+  external double press_diff;
+
+  /// < [cdegC] Absolute pressure temperature
+  @ffi.Int16()
+  external int temperature;
+
+  /// < [cdegC] Differential pressure temperature (0, if not available). Report values of 0 (or 1) as 1 cdegC.
+  @ffi.Int16()
+  external int temperature_press_diff;
+}
+
+typedef mavlink_follow_target_t = __mavlink_follow_target_t;
+
+final class __mavlink_follow_target_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint64()
+  external int timestamp;
+
+  /// <  button states or switches of a tracker device
+  @ffi.Uint64()
+  external int custom_state;
+
+  /// < [degE7] Latitude (WGS84)
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude (WGS84)
+  @ffi.Int32()
+  external int lon;
+
+  /// < [m] Altitude (MSL)
+  @ffi.Float()
+  external double alt;
+
+  /// < [m/s] target velocity (0,0,0) for unknown
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Float> vel;
+
+  /// < [m/s/s] linear target acceleration (0,0,0) for unknown
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Float> acc;
+
+  /// <  (1 0 0 0 for unknown)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> attitude_q;
+
+  /// <  (0 0 0 for unknown)
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Float> rates;
+
+  /// <  eph epv
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Float> position_cov;
+
+  /// <  bit positions for tracker reporting capabilities (POS = 0, VEL = 1, ACCEL = 2, ATT + RATES = 3)
+  @ffi.Uint8()
+  external int est_capabilities;
+}
+
+typedef mavlink_control_system_state_t = __mavlink_control_system_state_t;
+
+final class __mavlink_control_system_state_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [m/s/s] X acceleration in body frame
+  @ffi.Float()
+  external double x_acc;
+
+  /// < [m/s/s] Y acceleration in body frame
+  @ffi.Float()
+  external double y_acc;
+
+  /// < [m/s/s] Z acceleration in body frame
+  @ffi.Float()
+  external double z_acc;
+
+  /// < [m/s] X velocity in body frame
+  @ffi.Float()
+  external double x_vel;
+
+  /// < [m/s] Y velocity in body frame
+  @ffi.Float()
+  external double y_vel;
+
+  /// < [m/s] Z velocity in body frame
+  @ffi.Float()
+  external double z_vel;
+
+  /// < [m] X position in local frame
+  @ffi.Float()
+  external double x_pos;
+
+  /// < [m] Y position in local frame
+  @ffi.Float()
+  external double y_pos;
+
+  /// < [m] Z position in local frame
+  @ffi.Float()
+  external double z_pos;
+
+  /// < [m/s] Airspeed, set to -1 if unknown
+  @ffi.Float()
+  external double airspeed;
+
+  /// <  Variance of body velocity estimate
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Float> vel_variance;
+
+  /// <  Variance in local position
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Float> pos_variance;
+
+  /// <  The attitude, represented as Quaternion
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [rad/s] Angular rate in roll axis
+  @ffi.Float()
+  external double roll_rate;
+
+  /// < [rad/s] Angular rate in pitch axis
+  @ffi.Float()
+  external double pitch_rate;
+
+  /// < [rad/s] Angular rate in yaw axis
+  @ffi.Float()
+  external double yaw_rate;
+}
+
+typedef mavlink_battery_status_t = __mavlink_battery_status_t;
+
+@ffi.Packed(1)
+final class __mavlink_battery_status_t extends ffi.Struct {
+  @ffi.Int32()
+  external int current_consumed;
+
+  @ffi.Int32()
+  external int energy_consumed;
+
+  @ffi.Int16()
+  external int temperature;
+
+  @ffi.Array.multi([10])
+  external ffi.Array<ffi.Uint16> voltages;
+
+  @ffi.Int16()
+  external int current_battery;
+
+  @ffi.Uint8()
+  external int id;
+
+  @ffi.Uint8()
+  external int battery_function;
+
+  @ffi.Uint8()
+  external int type;
+
+  @ffi.Int8()
+  external int battery_remaining;
+
+  @ffi.Int32()
+  external int time_remaining;
+
+  @ffi.Uint8()
+  external int charge_state;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Uint16> voltages_ext;
+
+  @ffi.Uint8()
+  external int mode;
+
+  @ffi.Uint32()
+  external int fault_bitmask;
+}
+
+typedef mavlink_autopilot_version_t = __mavlink_autopilot_version_t;
+
+final class __mavlink_autopilot_version_t extends ffi.Struct {
+  /// <  Bitmap of capabilities
+  @ffi.Uint64()
+  external int capabilities;
+
+  /// <  UID if provided by hardware (see uid2)
+  @ffi.Uint64()
+  external int uid;
+
+  /// <  Firmware version number
+  @ffi.Uint32()
+  external int flight_sw_version;
+
+  /// <  Middleware version number
+  @ffi.Uint32()
+  external int middleware_sw_version;
+
+  /// <  Operating system version number
+  @ffi.Uint32()
+  external int os_sw_version;
+
+  /// <  HW / board version (last 8 bits should be silicon ID, if any). The first 16 bits of this field specify https://github.com/ardupilot/ardupilot/blob/master/Tools/AP_Bootloader/board_types.txt
+  @ffi.Uint32()
+  external int board_version;
+
+  /// <  ID of the board vendor
+  @ffi.Uint16()
+  external int vendor_id;
+
+  /// <  ID of the product
+  @ffi.Uint16()
+  external int product_id;
+
+  /// <  Custom version field, commonly the first 8 bytes of the git hash. This is not an unique identifier, but should allow to identify the commit using the main version number even for very large code bases.
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Uint8> flight_custom_version;
+
+  /// <  Custom version field, commonly the first 8 bytes of the git hash. This is not an unique identifier, but should allow to identify the commit using the main version number even for very large code bases.
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Uint8> middleware_custom_version;
+
+  /// <  Custom version field, commonly the first 8 bytes of the git hash. This is not an unique identifier, but should allow to identify the commit using the main version number even for very large code bases.
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Uint8> os_custom_version;
+
+  /// <  UID if provided by hardware (supersedes the uid field. If this is non-zero, use this field, otherwise use uid)
+  @ffi.Array.multi([18])
+  external ffi.Array<ffi.Uint8> uid2;
+}
+
+typedef mavlink_landing_target_t = __mavlink_landing_target_t;
+
+@ffi.Packed(1)
+final class __mavlink_landing_target_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int time_usec;
+
+  @ffi.Float()
+  external double angle_x;
+
+  @ffi.Float()
+  external double angle_y;
+
+  @ffi.Float()
+  external double distance;
+
+  @ffi.Float()
+  external double size_x;
+
+  @ffi.Float()
+  external double size_y;
+
+  @ffi.Uint8()
+  external int target_num;
+
+  @ffi.Uint8()
+  external int frame;
+
+  @ffi.Float()
+  external double x;
+
+  @ffi.Float()
+  external double y;
+
+  @ffi.Float()
+  external double z;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  @ffi.Uint8()
+  external int type;
+
+  @ffi.Uint8()
+  external int position_valid;
+}
+
+typedef mavlink_fence_status_t = __mavlink_fence_status_t;
+
+final class __mavlink_fence_status_t extends ffi.Struct {
+  /// < [ms] Time (since boot) of last breach.
+  @ffi.Uint32()
+  external int breach_time;
+
+  /// <  Number of fence breaches.
+  @ffi.Uint16()
+  external int breach_count;
+
+  /// <  Breach status (0 if currently inside fence, 1 if outside).
+  @ffi.Uint8()
+  external int breach_status;
+
+  /// <  Last breach type.
+  @ffi.Uint8()
+  external int breach_type;
+
+  /// <  Active action to prevent fence breach
+  @ffi.Uint8()
+  external int breach_mitigation;
+}
+
+typedef mavlink_mag_cal_report_t = __mavlink_mag_cal_report_t;
+
+@ffi.Packed(1)
+final class __mavlink_mag_cal_report_t extends ffi.Struct {
+  @ffi.Float()
+  external double fitness;
+
+  @ffi.Float()
+  external double ofs_x;
+
+  @ffi.Float()
+  external double ofs_y;
+
+  @ffi.Float()
+  external double ofs_z;
+
+  @ffi.Float()
+  external double diag_x;
+
+  @ffi.Float()
+  external double diag_y;
+
+  @ffi.Float()
+  external double diag_z;
+
+  @ffi.Float()
+  external double offdiag_x;
+
+  @ffi.Float()
+  external double offdiag_y;
+
+  @ffi.Float()
+  external double offdiag_z;
+
+  @ffi.Uint8()
+  external int compass_id;
+
+  @ffi.Uint8()
+  external int cal_mask;
+
+  @ffi.Uint8()
+  external int cal_status;
+
+  @ffi.Uint8()
+  external int autosaved;
+
+  @ffi.Float()
+  external double orientation_confidence;
+
+  @ffi.Uint8()
+  external int old_orientation;
+
+  @ffi.Uint8()
+  external int new_orientation;
+
+  @ffi.Float()
+  external double scale_factor;
+}
+
+typedef mavlink_efi_status_t = __mavlink_efi_status_t;
+
+@ffi.Packed(1)
+final class __mavlink_efi_status_t extends ffi.Struct {
+  @ffi.Float()
+  external double ecu_index;
+
+  @ffi.Float()
+  external double rpm;
+
+  @ffi.Float()
+  external double fuel_consumed;
+
+  @ffi.Float()
+  external double fuel_flow;
+
+  @ffi.Float()
+  external double engine_load;
+
+  @ffi.Float()
+  external double throttle_position;
+
+  @ffi.Float()
+  external double spark_dwell_time;
+
+  @ffi.Float()
+  external double barometric_pressure;
+
+  @ffi.Float()
+  external double intake_manifold_pressure;
+
+  @ffi.Float()
+  external double intake_manifold_temperature;
+
+  @ffi.Float()
+  external double cylinder_head_temperature;
+
+  @ffi.Float()
+  external double ignition_timing;
+
+  @ffi.Float()
+  external double injection_time;
+
+  @ffi.Float()
+  external double exhaust_gas_temperature;
+
+  @ffi.Float()
+  external double throttle_out;
+
+  @ffi.Float()
+  external double pt_compensation;
+
+  @ffi.Uint8()
+  external int health;
+
+  @ffi.Float()
+  external double ignition_voltage;
+
+  @ffi.Float()
+  external double fuel_pressure;
+}
+
+typedef mavlink_estimator_status_t = __mavlink_estimator_status_t;
+
+final class __mavlink_estimator_status_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Velocity innovation test ratio
+  @ffi.Float()
+  external double vel_ratio;
+
+  /// <  Horizontal position innovation test ratio
+  @ffi.Float()
+  external double pos_horiz_ratio;
+
+  /// <  Vertical position innovation test ratio
+  @ffi.Float()
+  external double pos_vert_ratio;
+
+  /// <  Magnetometer innovation test ratio
+  @ffi.Float()
+  external double mag_ratio;
+
+  /// <  Height above terrain innovation test ratio
+  @ffi.Float()
+  external double hagl_ratio;
+
+  /// <  True airspeed innovation test ratio
+  @ffi.Float()
+  external double tas_ratio;
+
+  /// < [m] Horizontal position 1-STD accuracy relative to the EKF local origin
+  @ffi.Float()
+  external double pos_horiz_accuracy;
+
+  /// < [m] Vertical position 1-STD accuracy relative to the EKF local origin
+  @ffi.Float()
+  external double pos_vert_accuracy;
+
+  /// <  Bitmap indicating which EKF outputs are valid.
+  @ffi.Uint16()
+  external int flags;
+}
+
+typedef mavlink_wind_cov_t = __mavlink_wind_cov_t;
+
+final class __mavlink_wind_cov_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [m/s] Wind in X (NED) direction
+  @ffi.Float()
+  external double wind_x;
+
+  /// < [m/s] Wind in Y (NED) direction
+  @ffi.Float()
+  external double wind_y;
+
+  /// < [m/s] Wind in Z (NED) direction
+  @ffi.Float()
+  external double wind_z;
+
+  /// < [m/s] Variability of the wind in XY. RMS of a 1 Hz lowpassed wind estimate.
+  @ffi.Float()
+  external double var_horiz;
+
+  /// < [m/s] Variability of the wind in Z. RMS of a 1 Hz lowpassed wind estimate.
+  @ffi.Float()
+  external double var_vert;
+
+  /// < [m] Altitude (MSL) that this measurement was taken at
+  @ffi.Float()
+  external double wind_alt;
+
+  /// < [m] Horizontal speed 1-STD accuracy
+  @ffi.Float()
+  external double horiz_accuracy;
+
+  /// < [m] Vertical speed 1-STD accuracy
+  @ffi.Float()
+  external double vert_accuracy;
+}
+
+typedef mavlink_gps_input_t = __mavlink_gps_input_t;
+
+@ffi.Packed(1)
+final class __mavlink_gps_input_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int time_usec;
+
+  @ffi.Uint32()
+  external int time_week_ms;
+
+  @ffi.Int32()
+  external int lat;
+
+  @ffi.Int32()
+  external int lon;
+
+  @ffi.Float()
+  external double alt;
+
+  @ffi.Float()
+  external double hdop;
+
+  @ffi.Float()
+  external double vdop;
+
+  @ffi.Float()
+  external double vn;
+
+  @ffi.Float()
+  external double ve;
+
+  @ffi.Float()
+  external double vd;
+
+  @ffi.Float()
+  external double speed_accuracy;
+
+  @ffi.Float()
+  external double horiz_accuracy;
+
+  @ffi.Float()
+  external double vert_accuracy;
+
+  @ffi.Uint16()
+  external int ignore_flags;
+
+  @ffi.Uint16()
+  external int time_week;
+
+  @ffi.Uint8()
+  external int gps_id;
+
+  @ffi.Uint8()
+  external int fix_type;
+
+  @ffi.Uint8()
+  external int satellites_visible;
+
+  @ffi.Uint16()
+  external int yaw;
+}
+
+typedef mavlink_gps_rtcm_data_t = __mavlink_gps_rtcm_data_t;
+
+final class __mavlink_gps_rtcm_data_t extends ffi.Struct {
+  /// <  LSB: 1 means message is fragmented, next 2 bits are the fragment ID, the remaining 5 bits are used for the sequence ID. Messages are only to be flushed to the GPS when the entire message has been reconstructed on the autopilot. The fragment ID specifies which order the fragments should be assembled into a buffer, while the sequence ID is used to detect a mismatch between different buffers. The buffer is considered fully reconstructed when either all 4 fragments are present, or all the fragments before the first fragment with a non full payload is received. This management is used to ensure that normal GPS operation doesn't corrupt RTCM data, and to recover from a unreliable transport delivery order.
+  @ffi.Uint8()
+  external int flags;
+
+  /// < [bytes] data length
+  @ffi.Uint8()
+  external int len;
+
+  /// <  RTCM message (may be fragmented)
+  @ffi.Array.multi([180])
+  external ffi.Array<ffi.Uint8> data;
+}
+
+typedef mavlink_high_latency2_t = __mavlink_high_latency2_t;
+
+final class __mavlink_high_latency2_t extends ffi.Struct {
+  /// < [ms] Timestamp (milliseconds since boot or Unix epoch)
+  @ffi.Uint32()
+  external int timestamp;
+
+  /// < [degE7] Latitude
+  @ffi.Int32()
+  external int latitude;
+
+  /// < [degE7] Longitude
+  @ffi.Int32()
+  external int longitude;
+
+  /// <  A bitfield for use for autopilot-specific flags (2 byte version).
+  @ffi.Uint16()
+  external int custom_mode;
+
+  /// < [m] Altitude above mean sea level
+  @ffi.Int16()
+  external int altitude;
+
+  /// < [m] Altitude setpoint
+  @ffi.Int16()
+  external int target_altitude;
+
+  /// < [dam] Distance to target waypoint or position
+  @ffi.Uint16()
+  external int target_distance;
+
+  /// <  Current waypoint number
+  @ffi.Uint16()
+  external int wp_num;
+
+  /// <  Bitmap of failure flags.
+  @ffi.Uint16()
+  external int failure_flags;
+
+  /// <  Type of the MAV (quadrotor, helicopter, etc.)
+  @ffi.Uint8()
+  external int type;
+
+  /// <  Autopilot type / class. Use MAV_AUTOPILOT_INVALID for components that are not flight controllers.
+  @ffi.Uint8()
+  external int autopilot;
+
+  /// < [deg/2] Heading
+  @ffi.Uint8()
+  external int heading;
+
+  /// < [deg/2] Heading setpoint
+  @ffi.Uint8()
+  external int target_heading;
+
+  /// < [%] Throttle
+  @ffi.Uint8()
+  external int throttle;
+
+  /// < [m/s*5] Airspeed
+  @ffi.Uint8()
+  external int airspeed;
+
+  /// < [m/s*5] Airspeed setpoint
+  @ffi.Uint8()
+  external int airspeed_sp;
+
+  /// < [m/s*5] Groundspeed
+  @ffi.Uint8()
+  external int groundspeed;
+
+  /// < [m/s*5] Windspeed
+  @ffi.Uint8()
+  external int windspeed;
+
+  /// < [deg/2] Wind heading
+  @ffi.Uint8()
+  external int wind_heading;
+
+  /// < [dm] Maximum error horizontal position since last message
+  @ffi.Uint8()
+  external int eph;
+
+  /// < [dm] Maximum error vertical position since last message
+  @ffi.Uint8()
+  external int epv;
+
+  /// < [degC] Air temperature from airspeed sensor
+  @ffi.Int8()
+  external int temperature_air;
+
+  /// < [dm/s] Maximum climb rate magnitude since last message
+  @ffi.Int8()
+  external int climb_rate;
+
+  /// < [%] Battery level (-1 if field not provided).
+  @ffi.Int8()
+  external int battery;
+
+  /// <  Field for custom payload.
+  @ffi.Int8()
+  external int custom0;
+
+  /// <  Field for custom payload.
+  @ffi.Int8()
+  external int custom1;
+
+  /// <  Field for custom payload.
+  @ffi.Int8()
+  external int custom2;
+}
+
+typedef mavlink_vibration_t = __mavlink_vibration_t;
+
+final class __mavlink_vibration_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Vibration levels on X-axis
+  @ffi.Float()
+  external double vibration_x;
+
+  /// <  Vibration levels on Y-axis
+  @ffi.Float()
+  external double vibration_y;
+
+  /// <  Vibration levels on Z-axis
+  @ffi.Float()
+  external double vibration_z;
+
+  /// <  first accelerometer clipping count
+  @ffi.Uint32()
+  external int clipping_0;
+
+  /// <  second accelerometer clipping count
+  @ffi.Uint32()
+  external int clipping_1;
+
+  /// <  third accelerometer clipping count
+  @ffi.Uint32()
+  external int clipping_2;
+}
+
+typedef mavlink_home_position_t = __mavlink_home_position_t;
+
+@ffi.Packed(1)
+final class __mavlink_home_position_t extends ffi.Struct {
+  @ffi.Int32()
+  external int latitude;
+
+  @ffi.Int32()
+  external int longitude;
+
+  @ffi.Int32()
+  external int altitude;
+
+  @ffi.Float()
+  external double x;
+
+  @ffi.Float()
+  external double y;
+
+  @ffi.Float()
+  external double z;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  @ffi.Float()
+  external double approach_x;
+
+  @ffi.Float()
+  external double approach_y;
+
+  @ffi.Float()
+  external double approach_z;
+
+  @ffi.Uint64()
+  external int time_usec;
+}
+
+typedef mavlink_message_interval_t = __mavlink_message_interval_t;
+
+final class __mavlink_message_interval_t extends ffi.Struct {
+  /// < [us] The interval between two messages. A value of -1 indicates this stream is disabled, 0 indicates it is not available, > 0 indicates the interval at which it is sent.
+  @ffi.Int32()
+  external int interval_us;
+
+  /// <  The ID of the requested MAVLink message. v1.0 is limited to 254 messages.
+  @ffi.Uint16()
+  external int message_id;
+}
+
+typedef mavlink_extended_sys_state_t = __mavlink_extended_sys_state_t;
+
+final class __mavlink_extended_sys_state_t extends ffi.Struct {
+  /// <  The VTOL state if applicable. Is set to MAV_VTOL_STATE_UNDEFINED if UAV is not in VTOL configuration.
+  @ffi.Uint8()
+  external int vtol_state;
+
+  /// <  The landed state. Is set to MAV_LANDED_STATE_UNDEFINED if landed state is unknown.
+  @ffi.Uint8()
+  external int landed_state;
+}
+
+typedef mavlink_adsb_vehicle_t = __mavlink_adsb_vehicle_t;
+
+final class __mavlink_adsb_vehicle_t extends ffi.Struct {
+  /// <  ICAO address
+  @ffi.Uint32()
+  external int ICAO_address;
+
+  /// < [degE7] Latitude
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude
+  @ffi.Int32()
+  external int lon;
+
+  /// < [mm] Altitude(ASL)
+  @ffi.Int32()
+  external int altitude;
+
+  /// < [cdeg] Course over ground
+  @ffi.Uint16()
+  external int heading;
+
+  /// < [cm/s] The horizontal velocity
+  @ffi.Uint16()
+  external int hor_velocity;
+
+  /// < [cm/s] The vertical velocity. Positive is up
+  @ffi.Int16()
+  external int ver_velocity;
+
+  /// <  Bitmap to indicate various statuses including valid data fields
+  @ffi.Uint16()
+  external int flags;
+
+  /// <  Squawk code
+  @ffi.Uint16()
+  external int squawk;
+
+  /// <  ADSB altitude type.
+  @ffi.Uint8()
+  external int altitude_type;
+
+  /// <  The callsign, 8+null
+  @ffi.Array.multi([9])
+  external ffi.Array<ffi.Char> callsign;
+
+  /// <  ADSB emitter type.
+  @ffi.Uint8()
+  external int emitter_type;
+
+  /// < [s] Time since last communication in seconds
+  @ffi.Uint8()
+  external int tslc;
+}
+
+typedef mavlink_collision_t = __mavlink_collision_t;
+
+final class __mavlink_collision_t extends ffi.Struct {
+  /// <  Unique identifier, domain based on src field
+  @ffi.Uint32()
+  external int id;
+
+  /// < [s] Estimated time until collision occurs
+  @ffi.Float()
+  external double time_to_minimum_delta;
+
+  /// < [m] Closest vertical distance between vehicle and object
+  @ffi.Float()
+  external double altitude_minimum_delta;
+
+  /// < [m] Closest horizontal distance between vehicle and object
+  @ffi.Float()
+  external double horizontal_minimum_delta;
+
+  /// <  Collision data source
+  @ffi.Uint8()
+  external int src;
+
+  /// <  Action that is being taken to avoid this collision
+  @ffi.Uint8()
+  external int action;
+
+  /// <  How concerned the aircraft is about this collision
+  @ffi.Uint8()
+  external int threat_level;
+}
+
+typedef mavlink_v2_extension_t = __mavlink_v2_extension_t;
+
+final class __mavlink_v2_extension_t extends ffi.Struct {
+  /// <  A code that identifies the software component that understands this message (analogous to USB device classes or mime type strings). If this code is less than 32768, it is considered a 'registered' protocol extension and the corresponding entry should be added to https://github.com/mavlink/mavlink/definition_files/extension_message_ids.xml. Software creators can register blocks of message IDs as needed (useful for GCS specific metadata, etc...). Message_types greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
+  @ffi.Uint16()
+  external int message_type;
+
+  /// <  Network ID (0 for broadcast)
+  @ffi.Uint8()
+  external int target_network;
+
+  /// <  System ID (0 for broadcast)
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast)
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Variable length payload. The length must be encoded in the payload as part of the message_type protocol, e.g. by including the length as payload data, or by terminating the payload data with a non-zero marker. This is required in order to reconstruct zero-terminated payloads that are (or otherwise would be) trimmed by MAVLink 2 empty-byte truncation. The entire content of the payload block is opaque unless you understand the encoding message_type. The particular encoding used can be extension specific and might not always be documented as part of the MAVLink specification.
+  @ffi.Array.multi([249])
+  external ffi.Array<ffi.Uint8> payload;
+}
+
+typedef mavlink_memory_vect_t = __mavlink_memory_vect_t;
+
+final class __mavlink_memory_vect_t extends ffi.Struct {
+  /// <  Starting address of the debug variables
+  @ffi.Uint16()
+  external int address;
+
+  /// <  Version code of the type variable. 0=unknown, type ignored and assumed int16_t. 1=as below
+  @ffi.Uint8()
+  external int ver;
+
+  /// <  Type code of the memory variables. for ver = 1: 0=16 x int16_t, 1=16 x uint16_t, 2=16 x Q15, 3=16 x 1Q14
+  @ffi.Uint8()
+  external int type;
+
+  /// <  Memory contents at specified address
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Int8> value;
+}
+
+typedef mavlink_debug_vect_t = __mavlink_debug_vect_t;
+
+final class __mavlink_debug_vect_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  x
+  @ffi.Float()
+  external double x;
+
+  /// <  y
+  @ffi.Float()
+  external double y;
+
+  /// <  z
+  @ffi.Float()
+  external double z;
+
+  /// <  Name
+  @ffi.Array.multi([10])
+  external ffi.Array<ffi.Char> name;
+}
+
+typedef mavlink_named_value_float_t = __mavlink_named_value_float_t;
+
+final class __mavlink_named_value_float_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  Floating point value
+  @ffi.Float()
+  external double value;
+
+  /// <  Name of the debug variable
+  @ffi.Array.multi([10])
+  external ffi.Array<ffi.Char> name;
+}
+
+typedef mavlink_named_value_int_t = __mavlink_named_value_int_t;
+
+final class __mavlink_named_value_int_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  Signed integer value
+  @ffi.Int32()
+  external int value;
+
+  /// <  Name of the debug variable
+  @ffi.Array.multi([10])
+  external ffi.Array<ffi.Char> name;
+}
+
+typedef mavlink_statustext_t = __mavlink_statustext_t;
+
+@ffi.Packed(1)
+final class __mavlink_statustext_t extends ffi.Struct {
+  @ffi.Uint8()
+  external int severity;
+
+  @ffi.Array.multi([50])
+  external ffi.Array<ffi.Char> text;
+
+  @ffi.Uint16()
+  external int id;
+
+  @ffi.Uint8()
+  external int chunk_seq;
+}
+
+typedef mavlink_debug_t = __mavlink_debug_t;
+
+final class __mavlink_debug_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  DEBUG value
+  @ffi.Float()
+  external double value;
+
+  /// <  index of debug variable
+  @ffi.Uint8()
+  external int ind;
+}
+
+typedef mavlink_setup_signing_t = __mavlink_setup_signing_t;
+
+final class __mavlink_setup_signing_t extends ffi.Struct {
+  /// <  initial timestamp
+  @ffi.Uint64()
+  external int initial_timestamp;
+
+  /// <  system id of the target
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  component ID of the target
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  signing key
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Uint8> secret_key;
+}
+
+typedef mavlink_button_change_t = __mavlink_button_change_t;
+
+final class __mavlink_button_change_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [ms] Time of last change of button state.
+  @ffi.Uint32()
+  external int last_change_ms;
+
+  /// <  Bitmap for state of buttons.
+  @ffi.Uint8()
+  external int state;
+}
+
+typedef mavlink_camera_information_t = __mavlink_camera_information_t;
+
+final class __mavlink_camera_information_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  Version of the camera firmware, encoded as: (Dev & 0xff) << 24 | (Patch & 0xff) << 16 | (Minor & 0xff) << 8 | (Major & 0xff). Use 0 if not known.
+  @ffi.Uint32()
+  external int firmware_version;
+
+  /// < [mm] Focal length. Use NaN if not known.
+  @ffi.Float()
+  external double focal_length;
+
+  /// < [mm] Image sensor size horizontal. Use NaN if not known.
+  @ffi.Float()
+  external double sensor_size_h;
+
+  /// < [mm] Image sensor size vertical. Use NaN if not known.
+  @ffi.Float()
+  external double sensor_size_v;
+
+  /// <  Bitmap of camera capability flags.
+  @ffi.Uint32()
+  external int flags;
+
+  /// < [pix] Horizontal image resolution. Use 0 if not known.
+  @ffi.Uint16()
+  external int resolution_h;
+
+  /// < [pix] Vertical image resolution. Use 0 if not known.
+  @ffi.Uint16()
+  external int resolution_v;
+
+  /// <  Camera definition version (iteration).  Use 0 if not known.
+  @ffi.Uint16()
+  external int cam_definition_version;
+
+  /// <  Name of the camera vendor
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Uint8> vendor_name;
+
+  /// <  Name of the camera model
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Uint8> model_name;
+
+  /// <  Reserved for a lens ID.  Use 0 if not known.
+  @ffi.Uint8()
+  external int lens_id;
+
+  /// <  Camera definition URI (if any, otherwise only basic functions will be available). HTTP- (http://) and MAVLink FTP- (mavlinkftp://) formatted URIs are allowed (and both must be supported by any GCS that implements the Camera Protocol). The definition file may be xz compressed, which will be indicated by the file extension .xml.xz (a GCS that implements the protocol must support decompressing the file). The string needs to be zero terminated.  Use a zero-length string if not known.
+  @ffi.Array.multi([140])
+  external ffi.Array<ffi.Char> cam_definition_uri;
+
+  /// <  Gimbal id of a gimbal associated with this camera. This is the component id of the gimbal device, or 1-6 for non mavlink gimbals. Use 0 if no gimbal is associated with the camera.
+  @ffi.Uint8()
+  external int gimbal_device_id;
+}
+
+typedef mavlink_camera_settings_t = __mavlink_camera_settings_t;
+
+@ffi.Packed(1)
+final class __mavlink_camera_settings_t extends ffi.Struct {
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  @ffi.Uint8()
+  external int mode_id;
+
+  @ffi.Float()
+  external double zoomLevel;
+
+  @ffi.Float()
+  external double focusLevel;
+}
+
+typedef mavlink_storage_information_t = __mavlink_storage_information_t;
+
+final class __mavlink_storage_information_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [MiB] Total capacity. If storage is not ready (STORAGE_STATUS_READY) value will be ignored.
+  @ffi.Float()
+  external double total_capacity;
+
+  /// < [MiB] Used capacity. If storage is not ready (STORAGE_STATUS_READY) value will be ignored.
+  @ffi.Float()
+  external double used_capacity;
+
+  /// < [MiB] Available storage capacity. If storage is not ready (STORAGE_STATUS_READY) value will be ignored.
+  @ffi.Float()
+  external double available_capacity;
+
+  /// < [MiB/s] Read speed.
+  @ffi.Float()
+  external double read_speed;
+
+  /// < [MiB/s] Write speed.
+  @ffi.Float()
+  external double write_speed;
+
+  /// <  Storage ID (1 for first, 2 for second, etc.)
+  @ffi.Uint8()
+  external int storage_id;
+
+  /// <  Number of storage devices
+  @ffi.Uint8()
+  external int storage_count;
+
+  /// <  Status of storage
+  @ffi.Uint8()
+  external int status;
+
+  /// <  Type of storage
+  @ffi.Uint8()
+  external int type;
+
+  /// <  Textual storage name to be used in UI (microSD 1, Internal Memory, etc.) This is a NULL terminated string. If it is exactly 32 characters long, add a terminating NULL. If this string is empty, the generic type is shown to the user.
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Char> name;
+}
+
+typedef mavlink_camera_capture_status_t = __mavlink_camera_capture_status_t;
+
+@ffi.Packed(1)
+final class __mavlink_camera_capture_status_t extends ffi.Struct {
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  @ffi.Float()
+  external double image_interval;
+
+  @ffi.Uint32()
+  external int recording_time_ms;
+
+  @ffi.Float()
+  external double available_capacity;
+
+  @ffi.Uint8()
+  external int image_status;
+
+  @ffi.Uint8()
+  external int video_status;
+
+  @ffi.Int32()
+  external int image_count;
+}
+
+typedef mavlink_camera_image_captured_t = __mavlink_camera_image_captured_t;
+
+final class __mavlink_camera_image_captured_t extends ffi.Struct {
+  /// < [us] Timestamp (time since UNIX epoch) in UTC. 0 for unknown.
+  @ffi.Uint64()
+  external int time_utc;
+
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [degE7] Latitude where image was taken
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude where capture was taken
+  @ffi.Int32()
+  external int lon;
+
+  /// < [mm] Altitude (MSL) where image was taken
+  @ffi.Int32()
+  external int alt;
+
+  /// < [mm] Altitude above ground
+  @ffi.Int32()
+  external int relative_alt;
+
+  /// <  Quaternion of camera orientation (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// <  Zero based index of this image (i.e. a new image will have index CAMERA_CAPTURE_STATUS.image count -1)
+  @ffi.Int32()
+  external int image_index;
+
+  /// <  Deprecated/unused. Component IDs are used to differentiate multiple cameras.
+  @ffi.Uint8()
+  external int camera_id;
+
+  /// <  Boolean indicating success (1) or failure (0) while capturing this image.
+  @ffi.Int8()
+  external int capture_result;
+
+  /// <  URL of image taken. Either local storage or http://foo.jpg if camera provides an HTTP interface.
+  @ffi.Array.multi([205])
+  external ffi.Array<ffi.Char> file_url;
+}
+
+typedef mavlink_flight_information_t = __mavlink_flight_information_t;
+
+final class __mavlink_flight_information_t extends ffi.Struct {
+  /// < [us] Timestamp at arming (time since UNIX epoch) in UTC, 0 for unknown
+  @ffi.Uint64()
+  external int arming_time_utc;
+
+  /// < [us] Timestamp at takeoff (time since UNIX epoch) in UTC, 0 for unknown
+  @ffi.Uint64()
+  external int takeoff_time_utc;
+
+  /// <  Universally unique identifier (UUID) of flight, should correspond to name of log files
+  @ffi.Uint64()
+  external int flight_uuid;
+
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+}
+
+typedef mavlink_logging_data_t = __mavlink_logging_data_t;
+
+final class __mavlink_logging_data_t extends ffi.Struct {
+  /// <  sequence number (can wrap)
+  @ffi.Uint16()
+  external int sequence;
+
+  /// <  system ID of the target
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  component ID of the target
+  @ffi.Uint8()
+  external int target_component;
+
+  /// < [bytes] data length
+  @ffi.Uint8()
+  external int length;
+
+  /// < [bytes] offset into data where first message starts. This can be used for recovery, when a previous message got lost (set to 255 if no start exists).
+  @ffi.Uint8()
+  external int first_message_offset;
+
+  /// <  logged data
+  @ffi.Array.multi([249])
+  external ffi.Array<ffi.Uint8> data;
+}
+
+typedef mavlink_logging_data_acked_t = __mavlink_logging_data_acked_t;
+
+final class __mavlink_logging_data_acked_t extends ffi.Struct {
+  /// <  sequence number (can wrap)
+  @ffi.Uint16()
+  external int sequence;
+
+  /// <  system ID of the target
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  component ID of the target
+  @ffi.Uint8()
+  external int target_component;
+
+  /// < [bytes] data length
+  @ffi.Uint8()
+  external int length;
+
+  /// < [bytes] offset into data where first message starts. This can be used for recovery, when a previous message got lost (set to 255 if no start exists).
+  @ffi.Uint8()
+  external int first_message_offset;
+
+  /// <  logged data
+  @ffi.Array.multi([249])
+  external ffi.Array<ffi.Uint8> data;
+}
+
+typedef mavlink_logging_ack_t = __mavlink_logging_ack_t;
+
+final class __mavlink_logging_ack_t extends ffi.Struct {
+  /// <  sequence number (must match the one in LOGGING_DATA_ACKED)
+  @ffi.Uint16()
+  external int sequence;
+
+  /// <  system ID of the target
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  component ID of the target
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_video_stream_information_t
+    = __mavlink_video_stream_information_t;
+
+final class __mavlink_video_stream_information_t extends ffi.Struct {
+  /// < [Hz] Frame rate.
+  @ffi.Float()
+  external double framerate;
+
+  /// < [bits/s] Bit rate.
+  @ffi.Uint32()
+  external int bitrate;
+
+  /// <  Bitmap of stream status flags.
+  @ffi.Uint16()
+  external int flags;
+
+  /// < [pix] Horizontal resolution.
+  @ffi.Uint16()
+  external int resolution_h;
+
+  /// < [pix] Vertical resolution.
+  @ffi.Uint16()
+  external int resolution_v;
+
+  /// < [deg] Video image rotation clockwise.
+  @ffi.Uint16()
+  external int rotation;
+
+  /// < [deg] Horizontal Field of view.
+  @ffi.Uint16()
+  external int hfov;
+
+  /// <  Video Stream ID (1 for first, 2 for second, etc.)
+  @ffi.Uint8()
+  external int stream_id;
+
+  /// <  Number of streams available.
+  @ffi.Uint8()
+  external int count;
+
+  /// <  Type of stream.
+  @ffi.Uint8()
+  external int type;
+
+  /// <  Stream name.
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Char> name;
+
+  /// <  Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).
+  @ffi.Array.multi([160])
+  external ffi.Array<ffi.Char> uri;
+}
+
+typedef mavlink_video_stream_status_t = __mavlink_video_stream_status_t;
+
+final class __mavlink_video_stream_status_t extends ffi.Struct {
+  /// < [Hz] Frame rate
+  @ffi.Float()
+  external double framerate;
+
+  /// < [bits/s] Bit rate
+  @ffi.Uint32()
+  external int bitrate;
+
+  /// <  Bitmap of stream status flags
+  @ffi.Uint16()
+  external int flags;
+
+  /// < [pix] Horizontal resolution
+  @ffi.Uint16()
+  external int resolution_h;
+
+  /// < [pix] Vertical resolution
+  @ffi.Uint16()
+  external int resolution_v;
+
+  /// < [deg] Video image rotation clockwise
+  @ffi.Uint16()
+  external int rotation;
+
+  /// < [deg] Horizontal Field of view
+  @ffi.Uint16()
+  external int hfov;
+
+  /// <  Video Stream ID (1 for first, 2 for second, etc.)
+  @ffi.Uint8()
+  external int stream_id;
+}
+
+typedef mavlink_camera_fov_status_t = __mavlink_camera_fov_status_t;
+
+final class __mavlink_camera_fov_status_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// < [degE7] Latitude of camera (INT32_MAX if unknown).
+  @ffi.Int32()
+  external int lat_camera;
+
+  /// < [degE7] Longitude of camera (INT32_MAX if unknown).
+  @ffi.Int32()
+  external int lon_camera;
+
+  /// < [mm] Altitude (MSL) of camera (INT32_MAX if unknown).
+  @ffi.Int32()
+  external int alt_camera;
+
+  /// < [degE7] Latitude of center of image (INT32_MAX if unknown, INT32_MIN if at infinity, not intersecting with horizon).
+  @ffi.Int32()
+  external int lat_image;
+
+  /// < [degE7] Longitude of center of image (INT32_MAX if unknown, INT32_MIN if at infinity, not intersecting with horizon).
+  @ffi.Int32()
+  external int lon_image;
+
+  /// < [mm] Altitude (MSL) of center of image (INT32_MAX if unknown, INT32_MIN if at infinity, not intersecting with horizon).
+  @ffi.Int32()
+  external int alt_image;
+
+  /// <  Quaternion of camera orientation (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [deg] Horizontal field of view (NaN if unknown).
+  @ffi.Float()
+  external double hfov;
+
+  /// < [deg] Vertical field of view (NaN if unknown).
+  @ffi.Float()
+  external double vfov;
+}
+
+typedef mavlink_camera_tracking_image_status_t
+    = __mavlink_camera_tracking_image_status_t;
+
+final class __mavlink_camera_tracking_image_status_t extends ffi.Struct {
+  /// <  Current tracked point x value if CAMERA_TRACKING_MODE_POINT (normalized 0..1, 0 is left, 1 is right), NAN if unknown
+  @ffi.Float()
+  external double point_x;
+
+  /// <  Current tracked point y value if CAMERA_TRACKING_MODE_POINT (normalized 0..1, 0 is top, 1 is bottom), NAN if unknown
+  @ffi.Float()
+  external double point_y;
+
+  /// <  Current tracked radius if CAMERA_TRACKING_MODE_POINT (normalized 0..1, 0 is image left, 1 is image right), NAN if unknown
+  @ffi.Float()
+  external double radius;
+
+  /// <  Current tracked rectangle top x value if CAMERA_TRACKING_MODE_RECTANGLE (normalized 0..1, 0 is left, 1 is right), NAN if unknown
+  @ffi.Float()
+  external double rec_top_x;
+
+  /// <  Current tracked rectangle top y value if CAMERA_TRACKING_MODE_RECTANGLE (normalized 0..1, 0 is top, 1 is bottom), NAN if unknown
+  @ffi.Float()
+  external double rec_top_y;
+
+  /// <  Current tracked rectangle bottom x value if CAMERA_TRACKING_MODE_RECTANGLE (normalized 0..1, 0 is left, 1 is right), NAN if unknown
+  @ffi.Float()
+  external double rec_bottom_x;
+
+  /// <  Current tracked rectangle bottom y value if CAMERA_TRACKING_MODE_RECTANGLE (normalized 0..1, 0 is top, 1 is bottom), NAN if unknown
+  @ffi.Float()
+  external double rec_bottom_y;
+
+  /// <  Current tracking status
+  @ffi.Uint8()
+  external int tracking_status;
+
+  /// <  Current tracking mode
+  @ffi.Uint8()
+  external int tracking_mode;
+
+  /// <  Defines location of target data
+  @ffi.Uint8()
+  external int target_data;
+}
+
+typedef mavlink_camera_tracking_geo_status_t
+    = __mavlink_camera_tracking_geo_status_t;
+
+final class __mavlink_camera_tracking_geo_status_t extends ffi.Struct {
+  /// < [degE7] Latitude of tracked object
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude of tracked object
+  @ffi.Int32()
+  external int lon;
+
+  /// < [m] Altitude of tracked object(AMSL, WGS84)
+  @ffi.Float()
+  external double alt;
+
+  /// < [m] Horizontal accuracy. NAN if unknown
+  @ffi.Float()
+  external double h_acc;
+
+  /// < [m] Vertical accuracy. NAN if unknown
+  @ffi.Float()
+  external double v_acc;
+
+  /// < [m/s] North velocity of tracked object. NAN if unknown
+  @ffi.Float()
+  external double vel_n;
+
+  /// < [m/s] East velocity of tracked object. NAN if unknown
+  @ffi.Float()
+  external double vel_e;
+
+  /// < [m/s] Down velocity of tracked object. NAN if unknown
+  @ffi.Float()
+  external double vel_d;
+
+  /// < [m/s] Velocity accuracy. NAN if unknown
+  @ffi.Float()
+  external double vel_acc;
+
+  /// < [m] Distance between camera and tracked object. NAN if unknown
+  @ffi.Float()
+  external double dist;
+
+  /// < [rad] Heading in radians, in NED. NAN if unknown
+  @ffi.Float()
+  external double hdg;
+
+  /// < [rad] Accuracy of heading, in NED. NAN if unknown
+  @ffi.Float()
+  external double hdg_acc;
+
+  /// <  Current tracking status
+  @ffi.Uint8()
+  external int tracking_status;
+}
+
+typedef mavlink_gimbal_manager_information_t
+    = __mavlink_gimbal_manager_information_t;
+
+final class __mavlink_gimbal_manager_information_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  Bitmap of gimbal capability flags.
+  @ffi.Uint32()
+  external int cap_flags;
+
+  /// < [rad] Minimum hardware roll angle (positive: rolling to the right, negative: rolling to the left)
+  @ffi.Float()
+  external double roll_min;
+
+  /// < [rad] Maximum hardware roll angle (positive: rolling to the right, negative: rolling to the left)
+  @ffi.Float()
+  external double roll_max;
+
+  /// < [rad] Minimum pitch angle (positive: up, negative: down)
+  @ffi.Float()
+  external double pitch_min;
+
+  /// < [rad] Maximum pitch angle (positive: up, negative: down)
+  @ffi.Float()
+  external double pitch_max;
+
+  /// < [rad] Minimum yaw angle (positive: to the right, negative: to the left)
+  @ffi.Float()
+  external double yaw_min;
+
+  /// < [rad] Maximum yaw angle (positive: to the right, negative: to the left)
+  @ffi.Float()
+  external double yaw_max;
+
+  /// <  Gimbal device ID that this gimbal manager is responsible for. Component ID of gimbal device (or 1-6 for non-MAVLink gimbal).
+  @ffi.Uint8()
+  external int gimbal_device_id;
+}
+
+typedef mavlink_gimbal_manager_status_t = __mavlink_gimbal_manager_status_t;
+
+final class __mavlink_gimbal_manager_status_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  High level gimbal manager flags currently applied.
+  @ffi.Uint32()
+  external int flags;
+
+  /// <  Gimbal device ID that this gimbal manager is responsible for. Component ID of gimbal device (or 1-6 for non-MAVLink gimbal).
+  @ffi.Uint8()
+  external int gimbal_device_id;
+
+  /// <  System ID of MAVLink component with primary control, 0 for none.
+  @ffi.Uint8()
+  external int primary_control_sysid;
+
+  /// <  Component ID of MAVLink component with primary control, 0 for none.
+  @ffi.Uint8()
+  external int primary_control_compid;
+
+  /// <  System ID of MAVLink component with secondary control, 0 for none.
+  @ffi.Uint8()
+  external int secondary_control_sysid;
+
+  /// <  Component ID of MAVLink component with secondary control, 0 for none.
+  @ffi.Uint8()
+  external int secondary_control_compid;
+}
+
+typedef mavlink_gimbal_manager_set_attitude_t
+    = __mavlink_gimbal_manager_set_attitude_t;
+
+final class __mavlink_gimbal_manager_set_attitude_t extends ffi.Struct {
+  /// <  High level gimbal manager flags to use.
+  @ffi.Uint32()
+  external int flags;
+
+  /// <  Quaternion components, w, x, y, z (1 0 0 0 is the null-rotation, the frame is depends on whether the flag GIMBAL_MANAGER_FLAGS_YAW_LOCK is set)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [rad/s] X component of angular velocity, positive is rolling to the right, NaN to be ignored.
+  @ffi.Float()
+  external double angular_velocity_x;
+
+  /// < [rad/s] Y component of angular velocity, positive is pitching up, NaN to be ignored.
+  @ffi.Float()
+  external double angular_velocity_y;
+
+  /// < [rad/s] Z component of angular velocity, positive is yawing to the right, NaN to be ignored.
+  @ffi.Float()
+  external double angular_velocity_z;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals).
+  @ffi.Uint8()
+  external int gimbal_device_id;
+}
+
+typedef mavlink_gimbal_device_information_t
+    = __mavlink_gimbal_device_information_t;
+
+final class __mavlink_gimbal_device_information_t extends ffi.Struct {
+  /// <  UID of gimbal hardware (0 if unknown).
+  @ffi.Uint64()
+  external int uid;
+
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  Version of the gimbal firmware, encoded as: (Dev & 0xff) << 24 | (Patch & 0xff) << 16 | (Minor & 0xff) << 8 | (Major & 0xff).
+  @ffi.Uint32()
+  external int firmware_version;
+
+  /// <  Version of the gimbal hardware, encoded as: (Dev & 0xff) << 24 | (Patch & 0xff) << 16 | (Minor & 0xff) << 8 | (Major & 0xff).
+  @ffi.Uint32()
+  external int hardware_version;
+
+  /// < [rad] Minimum hardware roll angle (positive: rolling to the right, negative: rolling to the left). NAN if unknown.
+  @ffi.Float()
+  external double roll_min;
+
+  /// < [rad] Maximum hardware roll angle (positive: rolling to the right, negative: rolling to the left). NAN if unknown.
+  @ffi.Float()
+  external double roll_max;
+
+  /// < [rad] Minimum hardware pitch angle (positive: up, negative: down). NAN if unknown.
+  @ffi.Float()
+  external double pitch_min;
+
+  /// < [rad] Maximum hardware pitch angle (positive: up, negative: down). NAN if unknown.
+  @ffi.Float()
+  external double pitch_max;
+
+  /// < [rad] Minimum hardware yaw angle (positive: to the right, negative: to the left). NAN if unknown.
+  @ffi.Float()
+  external double yaw_min;
+
+  /// < [rad] Maximum hardware yaw angle (positive: to the right, negative: to the left). NAN if unknown.
+  @ffi.Float()
+  external double yaw_max;
+
+  /// <  Bitmap of gimbal capability flags.
+  @ffi.Uint16()
+  external int cap_flags;
+
+  /// <  Bitmap for use for gimbal-specific capability flags.
+  @ffi.Uint16()
+  external int custom_cap_flags;
+
+  /// <  Name of the gimbal vendor.
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Char> vendor_name;
+
+  /// <  Name of the gimbal model.
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Char> model_name;
+
+  /// <  Custom name of the gimbal given to it by the user.
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Char> custom_name;
+
+  /// <  This field is to be used if the gimbal manager and the gimbal device are the same component and hence have the same component ID. This field is then set to a number between 1-6. If the component ID is separate, this field is not required and must be set to 0.
+  @ffi.Uint8()
+  external int gimbal_device_id;
+}
+
+typedef mavlink_gimbal_device_set_attitude_t
+    = __mavlink_gimbal_device_set_attitude_t;
+
+final class __mavlink_gimbal_device_set_attitude_t extends ffi.Struct {
+  /// <  Quaternion components, w, x, y, z (1 0 0 0 is the null-rotation). The frame is described in the message description. Set fields to NaN to be ignored.
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [rad/s] X component of angular velocity (positive: rolling to the right). The frame is described in the message description. NaN to be ignored.
+  @ffi.Float()
+  external double angular_velocity_x;
+
+  /// < [rad/s] Y component of angular velocity (positive: pitching up). The frame is described in the message description. NaN to be ignored.
+  @ffi.Float()
+  external double angular_velocity_y;
+
+  /// < [rad/s] Z component of angular velocity (positive: yawing to the right). The frame is described in the message description. NaN to be ignored.
+  @ffi.Float()
+  external double angular_velocity_z;
+
+  /// <  Low level gimbal flags.
+  @ffi.Uint16()
+  external int flags;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_gimbal_device_attitude_status_t
+    = __mavlink_gimbal_device_attitude_status_t;
+
+final class __mavlink_gimbal_device_attitude_status_t extends ffi.Struct {
+  /// < [ms] Timestamp (time since system boot).
+  @ffi.Uint32()
+  external int time_boot_ms;
+
+  /// <  Quaternion components, w, x, y, z (1 0 0 0 is the null-rotation). The frame is described in the message description.
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [rad/s] X component of angular velocity (positive: rolling to the right). The frame is described in the message description. NaN if unknown.
+  @ffi.Float()
+  external double angular_velocity_x;
+
+  /// < [rad/s] Y component of angular velocity (positive: pitching up). The frame is described in the message description. NaN if unknown.
+  @ffi.Float()
+  external double angular_velocity_y;
+
+  /// < [rad/s] Z component of angular velocity (positive: yawing to the right). The frame is described in the message description. NaN if unknown.
+  @ffi.Float()
+  external double angular_velocity_z;
+
+  /// <  Failure flags (0 for no failure)
+  @ffi.Uint32()
+  external int failure_flags;
+
+  /// <  Current gimbal flags set.
+  @ffi.Uint16()
+  external int flags;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// < [rad] Yaw angle relating the quaternions in earth and body frames (see message description). NaN if unknown.
+  @ffi.Float()
+  external double delta_yaw;
+
+  /// < [rad/s] Yaw angular velocity relating the angular velocities in earth and body frames (see message description). NaN if unknown.
+  @ffi.Float()
+  external double delta_yaw_velocity;
+
+  /// <  This field is to be used if the gimbal manager and the gimbal device are the same component and hence have the same component ID. This field is then set a number between 1-6. If the component ID is separate, this field is not required and must be set to 0.
+  @ffi.Uint8()
+  external int gimbal_device_id;
+}
+
+typedef mavlink_autopilot_state_for_gimbal_device_t
+    = __mavlink_autopilot_state_for_gimbal_device_t;
+
+@ffi.Packed(1)
+final class __mavlink_autopilot_state_for_gimbal_device_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int time_boot_us;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  @ffi.Uint32()
+  external int q_estimated_delay_us;
+
+  @ffi.Float()
+  external double vx;
+
+  @ffi.Float()
+  external double vy;
+
+  @ffi.Float()
+  external double vz;
+
+  @ffi.Uint32()
+  external int v_estimated_delay_us;
+
+  @ffi.Float()
+  external double feed_forward_angular_velocity_z;
+
+  @ffi.Uint16()
+  external int estimator_status;
+
+  @ffi.Uint8()
+  external int target_system;
+
+  @ffi.Uint8()
+  external int target_component;
+
+  @ffi.Uint8()
+  external int landed_state;
+
+  @ffi.Float()
+  external double angular_velocity_z;
+}
+
+typedef mavlink_gimbal_manager_set_pitchyaw_t
+    = __mavlink_gimbal_manager_set_pitchyaw_t;
+
+final class __mavlink_gimbal_manager_set_pitchyaw_t extends ffi.Struct {
+  /// <  High level gimbal manager flags to use.
+  @ffi.Uint32()
+  external int flags;
+
+  /// < [rad] Pitch angle (positive: up, negative: down, NaN to be ignored).
+  @ffi.Float()
+  external double pitch;
+
+  /// < [rad] Yaw angle (positive: to the right, negative: to the left, NaN to be ignored).
+  @ffi.Float()
+  external double yaw;
+
+  /// < [rad/s] Pitch angular rate (positive: up, negative: down, NaN to be ignored).
+  @ffi.Float()
+  external double pitch_rate;
+
+  /// < [rad/s] Yaw angular rate (positive: to the right, negative: to the left, NaN to be ignored).
+  @ffi.Float()
+  external double yaw_rate;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals).
+  @ffi.Uint8()
+  external int gimbal_device_id;
+}
+
+typedef mavlink_gimbal_manager_set_manual_control_t
+    = __mavlink_gimbal_manager_set_manual_control_t;
+
+final class __mavlink_gimbal_manager_set_manual_control_t extends ffi.Struct {
+  /// <  High level gimbal manager flags.
+  @ffi.Uint32()
+  external int flags;
+
+  /// <  Pitch angle unitless (-1..1, positive: up, negative: down, NaN to be ignored).
+  @ffi.Float()
+  external double pitch;
+
+  /// <  Yaw angle unitless (-1..1, positive: to the right, negative: to the left, NaN to be ignored).
+  @ffi.Float()
+  external double yaw;
+
+  /// <  Pitch angular rate unitless (-1..1, positive: up, negative: down, NaN to be ignored).
+  @ffi.Float()
+  external double pitch_rate;
+
+  /// <  Yaw angular rate unitless (-1..1, positive: to the right, negative: to the left, NaN to be ignored).
+  @ffi.Float()
+  external double yaw_rate;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals).
+  @ffi.Uint8()
+  external int gimbal_device_id;
+}
+
+typedef mavlink_wifi_config_ap_t = __mavlink_wifi_config_ap_t;
+
+final class __mavlink_wifi_config_ap_t extends ffi.Struct {
+  /// <  Name of Wi-Fi network (SSID). Blank to leave it unchanged when setting. Current SSID when sent back as a response.
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Char> ssid;
+
+  /// <  Password. Blank for an open AP. MD5 hash when message is sent back as a response.
+  @ffi.Array.multi([64])
+  external ffi.Array<ffi.Char> password;
+}
+
+typedef mavlink_ais_vessel_t = __mavlink_ais_vessel_t;
+
+final class __mavlink_ais_vessel_t extends ffi.Struct {
+  /// <  Mobile Marine Service Identifier, 9 decimal digits
+  @ffi.Uint32()
+  external int MMSI;
+
+  /// < [degE7] Latitude
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude
+  @ffi.Int32()
+  external int lon;
+
+  /// < [cdeg] Course over ground
+  @ffi.Uint16()
+  external int COG;
+
+  /// < [cdeg] True heading
+  @ffi.Uint16()
+  external int heading;
+
+  /// < [cm/s] Speed over ground
+  @ffi.Uint16()
+  external int velocity;
+
+  /// < [m] Distance from lat/lon location to bow
+  @ffi.Uint16()
+  external int dimension_bow;
+
+  /// < [m] Distance from lat/lon location to stern
+  @ffi.Uint16()
+  external int dimension_stern;
+
+  /// < [s] Time since last communication in seconds
+  @ffi.Uint16()
+  external int tslc;
+
+  /// <  Bitmask to indicate various statuses including valid data fields
+  @ffi.Uint16()
+  external int flags;
+
+  /// < [cdeg/s] Turn rate
+  @ffi.Int8()
+  external int turn_rate;
+
+  /// <  Navigational status
+  @ffi.Uint8()
+  external int navigational_status;
+
+  /// <  Type of vessels
+  @ffi.Uint8()
+  external int type;
+
+  /// < [m] Distance from lat/lon location to port side
+  @ffi.Uint8()
+  external int dimension_port;
+
+  /// < [m] Distance from lat/lon location to starboard side
+  @ffi.Uint8()
+  external int dimension_starboard;
+
+  /// <  The vessel callsign
+  @ffi.Array.multi([7])
+  external ffi.Array<ffi.Char> callsign;
+
+  /// <  The vessel name
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Char> name;
+}
+
+typedef mavlink_uavcan_node_status_t = __mavlink_uavcan_node_status_t;
+
+final class __mavlink_uavcan_node_status_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [s] Time since the start-up of the node.
+  @ffi.Uint32()
+  external int uptime_sec;
+
+  /// <  Vendor-specific status information.
+  @ffi.Uint16()
+  external int vendor_specific_status_code;
+
+  /// <  Generalized node health status.
+  @ffi.Uint8()
+  external int health;
+
+  /// <  Generalized operating mode.
+  @ffi.Uint8()
+  external int mode;
+
+  /// <  Not used currently.
+  @ffi.Uint8()
+  external int sub_mode;
+}
+
+typedef mavlink_uavcan_node_info_t = __mavlink_uavcan_node_info_t;
+
+final class __mavlink_uavcan_node_info_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [s] Time since the start-up of the node.
+  @ffi.Uint32()
+  external int uptime_sec;
+
+  /// <  Version control system (VCS) revision identifier (e.g. git short commit hash). Zero if unknown.
+  @ffi.Uint32()
+  external int sw_vcs_commit;
+
+  /// <  Node name string. For example, "sapog.px4.io".
+  @ffi.Array.multi([80])
+  external ffi.Array<ffi.Char> name;
+
+  /// <  Hardware major version number.
+  @ffi.Uint8()
+  external int hw_version_major;
+
+  /// <  Hardware minor version number.
+  @ffi.Uint8()
+  external int hw_version_minor;
+
+  /// <  Hardware unique 128-bit ID.
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Uint8> hw_unique_id;
+
+  /// <  Software major version number.
+  @ffi.Uint8()
+  external int sw_version_major;
+
+  /// <  Software minor version number.
+  @ffi.Uint8()
+  external int sw_version_minor;
+}
+
+typedef mavlink_param_ext_request_read_t = __mavlink_param_ext_request_read_t;
+
+final class __mavlink_param_ext_request_read_t extends ffi.Struct {
+  /// <  Parameter index. Set to -1 to use the Parameter ID field as identifier (else param_id will be ignored)
+  @ffi.Int16()
+  external int param_index;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Char> param_id;
+}
+
+typedef mavlink_param_ext_request_list_t = __mavlink_param_ext_request_list_t;
+
+final class __mavlink_param_ext_request_list_t extends ffi.Struct {
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_param_ext_value_t = __mavlink_param_ext_value_t;
+
+final class __mavlink_param_ext_value_t extends ffi.Struct {
+  /// <  Total number of parameters
+  @ffi.Uint16()
+  external int param_count;
+
+  /// <  Index of this parameter
+  @ffi.Uint16()
+  external int param_index;
+
+  /// <  Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Char> param_id;
+
+  /// <  Parameter value
+  @ffi.Array.multi([128])
+  external ffi.Array<ffi.Char> param_value;
+
+  /// <  Parameter type.
+  @ffi.Uint8()
+  external int param_type;
+}
+
+typedef mavlink_param_ext_set_t = __mavlink_param_ext_set_t;
+
+final class __mavlink_param_ext_set_t extends ffi.Struct {
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Char> param_id;
+
+  /// <  Parameter value
+  @ffi.Array.multi([128])
+  external ffi.Array<ffi.Char> param_value;
+
+  /// <  Parameter type.
+  @ffi.Uint8()
+  external int param_type;
+}
+
+typedef mavlink_param_ext_ack_t = __mavlink_param_ext_ack_t;
+
+final class __mavlink_param_ext_ack_t extends ffi.Struct {
+  /// <  Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Char> param_id;
+
+  /// <  Parameter value (new value if PARAM_ACK_ACCEPTED, current value otherwise)
+  @ffi.Array.multi([128])
+  external ffi.Array<ffi.Char> param_value;
+
+  /// <  Parameter type.
+  @ffi.Uint8()
+  external int param_type;
+
+  /// <  Result code.
+  @ffi.Uint8()
+  external int param_result;
+}
+
+typedef mavlink_obstacle_distance_t = __mavlink_obstacle_distance_t;
+
+@ffi.Packed(1)
+final class __mavlink_obstacle_distance_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int time_usec;
+
+  @ffi.Array.multi([72])
+  external ffi.Array<ffi.Uint16> distances;
+
+  @ffi.Uint16()
+  external int min_distance;
+
+  @ffi.Uint16()
+  external int max_distance;
+
+  @ffi.Uint8()
+  external int sensor_type;
+
+  @ffi.Uint8()
+  external int increment;
+
+  @ffi.Float()
+  external double increment_f;
+
+  @ffi.Float()
+  external double angle_offset;
+
+  @ffi.Uint8()
+  external int frame;
+}
+
+typedef mavlink_odometry_t = __mavlink_odometry_t;
+
+final class __mavlink_odometry_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [m] X Position
+  @ffi.Float()
+  external double x;
+
+  /// < [m] Y Position
+  @ffi.Float()
+  external double y;
+
+  /// < [m] Z Position
+  @ffi.Float()
+  external double z;
+
+  /// <  Quaternion components, w, x, y, z (1 0 0 0 is the null-rotation)
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Float> q;
+
+  /// < [m/s] X linear speed
+  @ffi.Float()
+  external double vx;
+
+  /// < [m/s] Y linear speed
+  @ffi.Float()
+  external double vy;
+
+  /// < [m/s] Z linear speed
+  @ffi.Float()
+  external double vz;
+
+  /// < [rad/s] Roll angular speed
+  @ffi.Float()
+  external double rollspeed;
+
+  /// < [rad/s] Pitch angular speed
+  @ffi.Float()
+  external double pitchspeed;
+
+  /// < [rad/s] Yaw angular speed
+  @ffi.Float()
+  external double yawspeed;
+
+  /// <  Row-major representation of a 6x6 pose cross-covariance matrix upper right triangle (states: x, y, z, roll, pitch, yaw; first six entries are the first ROW, next five entries are the second ROW, etc.). If unknown, assign NaN value to first element in the array.
+  @ffi.Array.multi([21])
+  external ffi.Array<ffi.Float> pose_covariance;
+
+  /// <  Row-major representation of a 6x6 velocity cross-covariance matrix upper right triangle (states: vx, vy, vz, rollspeed, pitchspeed, yawspeed; first six entries are the first ROW, next five entries are the second ROW, etc.). If unknown, assign NaN value to first element in the array.
+  @ffi.Array.multi([21])
+  external ffi.Array<ffi.Float> velocity_covariance;
+
+  /// <  Coordinate frame of reference for the pose data.
+  @ffi.Uint8()
+  external int frame_id;
+
+  /// <  Coordinate frame of reference for the velocity in free space (twist) data.
+  @ffi.Uint8()
+  external int child_frame_id;
+
+  /// <  Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
+  @ffi.Uint8()
+  external int reset_counter;
+
+  /// <  Type of estimator that is providing the odometry.
+  @ffi.Uint8()
+  external int estimator_type;
+
+  /// < [%] Optional odometry quality metric as a percentage. -1 = odometry has failed, 0 = unknown/unset quality, 1 = worst quality, 100 = best quality
+  @ffi.Int8()
+  external int quality;
+}
+
+typedef mavlink_isbd_link_status_t = __mavlink_isbd_link_status_t;
+
+final class __mavlink_isbd_link_status_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int timestamp;
+
+  /// < [us] Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int last_heartbeat;
+
+  /// <  Number of failed SBD sessions.
+  @ffi.Uint16()
+  external int failed_sessions;
+
+  /// <  Number of successful SBD sessions.
+  @ffi.Uint16()
+  external int successful_sessions;
+
+  /// <  Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.
+  @ffi.Uint8()
+  external int signal_quality;
+
+  /// <  1: Ring call pending, 0: No call pending.
+  @ffi.Uint8()
+  external int ring_pending;
+
+  /// <  1: Transmission session pending, 0: No transmission session pending.
+  @ffi.Uint8()
+  external int tx_session_pending;
+
+  /// <  1: Receiving session pending, 0: No receiving session pending.
+  @ffi.Uint8()
+  external int rx_session_pending;
+}
+
+typedef mavlink_raw_rpm_t = __mavlink_raw_rpm_t;
+
+final class __mavlink_raw_rpm_t extends ffi.Struct {
+  /// < [rpm] Indicated rate
+  @ffi.Float()
+  external double frequency;
+
+  /// <  Index of this RPM sensor (0-indexed)
+  @ffi.Uint8()
+  external int index;
+}
+
+typedef mavlink_utm_global_position_t = __mavlink_utm_global_position_t;
+
+final class __mavlink_utm_global_position_t extends ffi.Struct {
+  /// < [us] Time of applicability of position (microseconds since UNIX epoch).
+  @ffi.Uint64()
+  external int time;
+
+  /// < [degE7] Latitude (WGS84)
+  @ffi.Int32()
+  external int lat;
+
+  /// < [degE7] Longitude (WGS84)
+  @ffi.Int32()
+  external int lon;
+
+  /// < [mm] Altitude (WGS84)
+  @ffi.Int32()
+  external int alt;
+
+  /// < [mm] Altitude above ground
+  @ffi.Int32()
+  external int relative_alt;
+
+  /// < [degE7] Next waypoint, latitude (WGS84)
+  @ffi.Int32()
+  external int next_lat;
+
+  /// < [degE7] Next waypoint, longitude (WGS84)
+  @ffi.Int32()
+  external int next_lon;
+
+  /// < [mm] Next waypoint, altitude (WGS84)
+  @ffi.Int32()
+  external int next_alt;
+
+  /// < [cm/s] Ground X speed (latitude, positive north)
+  @ffi.Int16()
+  external int vx;
+
+  /// < [cm/s] Ground Y speed (longitude, positive east)
+  @ffi.Int16()
+  external int vy;
+
+  /// < [cm/s] Ground Z speed (altitude, positive down)
+  @ffi.Int16()
+  external int vz;
+
+  /// < [mm] Horizontal position uncertainty (standard deviation)
+  @ffi.Uint16()
+  external int h_acc;
+
+  /// < [mm] Altitude uncertainty (standard deviation)
+  @ffi.Uint16()
+  external int v_acc;
+
+  /// < [cm/s] Speed uncertainty (standard deviation)
+  @ffi.Uint16()
+  external int vel_acc;
+
+  /// < [cs] Time until next update. Set to 0 if unknown or in data driven mode.
+  @ffi.Uint16()
+  external int update_rate;
+
+  /// <  Unique UAS ID.
+  @ffi.Array.multi([18])
+  external ffi.Array<ffi.Uint8> uas_id;
+
+  /// <  Flight state
+  @ffi.Uint8()
+  external int flight_state;
+
+  /// <  Bitwise OR combination of the data available flags.
+  @ffi.Uint8()
+  external int flags;
+}
+
+typedef mavlink_debug_float_array_t = __mavlink_debug_float_array_t;
+
+final class __mavlink_debug_float_array_t extends ffi.Struct {
+  /// < [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Unique ID used to discriminate between arrays
+  @ffi.Uint16()
+  external int array_id;
+
+  /// <  Name, for human-friendly display in a Ground Control Station
+  @ffi.Array.multi([10])
+  external ffi.Array<ffi.Char> name;
+
+  /// <  data
+  @ffi.Array.multi([58])
+  external ffi.Array<ffi.Float> data;
+}
+
+typedef mavlink_generator_status_t = __mavlink_generator_status_t;
+
+final class __mavlink_generator_status_t extends ffi.Struct {
+  /// <  Status flags.
+  @ffi.Uint64()
+  external int status;
+
+  /// < [A] Current into/out of battery. Positive for out. Negative for in. NaN: field not provided.
+  @ffi.Float()
+  external double battery_current;
+
+  /// < [A] Current going to the UAV. If battery current not available this is the DC current from the generator. Positive for out. Negative for in. NaN: field not provided
+  @ffi.Float()
+  external double load_current;
+
+  /// < [W] The power being generated. NaN: field not provided
+  @ffi.Float()
+  external double power_generated;
+
+  /// < [V] Voltage of the bus seen at the generator, or battery bus if battery bus is controlled by generator and at a different voltage to main bus.
+  @ffi.Float()
+  external double bus_voltage;
+
+  /// < [A] The target battery current. Positive for out. Negative for in. NaN: field not provided
+  @ffi.Float()
+  external double bat_current_setpoint;
+
+  /// < [s] Seconds this generator has run since it was rebooted. UINT32_MAX: field not provided.
+  @ffi.Uint32()
+  external int runtime;
+
+  /// < [s] Seconds until this generator requires maintenance.  A negative value indicates maintenance is past-due. INT32_MAX: field not provided.
+  @ffi.Int32()
+  external int time_until_maintenance;
+
+  /// < [rpm] Speed of electrical generator or alternator. UINT16_MAX: field not provided.
+  @ffi.Uint16()
+  external int generator_speed;
+
+  /// < [degC] The temperature of the rectifier or power converter. INT16_MAX: field not provided.
+  @ffi.Int16()
+  external int rectifier_temperature;
+
+  /// < [degC] The temperature of the mechanical motor, fuel cell core or generator. INT16_MAX: field not provided.
+  @ffi.Int16()
+  external int generator_temperature;
+}
+
+typedef mavlink_actuator_output_status_t = __mavlink_actuator_output_status_t;
+
+final class __mavlink_actuator_output_status_t extends ffi.Struct {
+  /// < [us] Timestamp (since system boot).
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// <  Active outputs
+  @ffi.Uint32()
+  external int active;
+
+  /// <  Servo / motor output array values. Zero values indicate unused channels.
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Float> actuator;
+}
+
+typedef mavlink_tunnel_t = __mavlink_tunnel_t;
+
+final class __mavlink_tunnel_t extends ffi.Struct {
+  /// <  A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
+  @ffi.Uint16()
+  external int payload_type;
+
+  /// <  System ID (can be 0 for broadcast, but this is discouraged)
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (can be 0 for broadcast, but this is discouraged)
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Length of the data transported in payload
+  @ffi.Uint8()
+  external int payload_length;
+
+  /// <  Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.
+  @ffi.Array.multi([128])
+  external ffi.Array<ffi.Uint8> payload;
+}
+
+typedef mavlink_can_frame_t = __mavlink_can_frame_t;
+
+final class __mavlink_can_frame_t extends ffi.Struct {
+  /// <  Frame ID
+  @ffi.Uint32()
+  external int id;
+
+  /// <  System ID.
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID.
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  bus number
+  @ffi.Uint8()
+  external int bus;
+
+  /// <  Frame length
+  @ffi.Uint8()
+  external int len;
+
+  /// <  Frame data
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Uint8> data;
+}
+
+typedef mavlink_canfd_frame_t = __mavlink_canfd_frame_t;
+
+final class __mavlink_canfd_frame_t extends ffi.Struct {
+  /// <  Frame ID
+  @ffi.Uint32()
+  external int id;
+
+  /// <  System ID.
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID.
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  bus number
+  @ffi.Uint8()
+  external int bus;
+
+  /// <  Frame length
+  @ffi.Uint8()
+  external int len;
+
+  /// <  Frame data
+  @ffi.Array.multi([64])
+  external ffi.Array<ffi.Uint8> data;
+}
+
+typedef mavlink_can_filter_modify_t = __mavlink_can_filter_modify_t;
+
+final class __mavlink_can_filter_modify_t extends ffi.Struct {
+  /// <  filter IDs, length num_ids
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Uint16> ids;
+
+  /// <  System ID.
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID.
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  bus number
+  @ffi.Uint8()
+  external int bus;
+
+  /// <  what operation to perform on the filter list. See CAN_FILTER_OP enum.
+  @ffi.Uint8()
+  external int operation;
+
+  /// <  number of IDs in filter list
+  @ffi.Uint8()
+  external int num_ids;
+}
+
+typedef mavlink_wheel_distance_t = __mavlink_wheel_distance_t;
+
+final class __mavlink_wheel_distance_t extends ffi.Struct {
+  /// < [us] Timestamp (synced to UNIX time or since system boot).
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [m] Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Double> distance;
+
+  /// <  Number of wheels reported.
+  @ffi.Uint8()
+  external int count;
+}
+
+typedef mavlink_winch_status_t = __mavlink_winch_status_t;
+
+final class __mavlink_winch_status_t extends ffi.Struct {
+  /// < [us] Timestamp (synced to UNIX time or since system boot).
+  @ffi.Uint64()
+  external int time_usec;
+
+  /// < [m] Length of line released. NaN if unknown
+  @ffi.Float()
+  external double line_length;
+
+  /// < [m/s] Speed line is being released or retracted. Positive values if being released, negative values if being retracted, NaN if unknown
+  @ffi.Float()
+  external double speed;
+
+  /// < [kg] Tension on the line. NaN if unknown
+  @ffi.Float()
+  external double tension;
+
+  /// < [V] Voltage of the battery supplying the winch. NaN if unknown
+  @ffi.Float()
+  external double voltage;
+
+  /// < [A] Current draw from the winch. NaN if unknown
+  @ffi.Float()
+  external double current;
+
+  /// <  Status flags
+  @ffi.Uint32()
+  external int status;
+
+  /// < [degC] Temperature of the motor. INT16_MAX if unknown
+  @ffi.Int16()
+  external int temperature;
+}
+
+typedef mavlink_open_drone_id_basic_id_t = __mavlink_open_drone_id_basic_id_t;
+
+final class __mavlink_open_drone_id_basic_id_t extends ffi.Struct {
+  /// <  System ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Only used for drone ID data received from other UAs. See detailed description at https://mavlink.io/en/services/opendroneid.html.
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Uint8> id_or_mac;
+
+  /// <  Indicates the format for the uas_id field of this message.
+  @ffi.Uint8()
+  external int id_type;
+
+  /// <  Indicates the type of UA (Unmanned Aircraft).
+  @ffi.Uint8()
+  external int ua_type;
+
+  /// <  UAS (Unmanned Aircraft System) ID following the format specified by id_type. Shall be filled with nulls in the unused portion of the field.
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Uint8> uas_id;
+}
+
+typedef mavlink_open_drone_id_location_t = __mavlink_open_drone_id_location_t;
+
+final class __mavlink_open_drone_id_location_t extends ffi.Struct {
+  /// < [degE7] Current latitude of the unmanned aircraft. If unknown: 0 (both Lat/Lon).
+  @ffi.Int32()
+  external int latitude;
+
+  /// < [degE7] Current longitude of the unmanned aircraft. If unknown: 0 (both Lat/Lon).
+  @ffi.Int32()
+  external int longitude;
+
+  /// < [m] The altitude calculated from the barometric pressue. Reference is against 29.92inHg or 1013.2mb. If unknown: -1000 m.
+  @ffi.Float()
+  external double altitude_barometric;
+
+  /// < [m] The geodetic altitude as defined by WGS84. If unknown: -1000 m.
+  @ffi.Float()
+  external double altitude_geodetic;
+
+  /// < [m] The current height of the unmanned aircraft above the take-off location or the ground as indicated by height_reference. If unknown: -1000 m.
+  @ffi.Float()
+  external double height;
+
+  /// < [s] Seconds after the full hour with reference to UTC time. Typically the GPS outputs a time-of-week value in milliseconds. First convert that to UTC and then convert for this field using ((float) (time_week_ms % (60*60*1000))) / 1000. If unknown: 0xFFFF.
+  @ffi.Float()
+  external double timestamp;
+
+  /// < [cdeg] Direction over ground (not heading, but direction of movement) measured clockwise from true North: 0 - 35999 centi-degrees. If unknown: 36100 centi-degrees.
+  @ffi.Uint16()
+  external int direction;
+
+  /// < [cm/s] Ground speed. Positive only. If unknown: 25500 cm/s. If speed is larger than 25425 cm/s, use 25425 cm/s.
+  @ffi.Uint16()
+  external int speed_horizontal;
+
+  /// < [cm/s] The vertical speed. Up is positive. If unknown: 6300 cm/s. If speed is larger than 6200 cm/s, use 6200 cm/s. If lower than -6200 cm/s, use -6200 cm/s.
+  @ffi.Int16()
+  external int speed_vertical;
+
+  /// <  System ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Only used for drone ID data received from other UAs. See detailed description at https://mavlink.io/en/services/opendroneid.html.
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Uint8> id_or_mac;
+
+  /// <  Indicates whether the unmanned aircraft is on the ground or in the air.
+  @ffi.Uint8()
+  external int status;
+
+  /// <  Indicates the reference point for the height field.
+  @ffi.Uint8()
+  external int height_reference;
+
+  /// <  The accuracy of the horizontal position.
+  @ffi.Uint8()
+  external int horizontal_accuracy;
+
+  /// <  The accuracy of the vertical position.
+  @ffi.Uint8()
+  external int vertical_accuracy;
+
+  /// <  The accuracy of the barometric altitude.
+  @ffi.Uint8()
+  external int barometer_accuracy;
+
+  /// <  The accuracy of the horizontal and vertical speed.
+  @ffi.Uint8()
+  external int speed_accuracy;
+
+  /// <  The accuracy of the timestamps.
+  @ffi.Uint8()
+  external int timestamp_accuracy;
+}
+
+typedef mavlink_open_drone_id_authentication_t
+    = __mavlink_open_drone_id_authentication_t;
+
+final class __mavlink_open_drone_id_authentication_t extends ffi.Struct {
+  /// < [s] This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
+  @ffi.Uint32()
+  external int timestamp;
+
+  /// <  System ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Only used for drone ID data received from other UAs. See detailed description at https://mavlink.io/en/services/opendroneid.html.
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Uint8> id_or_mac;
+
+  /// <  Indicates the type of authentication.
+  @ffi.Uint8()
+  external int authentication_type;
+
+  /// <  Allowed range is 0 - 15.
+  @ffi.Uint8()
+  external int data_page;
+
+  /// <  This field is only present for page 0. Allowed range is 0 - 15. See the description of struct ODID_Auth_data at https://github.com/opendroneid/opendroneid-core-c/blob/master/libopendroneid/opendroneid.h.
+  @ffi.Uint8()
+  external int last_page_index;
+
+  /// < [bytes] This field is only present for page 0. Total bytes of authentication_data from all data pages. See the description of struct ODID_Auth_data at https://github.com/opendroneid/opendroneid-core-c/blob/master/libopendroneid/opendroneid.h.
+  @ffi.Uint8()
+  external int length;
+
+  /// <  Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.
+  @ffi.Array.multi([23])
+  external ffi.Array<ffi.Uint8> authentication_data;
+}
+
+typedef mavlink_open_drone_id_self_id_t = __mavlink_open_drone_id_self_id_t;
+
+final class __mavlink_open_drone_id_self_id_t extends ffi.Struct {
+  /// <  System ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Only used for drone ID data received from other UAs. See detailed description at https://mavlink.io/en/services/opendroneid.html.
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Uint8> id_or_mac;
+
+  /// <  Indicates the type of the description field.
+  @ffi.Uint8()
+  external int description_type;
+
+  /// <  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+  @ffi.Array.multi([23])
+  external ffi.Array<ffi.Char> description;
+}
+
+typedef mavlink_open_drone_id_system_t = __mavlink_open_drone_id_system_t;
+
+final class __mavlink_open_drone_id_system_t extends ffi.Struct {
+  /// < [degE7] Latitude of the operator. If unknown: 0 (both Lat/Lon).
+  @ffi.Int32()
+  external int operator_latitude;
+
+  /// < [degE7] Longitude of the operator. If unknown: 0 (both Lat/Lon).
+  @ffi.Int32()
+  external int operator_longitude;
+
+  /// < [m] Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
+  @ffi.Float()
+  external double area_ceiling;
+
+  /// < [m] Area Operations Floor relative to WGS84. If unknown: -1000 m.
+  @ffi.Float()
+  external double area_floor;
+
+  /// < [m] Geodetic altitude of the operator relative to WGS84. If unknown: -1000 m.
+  @ffi.Float()
+  external double operator_altitude_geo;
+
+  /// < [s] 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
+  @ffi.Uint32()
+  external int timestamp;
+
+  /// <  Number of aircraft in the area, group or formation (default 1).
+  @ffi.Uint16()
+  external int area_count;
+
+  /// < [m] Radius of the cylindrical area of the group or formation (default 0).
+  @ffi.Uint16()
+  external int area_radius;
+
+  /// <  System ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Only used for drone ID data received from other UAs. See detailed description at https://mavlink.io/en/services/opendroneid.html.
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Uint8> id_or_mac;
+
+  /// <  Specifies the operator location type.
+  @ffi.Uint8()
+  external int operator_location_type;
+
+  /// <  Specifies the classification type of the UA.
+  @ffi.Uint8()
+  external int classification_type;
+
+  /// <  When classification_type is MAV_ODID_CLASSIFICATION_TYPE_EU, specifies the category of the UA.
+  @ffi.Uint8()
+  external int category_eu;
+
+  /// <  When classification_type is MAV_ODID_CLASSIFICATION_TYPE_EU, specifies the class of the UA.
+  @ffi.Uint8()
+  external int class_eu;
+}
+
+typedef mavlink_open_drone_id_operator_id_t
+    = __mavlink_open_drone_id_operator_id_t;
+
+final class __mavlink_open_drone_id_operator_id_t extends ffi.Struct {
+  /// <  System ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Only used for drone ID data received from other UAs. See detailed description at https://mavlink.io/en/services/opendroneid.html.
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Uint8> id_or_mac;
+
+  /// <  Indicates the type of the operator_id field.
+  @ffi.Uint8()
+  external int operator_id_type;
+
+  /// <  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Char> operator_id;
+}
+
+typedef mavlink_open_drone_id_message_pack_t
+    = __mavlink_open_drone_id_message_pack_t;
+
+final class __mavlink_open_drone_id_message_pack_t extends ffi.Struct {
+  /// <  System ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Only used for drone ID data received from other UAs. See detailed description at https://mavlink.io/en/services/opendroneid.html.
+  @ffi.Array.multi([20])
+  external ffi.Array<ffi.Uint8> id_or_mac;
+
+  /// < [bytes] This field must currently always be equal to 25 (bytes), since all encoded OpenDroneID messages are specificed to have this length.
+  @ffi.Uint8()
+  external int single_message_size;
+
+  /// <  Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 9.
+  @ffi.Uint8()
+  external int msg_pack_size;
+
+  /// <  Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.
+  @ffi.Array.multi([225])
+  external ffi.Array<ffi.Uint8> messages;
+}
+
+typedef mavlink_open_drone_id_arm_status_t
+    = __mavlink_open_drone_id_arm_status_t;
+
+final class __mavlink_open_drone_id_arm_status_t extends ffi.Struct {
+  /// <  Status level indicating if arming is allowed.
+  @ffi.Uint8()
+  external int status;
+
+  /// <  Text error message, should be empty if status is good to arm. Fill with nulls in unused portion.
+  @ffi.Array.multi([50])
+  external ffi.Array<ffi.Char> error;
+}
+
+typedef mavlink_open_drone_id_system_update_t
+    = __mavlink_open_drone_id_system_update_t;
+
+final class __mavlink_open_drone_id_system_update_t extends ffi.Struct {
+  /// < [degE7] Latitude of the operator. If unknown: 0 (both Lat/Lon).
+  @ffi.Int32()
+  external int operator_latitude;
+
+  /// < [degE7] Longitude of the operator. If unknown: 0 (both Lat/Lon).
+  @ffi.Int32()
+  external int operator_longitude;
+
+  /// < [m] Geodetic altitude of the operator relative to WGS84. If unknown: -1000 m.
+  @ffi.Float()
+  external double operator_altitude_geo;
+
+  /// < [s] 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
+  @ffi.Uint32()
+  external int timestamp;
+
+  /// <  System ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID (0 for broadcast).
+  @ffi.Uint8()
+  external int target_component;
+}
+
+typedef mavlink_hygrometer_sensor_t = __mavlink_hygrometer_sensor_t;
+
+final class __mavlink_hygrometer_sensor_t extends ffi.Struct {
+  /// < [cdegC] Temperature
+  @ffi.Int16()
+  external int temperature;
+
+  /// < [c%] Humidity
+  @ffi.Uint16()
+  external int humidity;
+
+  /// <  Hygrometer ID
+  @ffi.Uint8()
+  external int id;
 }
 
 final class send_msg extends ffi.Struct {

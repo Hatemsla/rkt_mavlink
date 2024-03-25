@@ -1,23 +1,5 @@
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "generated-lib/ardupilotmega/mavlink.h"
 #include "generated-lib/mavlink_helpers.h"
-// #include "rtk_mavlink_variables.h"
-
-#if _WIN32
-#include <windows.h>
-#else
-#include <pthread.h>
-#include <unistd.h>
-#include <string.h>
-#endif
-
-#if _WIN32
-#define FFI_PLUGIN_EXPORT __declspec(dllexport)
-#else
-#define FFI_PLUGIN_EXPORT
-#endif
 
 mavlink_message_t tx_msg;
 mavlink_message_t rx_msg;
@@ -208,25 +190,3 @@ mavlink_open_drone_id_message_pack_t rx_open_drone_id_message_pack;
 mavlink_open_drone_id_arm_status_t rx_open_drone_id_arm_status;
 mavlink_open_drone_id_system_update_t rx_open_drone_id_system_update;
 mavlink_hygrometer_sensor_t rx_hygrometer_sensor;
-
-// uint8_t is_heartbeat = 0;
-// uint8_t is_sys_status = 0;
-// uint8_t is_gps_status = 0;
-// uint8_t is_attitude = 0;
-// uint8_t is_global_position_int = 0;
-
-uint8_t sysid_apm;  // id дрона
-uint8_t compid_apm; // id автопилота
-
-typedef struct
-{
-    uint8_t tx_msg_buffer[MAVLINK_MAX_PACKET_LEN];
-    int tx_msg_len;
-} send_msg;
-
-FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte);
-
-FFI_PLUGIN_EXPORT send_msg request_attitude();
-FFI_PLUGIN_EXPORT send_msg request_sys_status();
-FFI_PLUGIN_EXPORT send_msg request_gps_status();
-FFI_PLUGIN_EXPORT send_msg request_global_position_int();
