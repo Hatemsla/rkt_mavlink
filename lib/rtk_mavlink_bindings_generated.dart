@@ -1170,6 +1170,9 @@ class RtkMavlinkBindings {
 
   set compid_apm(int value) => _compid_apm.value = value;
 
+  /// @brief Метод для обновления данных
+  /// @param new_byte байт из приемного канала
+  /// @return
   void update_data(
     int new_byte,
   ) {
@@ -1182,6 +1185,8 @@ class RtkMavlinkBindings {
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Uint8)>>('update_data');
   late final _update_data = _update_dataPtr.asFunction<void Function(int)>();
 
+  /// @brief Запрос данных о положении
+  /// @return структура send_msg
   send_msg request_attitude() {
     return _request_attitude();
   }
@@ -1191,6 +1196,8 @@ class RtkMavlinkBindings {
   late final _request_attitude =
       _request_attitudePtr.asFunction<send_msg Function()>();
 
+  /// @brief Запрос данных о системном статусе
+  /// @return структура send_msg
   send_msg request_sys_status() {
     return _request_sys_status();
   }
@@ -1200,6 +1207,8 @@ class RtkMavlinkBindings {
   late final _request_sys_status =
       _request_sys_statusPtr.asFunction<send_msg Function()>();
 
+  /// @brief Запрос данных о наваигации
+  /// @return структура send_msg
   send_msg request_gps_status() {
     return _request_gps_status();
   }
@@ -1209,6 +1218,8 @@ class RtkMavlinkBindings {
   late final _request_gps_status =
       _request_gps_statusPtr.asFunction<send_msg Function()>();
 
+  /// @brief Запрос данных о глобальной позиции
+  /// @return структура send_msg
   send_msg request_global_position_int() {
     return _request_global_position_int();
   }
@@ -1218,6 +1229,18 @@ class RtkMavlinkBindings {
           'request_global_position_int');
   late final _request_global_position_int =
       _request_global_position_intPtr.asFunction<send_msg Function()>();
+
+  /// @brief Запрос данных о локальной позиции
+  /// @return структура send_msg
+  send_msg request_local_position_ned() {
+    return _request_local_position_ned();
+  }
+
+  late final _request_local_position_nedPtr =
+      _lookup<ffi.NativeFunction<send_msg Function()>>(
+          'request_local_position_ned');
+  late final _request_local_position_ned =
+      _request_local_position_nedPtr.asFunction<send_msg Function()>();
 }
 
 typedef mavlink_message_t = __mavlink_message;

@@ -77,6 +77,23 @@ FFI_PLUGIN_EXPORT send_msg request_global_position_int()
     return send;
 }
 
+FFI_PLUGIN_EXPORT send_msg request_local_position_ned()
+{
+    send_msg send;
+
+    if (already_received_heartbeat)
+    {
+        mavlink_msg_command_long_pack_chan(sysid_apm, MAV_COMP_ID_ONBOARD_COMPUTER, MAVLINK_COMM_0, &tx_msg, sysid_apm, compid_apm,
+                                           MAV_CMD_SET_MESSAGE_INTERVAL, 0, MAVLINK_MSG_ID_LOCAL_POSITION_NED, HZ_1, 0, 0, 0, 0, 0);
+        tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+
+        send.tx_msg_len = tx_msg_len;
+        memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
+    }
+
+    return send;
+}
+
 FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
 {
     uint8_t r_byte = new_byte;

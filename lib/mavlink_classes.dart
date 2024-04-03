@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+
+// Классы для преобразования данных в сообщения в Dart
 abstract class MavlinkMessage {}
 
 class MavlinkHeartbeat extends MavlinkMessage {
@@ -110,5 +112,25 @@ class MavlinkGlobalPositionInt extends MavlinkMessage {
     required this.vy,
     required this.vz,
     required this.hdg,
+  });
+}
+
+class MavlinkLocalPositionNed extends MavlinkMessage {
+  int timeBootMs;
+  double x;
+  double y;
+  double z;
+  double vx;
+  double vy;
+  double vz;
+
+  MavlinkLocalPositionNed({
+    required this.timeBootMs,
+    required this.x,
+    required this.y,
+    required this.z,
+    required this.vx,
+    required this.vy,
+    required this.vz,
   });
 }

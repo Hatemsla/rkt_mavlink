@@ -209,12 +209,6 @@ mavlink_open_drone_id_arm_status_t rx_open_drone_id_arm_status;
 mavlink_open_drone_id_system_update_t rx_open_drone_id_system_update;
 mavlink_hygrometer_sensor_t rx_hygrometer_sensor;
 
-// uint8_t is_heartbeat = 0;
-// uint8_t is_sys_status = 0;
-// uint8_t is_gps_status = 0;
-// uint8_t is_attitude = 0;
-// uint8_t is_global_position_int = 0;
-
 uint8_t sysid_apm;  // id дрона
 uint8_t compid_apm; // id автопилота
 
@@ -224,9 +218,27 @@ typedef struct
     int tx_msg_len;
 } send_msg;
 
+/// @brief Метод для обновления данных
+/// @param new_byte байт из приемного канала
+/// @return
 FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte);
 
+/// @brief Запрос данных о положении
+/// @return структура send_msg
 FFI_PLUGIN_EXPORT send_msg request_attitude();
+
+/// @brief Запрос данных о системном статусе
+/// @return структура send_msg
 FFI_PLUGIN_EXPORT send_msg request_sys_status();
+
+/// @brief Запрос данных о наваигации
+/// @return структура send_msg
 FFI_PLUGIN_EXPORT send_msg request_gps_status();
+
+/// @brief Запрос данных о глобальной позиции
+/// @return структура send_msg
 FFI_PLUGIN_EXPORT send_msg request_global_position_int();
+
+/// @brief Запрос данных о локальной позиции
+/// @return структура send_msg
+FFI_PLUGIN_EXPORT send_msg request_local_position_ned();
