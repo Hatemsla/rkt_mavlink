@@ -3,6 +3,36 @@
 // Классы для преобразования данных в сообщения в Dart
 abstract class MavlinkMessage {}
 
+class MavlinkMissionAck extends MavlinkMessage {
+  int targetSystem;
+  int targetComponent;
+  int type;
+  int missionType;
+  int opaqueId;
+
+  MavlinkMissionAck({
+    required this.targetSystem,
+    required this.targetComponent,
+    required this.type,
+    required this.missionType,
+    required this.opaqueId,
+  });
+}
+
+class MavlinkMissionRequestInt extends MavlinkMessage {
+  int targetSystem;
+  int targetComponent;
+  int seq;
+  int missionType;
+
+  MavlinkMissionRequestInt({
+    required this.targetSystem,
+    required this.targetComponent,
+    required this.seq,
+    required this.missionType,
+  });
+}
+
 class MavlinkHeartbeat extends MavlinkMessage {
   int type;
   int autopilot;

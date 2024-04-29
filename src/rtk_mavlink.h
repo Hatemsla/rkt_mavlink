@@ -242,3 +242,6 @@ FFI_PLUGIN_EXPORT send_msg request_global_position_int();
 /// @brief Запрос данных о локальной позиции
 /// @return структура send_msg
 FFI_PLUGIN_EXPORT send_msg request_local_position_ned();
+
+FFI_PLUGIN_EXPORT send_msg request_mission_count(uint16_t mission_count);
+FFI_PLUGIN_EXPORT send_msg request_mission_item_int(uint16_t seq, int32_t lat, int32_t lng, int32_t alt);

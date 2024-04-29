@@ -9,6 +9,39 @@ unsigned long t_last_heartbeat = 0;
 uint8_t tx_msg_buffer[MAVLINK_MAX_PACKET_LEN];
 int tx_msg_len = 0;
 
+FFI_PLUGIN_EXPORT send_msg request_mission_count(uint16_t mission_count)
+{
+    send_msg send;
+
+    if (already_received_heartbeat)
+    {
+        mavlink_msg_mission_count_pack_chan(sysid_apm, MAV_COMP_ID_ONBOARD_COMPUTER, MAVLINK_COMM_0, &tx_msg, sysid_apm, compid_apm, mission_count, MAV_MISSION_TYPE_MISSION);
+        tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+
+        send.tx_msg_len = tx_msg_len;
+        memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
+    }
+
+    return send;
+}
+
+FFI_PLUGIN_EXPORT send_msg request_mission_item_int(uint16_t seq, int32_t lat, int32_t lng, int32_t alt)
+{
+    send_msg send;
+
+    if (already_received_heartbeat)
+    {
+        mavlink_msg_mission_item_int_pack_chan(sysid_apm, MAV_COMP_ID_ONBOARD_COMPUTER, MAVLINK_COMM_0, &tx_msg, sysid_apm, compid_apm, seq, MAV_FRAME_GLOBAL, MAV_CMD_NAV_WAYPOINT,
+                                               0, 1, 0, 0, 0, NAN, lat, lng, alt, MAV_MISSION_TYPE_MISSION);
+        tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+
+        send.tx_msg_len = tx_msg_len;
+        memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
+    }
+
+    return send;
+}
+
 FFI_PLUGIN_EXPORT send_msg request_attitude()
 {
     send_msg send;
@@ -97,12 +130,6 @@ FFI_PLUGIN_EXPORT send_msg request_local_position_ned()
 FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
 {
     uint8_t r_byte = new_byte;
-
-    // is_attitude = 0;
-    // is_sys_status = 0;
-    // is_gps_status = 0;
-    // is_global_position_int = 0;
-    // is_heartbeat = 0;
 
     if (mavlink_parse_char(MAVLINK_COMM_0, r_byte, &rx_msg, &rx_status))
     {
@@ -487,7 +514,7 @@ FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
         }
         case MAVLINK_MSG_ID_HIL_OPTICAL_FLOW:
         {
-            mavlink_msg_optical_flow_decode(&rx_msg, &rx_hil_optical_flow);
+            mavlink_msg_optical_flow_decode(&rx_msg, &rx_optical_flow);
             break;
         }
         case MAVLINK_MSG_ID_HIL_STATE_QUATERNION:
@@ -582,7 +609,7 @@ FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
         }
         case MAVLINK_MSG_ID_TERRAIN_DATA:
         {
-            mavlink_msg_terrain_request_decode(&rx_msg, &rx_terrain_data);
+            mavlink_msg_terrain_request_decode(&rx_msg, &rx_terrain_request);
             break;
         }
         case MAVLINK_MSG_ID_SCALED_PRESSURE2:

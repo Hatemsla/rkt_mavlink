@@ -1241,6 +1241,41 @@ class RtkMavlinkBindings {
           'request_local_position_ned');
   late final _request_local_position_ned =
       _request_local_position_nedPtr.asFunction<send_msg Function()>();
+
+  send_msg request_mission_count(
+    int mission_count,
+  ) {
+    return _request_mission_count(
+      mission_count,
+    );
+  }
+
+  late final _request_mission_countPtr =
+      _lookup<ffi.NativeFunction<send_msg Function(ffi.Uint16)>>(
+          'request_mission_count');
+  late final _request_mission_count =
+      _request_mission_countPtr.asFunction<send_msg Function(int)>();
+
+  send_msg request_mission_item_int(
+    int seq,
+    int lat,
+    int lng,
+    int alt,
+  ) {
+    return _request_mission_item_int(
+      seq,
+      lat,
+      lng,
+      alt,
+    );
+  }
+
+  late final _request_mission_item_intPtr = _lookup<
+      ffi.NativeFunction<
+          send_msg Function(ffi.Uint16, ffi.Int32, ffi.Int32,
+              ffi.Int32)>>('request_mission_item_int');
+  late final _request_mission_item_int = _request_mission_item_intPtr
+      .asFunction<send_msg Function(int, int, int, int)>();
 }
 
 typedef mavlink_message_t = __mavlink_message;

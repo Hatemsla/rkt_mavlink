@@ -82,12 +82,43 @@ bool isHeartbeatAlreadyRecived = false;
   }
 }
 
+(Array<Uint8>, int) requestMissionCount(int missionCount) {
+  try {
+    var missionCountPointer = _bindings.request_mission_count(missionCount);
+
+    return (
+      missionCountPointer.tx_msg_buffer,
+      missionCountPointer.tx_msg_len,
+    );
+  } catch (e, st) {
+    debugPrintStack(stackTrace: st);
+    return (const Array<Uint8>(0), 0);
+  }
+}
+
+(Array<Uint8>, int) requestMissionItemInt(int seq, int lat, int lon, int alt) {
+  try {
+    var missionItemIntPointer =
+        _bindings.request_mission_item_int(seq, lat, lon, alt);
+
+    return (
+      missionItemIntPointer.tx_msg_buffer,
+      missionItemIntPointer.tx_msg_len,
+    );
+  } catch (e, st) {
+    debugPrintStack(stackTrace: st);
+    return (const Array<Uint8>(0), 0);
+  }
+}
+
 MavlinkHeartbeat? mavlinkHeartbeat;
 MavlinkSysStatus? mavlinkSystStatus;
 MavlinkGpsStatus? mavlinkGpsStatus;
 MavlinkAttitude? mavlinkAttitude;
 MavlinkGlobalPositionInt? mavlinkGlobalPositionInt;
 MavlinkLocalPositionNed? mavlinkLocalPositionNed;
+MavlinkMissionRequestInt? mavlinkMissionRequestInt;
+MavlinkMissionAck? mavlinkMissionAck;
 
 // Функция обновления данных
 List<MavlinkMessage> updateData(List<int> newBytes) {
@@ -171,9 +202,19 @@ List<MavlinkMessage> updateData(List<int> newBytes) {
       vz: _bindings.rx_local_position_ned.vz,
     );
 
-    // debugPrint("roll: ${mavlinkAttitude.roll}");
-    // debugPrint("pitch: ${mavlinkAttitude.pitch}");
-    // debugPrint("yaw: ${mavlinkAttitude.yaw}");
+    mavlinkMissionRequestInt = MavlinkMissionRequestInt(
+      targetSystem: _bindings.rx_mission_request_int.target_system,
+      targetComponent: _bindings.rx_mission_request_int.target_component,
+      seq: _bindings.rx_mission_request_int.seq,
+      missionType: _bindings.rx_mission_request_int.mission_type,
+    );
+
+    mavlinkMissionAck = MavlinkMissionAck(
+        targetSystem: _bindings.rx_mission_ack.target_system,
+        targetComponent: _bindings.rx_mission_ack.target_component,
+        type: _bindings.rx_mission_ack.type,
+        missionType: _bindings.rx_mission_ack.mission_type,
+        opaqueId: 0);
 
     messages.add(mavlinkHeartbeat!);
     messages.add(mavlinkSystStatus!);
@@ -181,6 +222,8 @@ List<MavlinkMessage> updateData(List<int> newBytes) {
     messages.add(mavlinkAttitude!);
     messages.add(mavlinkGlobalPositionInt!);
     messages.add(mavlinkLocalPositionNed!);
+    messages.add(mavlinkMissionRequestInt!);
+    messages.add(mavlinkMissionAck!);
   }
 
   return messages;
