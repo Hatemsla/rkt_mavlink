@@ -13,6 +13,7 @@ import 'rtk_mavlink_bindings_generated.dart';
 const String _libName = 'rtk_mavlink';
 
 bool isHeartbeatAlreadyRecived = false;
+int customSeq = 0;
 
 // Запрос данных о положении БПЛА
 (Array<Uint8>, int) requestAttitude() {
@@ -23,7 +24,7 @@ bool isHeartbeatAlreadyRecived = false;
 
     return (attitudePointer.tx_msg_buffer, attitudePointer.tx_msg_len);
   } catch (e, st) {
-    debugPrint(e.toString());
+    // debugPrint(e.toString());
     debugPrintStack(stackTrace: st);
     return (const Array<Uint8>(0), 0);
   }
@@ -96,14 +97,103 @@ bool isHeartbeatAlreadyRecived = false;
   }
 }
 
-(Array<Uint8>, int) requestMissionItemInt(int seq, int lat, int lon, int alt) {
+(Array<Uint8>, int) requestMissionNavWaypoint(
+    int seq, int lat, int lon, int alt) {
   try {
     var missionItemIntPointer =
-        _bindings.request_mission_item_int(seq, lat, lon, alt);
+        _bindings.request_mission_nav_waypoint(seq, lat, lon, alt);
 
     return (
       missionItemIntPointer.tx_msg_buffer,
       missionItemIntPointer.tx_msg_len,
+    );
+  } catch (e, st) {
+    debugPrintStack(stackTrace: st);
+    return (const Array<Uint8>(0), 0);
+  }
+}
+
+(Array<Uint8>, int) requestMissionNavLand(int seq, int lat, int lon, int alt) {
+  try {
+    var missionItemIntPointer =
+        _bindings.request_mission_nav_land(seq, lat, lon, alt);
+
+    return (
+      missionItemIntPointer.tx_msg_buffer,
+      missionItemIntPointer.tx_msg_len,
+    );
+  } catch (e, st) {
+    debugPrintStack(stackTrace: st);
+    return (const Array<Uint8>(0), 0);
+  }
+}
+
+(Array<Uint8>, int) requestMissionNavTakeoff(
+    int seq, int lat, int lon, int alt) {
+  try {
+    var missionItemIntPointer =
+        _bindings.request_mission_nav_takeoff(seq, lat, lon, alt);
+
+    return (
+      missionItemIntPointer.tx_msg_buffer,
+      missionItemIntPointer.tx_msg_len,
+    );
+  } catch (e, st) {
+    debugPrintStack(stackTrace: st);
+    return (const Array<Uint8>(0), 0);
+  }
+}
+
+(Array<Uint8>, int) requestMissionNavReturnToLaunch(int seq) {
+  try {
+    var missionItemIntPointer =
+        _bindings.request_mission_nav_return_to_launch(seq);
+
+    return (
+      missionItemIntPointer.tx_msg_buffer,
+      missionItemIntPointer.tx_msg_len,
+    );
+  } catch (e, st) {
+    debugPrintStack(stackTrace: st);
+    return (const Array<Uint8>(0), 0);
+  }
+}
+
+(Array<Uint8>, int) requestMissionDoSetMode() {
+  try {
+    var cmd = _bindings.request_mission_do_set_mode();
+
+    return (
+      cmd.tx_msg_buffer,
+      cmd.tx_msg_len,
+    );
+  } catch (e, st) {
+    debugPrintStack(stackTrace: st);
+    return (const Array<Uint8>(0), 0);
+  }
+}
+
+(Array<Uint8>, int) requestMissionStart() {
+  try {
+    var cmd = _bindings.request_mission_start();
+
+    return (
+      cmd.tx_msg_buffer,
+      cmd.tx_msg_len,
+    );
+  } catch (e, st) {
+    debugPrintStack(stackTrace: st);
+    return (const Array<Uint8>(0), 0);
+  }
+}
+
+(Array<Uint8>, int) requestCmdArmDisarm(double arm) {
+  try {
+    var cmd = _bindings.request_cmd_arm_disarm(arm);
+
+    return (
+      cmd.tx_msg_buffer,
+      cmd.tx_msg_len,
     );
   } catch (e, st) {
     debugPrintStack(stackTrace: st);
@@ -118,7 +208,9 @@ MavlinkAttitude? mavlinkAttitude;
 MavlinkGlobalPositionInt? mavlinkGlobalPositionInt;
 MavlinkLocalPositionNed? mavlinkLocalPositionNed;
 MavlinkMissionRequestInt? mavlinkMissionRequestInt;
+MavlinkMissionRequest? mavlinkMissionRequest;
 MavlinkMissionAck? mavlinkMissionAck;
+MavlinkStatusText? mavlinkStatusText;
 
 // Функция обновления данных
 List<MavlinkMessage> updateData(List<int> newBytes) {
@@ -127,6 +219,9 @@ List<MavlinkMessage> updateData(List<int> newBytes) {
   for (var i = 0; i < newBytes.length; i++) {
     // После обновления данных, производится обновление переменных внутри _bindings
     _bindings.update_data(newBytes[i]);
+
+    isHeartbeatAlreadyRecived = _bindings.already_received_heartbeat == 1;
+    customSeq = _bindings.custom_seq;
 
     mavlinkHeartbeat = MavlinkHeartbeat(
       type: _bindings.rx_heartbeat.type,
@@ -209,12 +304,26 @@ List<MavlinkMessage> updateData(List<int> newBytes) {
       missionType: _bindings.rx_mission_request_int.mission_type,
     );
 
+    mavlinkMissionRequest = MavlinkMissionRequest(
+      targetSystem: _bindings.rx_mission_request_int.target_system,
+      targetComponent: _bindings.rx_mission_request_int.target_component,
+      seq: _bindings.rx_mission_request_int.seq,
+      missionType: _bindings.rx_mission_request_int.mission_type,
+    );
+
     mavlinkMissionAck = MavlinkMissionAck(
         targetSystem: _bindings.rx_mission_ack.target_system,
         targetComponent: _bindings.rx_mission_ack.target_component,
         type: _bindings.rx_mission_ack.type,
         missionType: _bindings.rx_mission_ack.mission_type,
         opaqueId: 0);
+
+    mavlinkStatusText = MavlinkStatusText(
+      severity: _bindings.rx_statustext.severity,
+      chunkSeq: _bindings.rx_statustext.chunk_seq,
+      id: _bindings.rx_statustext.id,
+      text: convertFfiArrayToString(_bindings.rx_statustext.text, 50),
+    );
 
     messages.add(mavlinkHeartbeat!);
     messages.add(mavlinkSystStatus!);
@@ -223,10 +332,23 @@ List<MavlinkMessage> updateData(List<int> newBytes) {
     messages.add(mavlinkGlobalPositionInt!);
     messages.add(mavlinkLocalPositionNed!);
     messages.add(mavlinkMissionRequestInt!);
+    messages.add(mavlinkMissionRequest!);
     messages.add(mavlinkMissionAck!);
   }
 
   return messages;
+}
+
+String convertFfiArrayToString(Array<Char> ffiArray, int length) {
+  List<int> resultList = [];
+
+  // Перебор элементов ffi.Array и добавление их в список
+  for (int i = 0; i < length; i++) {
+    if (ffiArray[i] == 0) break;
+    resultList.add(ffiArray[i]);
+  }
+
+  return String.fromCharCodes(resultList);
 }
 
 List<int> convertFfiArrayToListInt(Array<Uint8> ffiArray, int length) {

@@ -58,6 +58,7 @@ mavlink_set_gps_global_origin_t rx_set_gps_global_origin;
 mavlink_gps_global_origin_t rx_gps_global_origin;
 mavlink_param_map_rc_t rx_param_map_rc;
 mavlink_mission_request_int_t rx_mission_request_int;
+mavlink_mission_request_t rx_mission_request;
 mavlink_safety_set_allowed_area_t rx_safety_set_allowed_area;
 mavlink_safety_allowed_area_t rx_safety_allowed_area;
 mavlink_attitude_quaternion_cov_t rx_attitude_quaternion_cov;
@@ -211,6 +212,9 @@ mavlink_hygrometer_sensor_t rx_hygrometer_sensor;
 
 uint8_t sysid_apm;  // id дрона
 uint8_t compid_apm; // id автопилота
+int already_received_heartbeat = 0;
+int custom_seq = 0;
+uint32_t current_msg_id = 0;
 
 typedef struct
 {
@@ -244,4 +248,10 @@ FFI_PLUGIN_EXPORT send_msg request_global_position_int();
 FFI_PLUGIN_EXPORT send_msg request_local_position_ned();
 
 FFI_PLUGIN_EXPORT send_msg request_mission_count(uint16_t mission_count);
-FFI_PLUGIN_EXPORT send_msg request_mission_item_int(uint16_t seq, int32_t lat, int32_t lng, int32_t alt);
+FFI_PLUGIN_EXPORT send_msg request_mission_nav_waypoint(uint16_t seq, int32_t lat, int32_t lng, int32_t alt);
+FFI_PLUGIN_EXPORT send_msg request_mission_nav_takeoff(uint16_t seq, int32_t lat, int32_t lng, int32_t alt);
+FFI_PLUGIN_EXPORT send_msg request_mission_nav_land(uint16_t seq, int32_t lat, int32_t lng, int32_t alt);
+FFI_PLUGIN_EXPORT send_msg request_mission_nav_return_to_launch(uint16_t seq);
+FFI_PLUGIN_EXPORT send_msg request_mission_do_set_mode();
+FFI_PLUGIN_EXPORT send_msg request_mission_start();
+FFI_PLUGIN_EXPORT send_msg request_cmd_arm_disarm(float arm);

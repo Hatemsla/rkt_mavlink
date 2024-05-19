@@ -252,6 +252,11 @@ class RtkMavlinkBindings {
   mavlink_mission_request_int_t get rx_mission_request_int =>
       _rx_mission_request_int.ref;
 
+  late final ffi.Pointer<mavlink_mission_request_t> _rx_mission_request =
+      _lookup<mavlink_mission_request_t>('rx_mission_request');
+
+  mavlink_mission_request_t get rx_mission_request => _rx_mission_request.ref;
+
   late final ffi.Pointer<mavlink_safety_set_allowed_area_t>
       _rx_safety_set_allowed_area =
       _lookup<mavlink_safety_set_allowed_area_t>('rx_safety_set_allowed_area');
@@ -1170,6 +1175,27 @@ class RtkMavlinkBindings {
 
   set compid_apm(int value) => _compid_apm.value = value;
 
+  late final ffi.Pointer<ffi.Int> _already_received_heartbeat =
+      _lookup<ffi.Int>('already_received_heartbeat');
+
+  int get already_received_heartbeat => _already_received_heartbeat.value;
+
+  set already_received_heartbeat(int value) =>
+      _already_received_heartbeat.value = value;
+
+  late final ffi.Pointer<ffi.Int> _custom_seq = _lookup<ffi.Int>('custom_seq');
+
+  int get custom_seq => _custom_seq.value;
+
+  set custom_seq(int value) => _custom_seq.value = value;
+
+  late final ffi.Pointer<ffi.Uint32> _current_msg_id =
+      _lookup<ffi.Uint32>('current_msg_id');
+
+  int get current_msg_id => _current_msg_id.value;
+
+  set current_msg_id(int value) => _current_msg_id.value = value;
+
   /// @brief Метод для обновления данных
   /// @param new_byte байт из приемного канала
   /// @return
@@ -1256,13 +1282,13 @@ class RtkMavlinkBindings {
   late final _request_mission_count =
       _request_mission_countPtr.asFunction<send_msg Function(int)>();
 
-  send_msg request_mission_item_int(
+  send_msg request_mission_nav_waypoint(
     int seq,
     int lat,
     int lng,
     int alt,
   ) {
-    return _request_mission_item_int(
+    return _request_mission_nav_waypoint(
       seq,
       lat,
       lng,
@@ -1270,12 +1296,102 @@ class RtkMavlinkBindings {
     );
   }
 
-  late final _request_mission_item_intPtr = _lookup<
+  late final _request_mission_nav_waypointPtr = _lookup<
       ffi.NativeFunction<
           send_msg Function(ffi.Uint16, ffi.Int32, ffi.Int32,
-              ffi.Int32)>>('request_mission_item_int');
-  late final _request_mission_item_int = _request_mission_item_intPtr
+              ffi.Int32)>>('request_mission_nav_waypoint');
+  late final _request_mission_nav_waypoint = _request_mission_nav_waypointPtr
       .asFunction<send_msg Function(int, int, int, int)>();
+
+  send_msg request_mission_nav_takeoff(
+    int seq,
+    int lat,
+    int lng,
+    int alt,
+  ) {
+    return _request_mission_nav_takeoff(
+      seq,
+      lat,
+      lng,
+      alt,
+    );
+  }
+
+  late final _request_mission_nav_takeoffPtr = _lookup<
+      ffi.NativeFunction<
+          send_msg Function(ffi.Uint16, ffi.Int32, ffi.Int32,
+              ffi.Int32)>>('request_mission_nav_takeoff');
+  late final _request_mission_nav_takeoff = _request_mission_nav_takeoffPtr
+      .asFunction<send_msg Function(int, int, int, int)>();
+
+  send_msg request_mission_nav_land(
+    int seq,
+    int lat,
+    int lng,
+    int alt,
+  ) {
+    return _request_mission_nav_land(
+      seq,
+      lat,
+      lng,
+      alt,
+    );
+  }
+
+  late final _request_mission_nav_landPtr = _lookup<
+      ffi.NativeFunction<
+          send_msg Function(ffi.Uint16, ffi.Int32, ffi.Int32,
+              ffi.Int32)>>('request_mission_nav_land');
+  late final _request_mission_nav_land = _request_mission_nav_landPtr
+      .asFunction<send_msg Function(int, int, int, int)>();
+
+  send_msg request_mission_nav_return_to_launch(
+    int seq,
+  ) {
+    return _request_mission_nav_return_to_launch(
+      seq,
+    );
+  }
+
+  late final _request_mission_nav_return_to_launchPtr =
+      _lookup<ffi.NativeFunction<send_msg Function(ffi.Uint16)>>(
+          'request_mission_nav_return_to_launch');
+  late final _request_mission_nav_return_to_launch =
+      _request_mission_nav_return_to_launchPtr
+          .asFunction<send_msg Function(int)>();
+
+  send_msg request_mission_do_set_mode() {
+    return _request_mission_do_set_mode();
+  }
+
+  late final _request_mission_do_set_modePtr =
+      _lookup<ffi.NativeFunction<send_msg Function()>>(
+          'request_mission_do_set_mode');
+  late final _request_mission_do_set_mode =
+      _request_mission_do_set_modePtr.asFunction<send_msg Function()>();
+
+  send_msg request_mission_start() {
+    return _request_mission_start();
+  }
+
+  late final _request_mission_startPtr =
+      _lookup<ffi.NativeFunction<send_msg Function()>>('request_mission_start');
+  late final _request_mission_start =
+      _request_mission_startPtr.asFunction<send_msg Function()>();
+
+  send_msg request_cmd_arm_disarm(
+    double arm,
+  ) {
+    return _request_cmd_arm_disarm(
+      arm,
+    );
+  }
+
+  late final _request_cmd_arm_disarmPtr =
+      _lookup<ffi.NativeFunction<send_msg Function(ffi.Float)>>(
+          'request_cmd_arm_disarm');
+  late final _request_cmd_arm_disarm =
+      _request_cmd_arm_disarmPtr.asFunction<send_msg Function(double)>();
 }
 
 typedef mavlink_message_t = __mavlink_message;
@@ -2403,6 +2519,26 @@ final class __mavlink_param_map_rc_t extends ffi.Struct {
 typedef mavlink_mission_request_int_t = __mavlink_mission_request_int_t;
 
 final class __mavlink_mission_request_int_t extends ffi.Struct {
+  /// <  Sequence
+  @ffi.Uint16()
+  external int seq;
+
+  /// <  System ID
+  @ffi.Uint8()
+  external int target_system;
+
+  /// <  Component ID
+  @ffi.Uint8()
+  external int target_component;
+
+  /// <  Mission type.
+  @ffi.Uint8()
+  external int mission_type;
+}
+
+typedef mavlink_mission_request_t = __mavlink_mission_request_t;
+
+final class __mavlink_mission_request_t extends ffi.Struct {
   /// <  Sequence
   @ffi.Uint16()
   external int seq;

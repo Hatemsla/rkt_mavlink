@@ -4,40 +4,116 @@
 #define HZ_10 100000
 #define NUM_OF_POINTS 4
 
-bool already_received_heartbeat = false; // первое сообщение heartbeat принято
 unsigned long t_last_heartbeat = 0;
 uint8_t tx_msg_buffer[MAVLINK_MAX_PACKET_LEN];
 int tx_msg_len = 0;
+bool is_first_run = true;
 
 FFI_PLUGIN_EXPORT send_msg request_mission_count(uint16_t mission_count)
 {
     send_msg send;
 
-    if (already_received_heartbeat)
-    {
-        mavlink_msg_mission_count_pack_chan(sysid_apm, MAV_COMP_ID_ONBOARD_COMPUTER, MAVLINK_COMM_0, &tx_msg, sysid_apm, compid_apm, mission_count, MAV_MISSION_TYPE_MISSION);
-        tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+    mavlink_msg_mission_count_pack_chan(sysid_apm, MAV_COMP_ID_MISSIONPLANNER, MAVLINK_COMM_1, &tx_msg, sysid_apm, compid_apm, mission_count, MAV_MISSION_TYPE_MISSION);
+    tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
 
-        send.tx_msg_len = tx_msg_len;
-        memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
-    }
+    send.tx_msg_len = tx_msg_len;
+    memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
 
     return send;
 }
 
-FFI_PLUGIN_EXPORT send_msg request_mission_item_int(uint16_t seq, int32_t lat, int32_t lng, int32_t alt)
+FFI_PLUGIN_EXPORT send_msg request_mission_nav_waypoint(uint16_t seq, int32_t lat, int32_t lng, int32_t alt)
 {
     send_msg send;
 
-    if (already_received_heartbeat)
-    {
-        mavlink_msg_mission_item_int_pack_chan(sysid_apm, MAV_COMP_ID_ONBOARD_COMPUTER, MAVLINK_COMM_0, &tx_msg, sysid_apm, compid_apm, seq, MAV_FRAME_GLOBAL, MAV_CMD_NAV_WAYPOINT,
-                                               0, 1, 0, 0, 0, NAN, lat, lng, alt, MAV_MISSION_TYPE_MISSION);
-        tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+    mavlink_msg_mission_item_int_pack_chan(sysid_apm, MAV_COMP_ID_MISSIONPLANNER, MAVLINK_COMM_1, &tx_msg, sysid_apm, compid_apm, seq, MAV_FRAME_GLOBAL_RELATIVE_ALT, MAV_CMD_NAV_WAYPOINT,
+                                           0, 1, 0, 0, 0, NAN, lat, lng, alt, MAV_MISSION_TYPE_MISSION);
+    tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
 
-        send.tx_msg_len = tx_msg_len;
-        memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
-    }
+    send.tx_msg_len = tx_msg_len;
+    memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
+
+    return send;
+}
+
+FFI_PLUGIN_EXPORT send_msg request_mission_nav_land(uint16_t seq, int32_t lat, int32_t lng, int32_t alt)
+{
+    send_msg send;
+
+    mavlink_msg_mission_item_int_pack_chan(sysid_apm, MAV_COMP_ID_MISSIONPLANNER, MAVLINK_COMM_1, &tx_msg, sysid_apm, compid_apm, seq, MAV_FRAME_GLOBAL_RELATIVE_ALT, MAV_CMD_NAV_LAND,
+                                           0, 1,
+                                           0, PRECISION_LAND_MODE_DISABLED, 0, NAN, lat, lng, alt, MAV_MISSION_TYPE_MISSION);
+    tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+
+    send.tx_msg_len = tx_msg_len;
+    memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
+
+    return send;
+}
+
+FFI_PLUGIN_EXPORT send_msg request_mission_nav_takeoff(uint16_t seq, int32_t lat, int32_t lng, int32_t alt)
+{
+    send_msg send;
+
+    mavlink_msg_mission_item_int_pack_chan(sysid_apm, MAV_COMP_ID_MISSIONPLANNER, MAVLINK_COMM_1, &tx_msg, sysid_apm, compid_apm, seq, MAV_FRAME_GLOBAL_RELATIVE_ALT, MAV_CMD_NAV_TAKEOFF,
+                                           0, 0, 0, 0, 0, NAN, lat, lng, alt, MAV_MISSION_TYPE_MISSION);
+    tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+
+    send.tx_msg_len = tx_msg_len;
+    memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
+
+    return send;
+}
+
+FFI_PLUGIN_EXPORT send_msg request_mission_nav_return_to_launch(uint16_t seq)
+{
+    send_msg send;
+
+    mavlink_msg_mission_item_int_pack_chan(sysid_apm, MAV_COMP_ID_MISSIONPLANNER, MAVLINK_COMM_1, &tx_msg, sysid_apm, compid_apm, seq, MAV_FRAME_GLOBAL_RELATIVE_ALT, MAV_CMD_NAV_RETURN_TO_LAUNCH,
+                                           0, 0, 0, 0, 0, 0, 0, 0, 0, MAV_MISSION_TYPE_MISSION);
+    tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+
+    send.tx_msg_len = tx_msg_len;
+    memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
+
+    return send;
+}
+
+FFI_PLUGIN_EXPORT send_msg request_mission_do_set_mode()
+{
+    send_msg send;
+
+    mavlink_msg_command_long_pack_chan(sysid_apm, MAV_COMP_ID_MISSIONPLANNER, MAVLINK_COMM_1, &tx_msg, sysid_apm, compid_apm, MAV_CMD_DO_SET_MODE, 0, MAV_MODE_AUTO_ARMED, 0, 0, 0, 0, 0, 0);
+    tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+
+    send.tx_msg_len = tx_msg_len;
+    memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
+
+    return send;
+}
+
+FFI_PLUGIN_EXPORT send_msg request_mission_start()
+{
+    send_msg send;
+
+    mavlink_msg_command_long_pack_chan(sysid_apm, MAV_COMP_ID_MISSIONPLANNER, MAVLINK_COMM_1, &tx_msg, sysid_apm, compid_apm, MAV_CMD_MISSION_START, 0, 0, 0, 0, 0, 0, 0, 0);
+    tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+
+    send.tx_msg_len = tx_msg_len;
+    memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
+
+    return send;
+}
+
+FFI_PLUGIN_EXPORT send_msg request_cmd_arm_disarm(float arm)
+{
+    send_msg send;
+
+    mavlink_msg_command_long_pack_chan(sysid_apm, MAV_COMP_ID_MISSIONPLANNER, MAVLINK_COMM_0, &tx_msg, sysid_apm, compid_apm, MAV_CMD_COMPONENT_ARM_DISARM, 0, arm, 0, 0, 0, 0, 0, 0);
+    tx_msg_len = mavlink_msg_to_send_buffer(tx_msg_buffer, &tx_msg);
+
+    send.tx_msg_len = tx_msg_len;
+    memcpy(send.tx_msg_buffer, tx_msg_buffer, tx_msg_len);
 
     return send;
 }
@@ -129,10 +205,20 @@ FFI_PLUGIN_EXPORT send_msg request_local_position_ned()
 
 FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
 {
+    if (is_first_run)
+    {
+        rx_mission_request_int.seq = -1;
+        rx_mission_request.seq = -1;
+        rx_mission_ack.type = -1;
+        is_first_run = false;
+    }
+
     uint8_t r_byte = new_byte;
 
     if (mavlink_parse_char(MAVLINK_COMM_0, r_byte, &rx_msg, &rx_status))
     {
+        current_msg_id = rx_msg.msgid;
+
         switch (rx_msg.msgid)
         {
         case MAVLINK_MSG_ID_HEARTBEAT:
@@ -142,7 +228,7 @@ FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
 
             if (!already_received_heartbeat)
             {
-                already_received_heartbeat = true;
+                already_received_heartbeat = 1;
                 sysid_apm = rx_msg.sysid;
                 compid_apm = rx_msg.compid;
             }
@@ -325,6 +411,12 @@ FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
         case MAVLINK_MSG_ID_MISSION_REQUEST_INT:
         {
             mavlink_msg_mission_request_int_decode(&rx_msg, &rx_mission_request_int);
+
+            break;
+        }
+        case MAVLINK_MSG_ID_MISSION_REQUEST:
+        {
+            mavlink_msg_mission_request_decode(&rx_msg, &rx_mission_request);
             break;
         }
         case MAVLINK_MSG_ID_SAFETY_SET_ALLOWED_AREA:
@@ -1068,7 +1160,10 @@ FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
             break;
         }
         default:
+        {
+            // custom_seq++;
             break;
+        }
         }
     }
 }

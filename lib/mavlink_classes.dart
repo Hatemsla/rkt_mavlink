@@ -33,6 +33,34 @@ class MavlinkMissionRequestInt extends MavlinkMessage {
   });
 }
 
+class MavlinkMissionRequest extends MavlinkMessage {
+  int targetSystem;
+  int targetComponent;
+  int seq;
+  int missionType;
+
+  MavlinkMissionRequest({
+    required this.targetSystem,
+    required this.targetComponent,
+    required this.seq,
+    required this.missionType,
+  });
+}
+
+class MavlinkStatusText extends MavlinkMessage {
+  int severity;
+  String text;
+  int id;
+  int chunkSeq;
+
+  MavlinkStatusText({
+    required this.severity,
+    required this.text,
+    required this.id,
+    required this.chunkSeq,
+  });
+}
+
 class MavlinkHeartbeat extends MavlinkMessage {
   int type;
   int autopilot;
