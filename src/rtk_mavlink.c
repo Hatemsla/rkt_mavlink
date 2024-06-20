@@ -203,7 +203,7 @@ FFI_PLUGIN_EXPORT send_msg request_local_position_ned()
     return send;
 }
 
-FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
+FFI_PLUGIN_EXPORT int update_data(uint8_t new_byte)
 {
     if (is_first_run)
     {
@@ -391,6 +391,7 @@ FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
         case MAVLINK_MSG_ID_MISSION_ACK:
         {
             mavlink_msg_mission_ack_decode(&rx_msg, &rx_mission_ack);
+            is_mission_ack = 1;
             break;
         }
         case MAVLINK_MSG_ID_SET_GPS_GLOBAL_ORIGIN:
@@ -416,8 +417,11 @@ FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
         }
         case MAVLINK_MSG_ID_MISSION_REQUEST:
         {
+            request_count++;
+            current_seq = rx_msg.seq;
+            is_mission_request = 1;
             mavlink_msg_mission_request_decode(&rx_msg, &rx_mission_request);
-            break;
+            return rx_msg.msgid;
         }
         case MAVLINK_MSG_ID_SAFETY_SET_ALLOWED_AREA:
         {
@@ -1162,8 +1166,10 @@ FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte)
         default:
         {
             // custom_seq++;
+            return -1;
             break;
         }
         }
+        return rx_msg.msgid;
     }
 }

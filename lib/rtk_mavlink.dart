@@ -3,8 +3,9 @@
 
 import 'dart:ffi';
 import 'dart:io';
+import 'dart:isolate';
 
-import "package:ffi/ffi.dart";
+import 'package:dbus/dbus.dart';
 import 'package:flutter/material.dart';
 import 'package:rtk_mavlink/mavlink_classes.dart';
 
@@ -212,13 +213,250 @@ MavlinkMissionRequest? mavlinkMissionRequest;
 MavlinkMissionAck? mavlinkMissionAck;
 MavlinkStatusText? mavlinkStatusText;
 
+List<int> requestCount = [];
+List<int> currentSeq = [];
+int res = -1;
+bool isMissionSent = false;
+
+const int defaultTimeout = 1500;
+const int missionItemsTimeout = 500;
+const domen = 'org.usb.UsbDriver';
+const path = '/org/usb/UsbDriver';
+
+Future<void> sendData(DBusRemoteObject remoteObject, List<int> list) async {
+  if (list.isEmpty) return;
+
+  await remoteObject.callMethod(
+    domen,
+    'SendData',
+    [
+      DBusArray.int32(list),
+    ],
+  );
+}
+
+List<int> parseArrayToList((Array<Uint8>, int) array) {
+  final List<int> list = [];
+  for (var i = 0; i < array.$2; i++) {
+    list.add(array.$1[i]);
+  }
+
+  return list;
+}
+
+Future<void> sendMissionCount(
+    DBusClient client1, DBusRemoteObject remoteObject1) async {
+  var missionCount = requestMissionCount(5); // количество миссий -1 будет
+  List<int> missionCountIntList = parseArrayToList(missionCount);
+  await sendData(remoteObject1, missionCountIntList);
+
+  debugPrint("Количество миссий установлено: $missionCountIntList");
+}
+
+Future<void> sendMissionElement(int type, int seq, int lat, int lon, int alt,
+    DBusClient client1, DBusRemoteObject remoteObject1) async {
+  (Array<Uint8>, int) missionItemInt;
+  List<int> missionItemIntList;
+  switch (type) {
+    case 0:
+      missionItemInt = requestMissionNavTakeoff(
+        seq,
+        lat,
+        lon,
+        alt,
+      );
+
+      missionItemIntList = parseArrayToList(missionItemInt);
+      await sendData(remoteObject1, missionItemIntList);
+      debugPrint("Фейк $missionItemIntList");
+      break;
+    case 1:
+      missionItemInt = requestMissionNavTakeoff(
+        seq,
+        lat,
+        lon,
+        alt,
+      );
+
+      missionItemIntList = parseArrayToList(missionItemInt);
+      await sendData(remoteObject1, missionItemIntList);
+      debugPrint("Старт отправлен $missionItemIntList");
+      break;
+    case 3:
+      missionItemInt = requestMissionNavWaypoint(
+        seq,
+        lat,
+        lon,
+        alt,
+      );
+
+      missionItemIntList = parseArrayToList(missionItemInt);
+      await sendData(remoteObject1, missionItemIntList);
+      debugPrint("Чекпоинт отправлен $missionItemIntList");
+      break;
+    case 4:
+      missionItemInt = requestMissionNavReturnToLaunch(
+        seq,
+      );
+
+      missionItemIntList = parseArrayToList(missionItemInt);
+      await sendData(remoteObject1, missionItemIntList);
+
+      debugPrint("На базу $missionItemIntList");
+      break;
+  }
+}
+
+Future<void> sendMission(SendPort sendPort) async {
+  var client1 = DBusClient.session();
+  var remoteObject1 =
+      DBusRemoteObject(client1, name: domen, path: DBusObjectPath(path));
+  final port = ReceivePort();
+  sendPort.send(port.sendPort);
+
+  int currentTimeMills = 0;
+  bool isNewReq = false;
+
+  int receivedMissionSeq = 0;
+  bool receivedIsMissionRequest = false;
+  bool receivedIsMissionAck = false;
+
+  port.listen((data) {
+    debugPrint("DATA: $data");
+    if (data is List && data.length == 3) {
+      var newSeq = data[0] as int;
+      if (newSeq != receivedMissionSeq) {
+        isNewReq = true;
+      }
+      receivedMissionSeq = newSeq;
+
+      receivedIsMissionRequest = data[1] as bool;
+      receivedIsMissionAck = data[2] as bool;
+    }
+  });
+
+  await sendMissionCount(client1, remoteObject1);
+  currentTimeMills = getCurrentTimeMillis();
+  // debugPrint("receivedIsMissionRequest: $receivedIsMissionRequest");
+  while (!receivedIsMissionRequest) {
+    // debugPrint("receivedIsMissionRequest 1: $receivedIsMissionRequest");
+    if (getCurrentTimeMillis() - currentTimeMills > defaultTimeout) {
+      await sendMissionCount(client1, remoteObject1);
+      currentTimeMills = getCurrentTimeMillis();
+    }
+  }
+
+  // await sendMissionElement(
+  //     0, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
+  // currentTimeMills = getCurrentTimeMillis();
+
+  while (!receivedIsMissionAck) {
+    if (isNewReq) {
+      // debugPrint(
+      //     "receivedMissionSeq: $receivedMissionSeq time: ${getCurrentTimeMillis() - currentTimeMills}");
+      switch (receivedMissionSeq) {
+        case 0:
+          await sendMissionElement(
+              0, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
+          currentTimeMills = getCurrentTimeMillis();
+          break;
+        case 1:
+          await sendMissionElement(
+              1, receivedMissionSeq, 0, 0, 8, client1, remoteObject1);
+          currentTimeMills = getCurrentTimeMillis();
+          break;
+        case 2:
+          await sendMissionElement(2, receivedMissionSeq, 601193516, 302015796,
+              8, client1, remoteObject1);
+          currentTimeMills = getCurrentTimeMillis();
+          break;
+        case 3:
+          await sendMissionElement(3, receivedMissionSeq, 601192354, 302013221,
+              8, client1, remoteObject1);
+          currentTimeMills = getCurrentTimeMillis();
+          break;
+        case 4:
+          await sendMissionElement(
+              4, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
+          currentTimeMills = getCurrentTimeMillis();
+          break;
+        default:
+      }
+      isNewReq = false;
+    }
+  }
+}
+
+late ReceivePort receivePort;
+late SendPort sendPort;
+
+int currentTimeMillis = 0;
+bool isReceivePort = false;
+
+int getCurrentTimeMillis() {
+  return DateTime.now().millisecondsSinceEpoch;
+}
+
+Future<void> startSendMission() async {
+  receivePort = ReceivePort();
+  await Isolate.spawn(sendMission, receivePort.sendPort);
+  sendPort = await receivePort.first as SendPort;
+  isReceivePort = true;
+}
+
 // Функция обновления данных
-List<MavlinkMessage> updateData(List<int> newBytes) {
+Future<List<MavlinkMessage>> updateData(List<int> newBytes) async {
   List<MavlinkMessage> messages = [];
+
+  // final sendPort = await receivePort.first as SendPort;
 
   for (var i = 0; i < newBytes.length; i++) {
     // После обновления данных, производится обновление переменных внутри _bindings
-    _bindings.update_data(newBytes[i]);
+    res = _bindings.update_data(newBytes[i]);
+
+    if (res == 40) {
+      // debugPrint(
+      //     "request_count: ${_bindings.request_count}, current_seq: ${_bindings.current_seq}");
+
+      // debugPrint("is_mission_request: ${_bindings.is_mission_request}");
+      if (isReceivePort) {
+        sendPort.send([
+          _bindings.rx_mission_request.seq,
+          _bindings.is_mission_request == 1 ? true : false,
+          _bindings.is_mission_ack == 1 ? true : false
+        ]);
+
+        if (_bindings.is_mission_request == 1) {
+          _bindings.is_mission_request = -1;
+        }
+
+        if (_bindings.is_mission_ack == 1) {
+          _bindings.is_mission_ack = -1;
+        }
+      }
+      // if (!isMissionSent) {
+      //   final sendPort = await receivePort.first as SendPort;
+      //   sendPort.send([currentTimeMillis, isMissionRequest, isMissionAck]);
+
+      // await Isolate.spawn(sendMission, receivePort.sendPort);
+
+      //   isMissionSent = true;
+      // }
+
+      // if (!currentSeq.contains(_bindings.current_seq)) {
+      //   currentSeq.add(_bindings.current_seq);
+      //   debugPrint("currentSeq: $currentSeq");
+      // }
+    }
+
+    if (res == 47) {
+      debugPrint("mission_ack");
+      sendPort.send([
+        _bindings.rx_mission_request.seq,
+        true,
+        _bindings.is_mission_ack == 1 ? true : false
+      ]);
+    }
 
     isHeartbeatAlreadyRecived = _bindings.already_received_heartbeat == 1;
     customSeq = _bindings.custom_seq;
@@ -304,12 +542,14 @@ List<MavlinkMessage> updateData(List<int> newBytes) {
       missionType: _bindings.rx_mission_request_int.mission_type,
     );
 
-    mavlinkMissionRequest = MavlinkMissionRequest(
-      targetSystem: _bindings.rx_mission_request_int.target_system,
-      targetComponent: _bindings.rx_mission_request_int.target_component,
-      seq: _bindings.rx_mission_request_int.seq,
-      missionType: _bindings.rx_mission_request_int.mission_type,
-    );
+    if (res == 40) {
+      mavlinkMissionRequest = MavlinkMissionRequest(
+        targetSystem: _bindings.rx_mission_request.target_system,
+        targetComponent: _bindings.rx_mission_request.target_component,
+        seq: _bindings.rx_mission_request.seq,
+        missionType: _bindings.rx_mission_request.mission_type,
+      );
+    }
 
     mavlinkMissionAck = MavlinkMissionAck(
         targetSystem: _bindings.rx_mission_ack.target_system,
@@ -332,7 +572,9 @@ List<MavlinkMessage> updateData(List<int> newBytes) {
     messages.add(mavlinkGlobalPositionInt!);
     messages.add(mavlinkLocalPositionNed!);
     messages.add(mavlinkMissionRequestInt!);
-    messages.add(mavlinkMissionRequest!);
+    if (res == 40) {
+      messages.add(mavlinkMissionRequest!);
+    }
     messages.add(mavlinkMissionAck!);
   }
 

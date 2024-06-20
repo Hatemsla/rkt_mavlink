@@ -1196,10 +1196,38 @@ class RtkMavlinkBindings {
 
   set current_msg_id(int value) => _current_msg_id.value = value;
 
+  late final ffi.Pointer<ffi.Uint32> _request_count =
+      _lookup<ffi.Uint32>('request_count');
+
+  int get request_count => _request_count.value;
+
+  set request_count(int value) => _request_count.value = value;
+
+  late final ffi.Pointer<ffi.Uint32> _current_seq =
+      _lookup<ffi.Uint32>('current_seq');
+
+  int get current_seq => _current_seq.value;
+
+  set current_seq(int value) => _current_seq.value = value;
+
+  late final ffi.Pointer<ffi.Int8> _is_mission_request =
+      _lookup<ffi.Int8>('is_mission_request');
+
+  int get is_mission_request => _is_mission_request.value;
+
+  set is_mission_request(int value) => _is_mission_request.value = value;
+
+  late final ffi.Pointer<ffi.Int8> _is_mission_ack =
+      _lookup<ffi.Int8>('is_mission_ack');
+
+  int get is_mission_ack => _is_mission_ack.value;
+
+  set is_mission_ack(int value) => _is_mission_ack.value = value;
+
   /// @brief Метод для обновления данных
   /// @param new_byte байт из приемного канала
   /// @return
-  void update_data(
+  int update_data(
     int new_byte,
   ) {
     return _update_data(
@@ -1208,8 +1236,8 @@ class RtkMavlinkBindings {
   }
 
   late final _update_dataPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Uint8)>>('update_data');
-  late final _update_data = _update_dataPtr.asFunction<void Function(int)>();
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Uint8)>>('update_data');
+  late final _update_data = _update_dataPtr.asFunction<int Function(int)>();
 
   /// @brief Запрос данных о положении
   /// @return структура send_msg

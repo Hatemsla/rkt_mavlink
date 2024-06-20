@@ -215,6 +215,11 @@ uint8_t compid_apm; // id автопилота
 int already_received_heartbeat = 0;
 int custom_seq = 0;
 uint32_t current_msg_id = 0;
+uint32_t request_count = 0;
+uint32_t current_seq = 0;
+
+int8_t is_mission_request = -1;
+int8_t is_mission_ack = -1;
 
 typedef struct
 {
@@ -225,7 +230,7 @@ typedef struct
 /// @brief Метод для обновления данных
 /// @param new_byte байт из приемного канала
 /// @return
-FFI_PLUGIN_EXPORT void update_data(uint8_t new_byte);
+FFI_PLUGIN_EXPORT int update_data(uint8_t new_byte);
 
 /// @brief Запрос данных о положении
 /// @return структура send_msg
