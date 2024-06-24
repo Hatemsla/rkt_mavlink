@@ -1,6 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-// ignore_for_file: depend_on_referenced_packages
-
 import 'dart:ffi';
 import 'dart:io';
 import 'dart:isolate';
@@ -219,7 +216,6 @@ int res = -1;
 bool isMissionSent = false;
 
 const int defaultTimeout = 1500;
-const int missionItemsTimeout = 500;
 const domen = 'org.usb.UsbDriver';
 const path = '/org/usb/UsbDriver';
 
@@ -248,6 +244,7 @@ Future<void> sendMissionCount(
     DBusClient client1, DBusRemoteObject remoteObject1) async {
   var missionCount = requestMissionCount(5); // количество миссий -1 будет
   List<int> missionCountIntList = parseArrayToList(missionCount);
+
   await sendData(remoteObject1, missionCountIntList);
 
   debugPrint("Количество миссий установлено: $missionCountIntList");
@@ -282,7 +279,7 @@ Future<void> sendMissionElement(int type, int seq, int lat, int lon, int alt,
       await sendData(remoteObject1, missionItemIntList);
       debugPrint("Старт отправлен $missionItemIntList");
       break;
-    case 3:
+    case 2:
       missionItemInt = requestMissionNavWaypoint(
         seq,
         lat,
@@ -294,7 +291,7 @@ Future<void> sendMissionElement(int type, int seq, int lat, int lon, int alt,
       await sendData(remoteObject1, missionItemIntList);
       debugPrint("Чекпоинт отправлен $missionItemIntList");
       break;
-    case 4:
+    case 3:
       missionItemInt = requestMissionNavReturnToLaunch(
         seq,
       );
@@ -308,82 +305,127 @@ Future<void> sendMissionElement(int type, int seq, int lat, int lon, int alt,
 }
 
 Future<void> sendMission(SendPort sendPort) async {
-  var client1 = DBusClient.session();
-  var remoteObject1 =
-      DBusRemoteObject(client1, name: domen, path: DBusObjectPath(path));
   final port = ReceivePort();
   sendPort.send(port.sendPort);
 
-  int currentTimeMills = 0;
-  bool isNewReq = false;
-
-  int receivedMissionSeq = 0;
+  int receivedMissionSeq = -1;
   bool receivedIsMissionRequest = false;
   bool receivedIsMissionAck = false;
 
+  final iSMCountRPort = ReceivePort();
+  final iSMElementsRPort = ReceivePort();
+
+  await Isolate.spawn(_sendMissionCount,
+      [receivedIsMissionRequest, receivedMissionSeq, iSMCountRPort.sendPort]);
+  await Isolate.spawn(_sendMissionElements, [
+    receivedIsMissionAck,
+    receivedIsMissionRequest,
+    receivedMissionSeq,
+    iSMElementsRPort.sendPort
+  ]);
+
+  final iSMCountSendPort = await iSMCountRPort.first as SendPort;
+  final iSMElementsSendPort = await iSMElementsRPort.first as SendPort;
+
   port.listen((data) {
     debugPrint("DATA: $data");
+    debugPrint(
+        "--------------------------------------------------------------------");
     if (data is List && data.length == 3) {
-      var newSeq = data[0] as int;
-      if (newSeq != receivedMissionSeq) {
-        isNewReq = true;
-      }
-      receivedMissionSeq = newSeq;
+      receivedMissionSeq = data[0];
+      receivedIsMissionRequest = data[1];
+      receivedIsMissionAck = data[2];
 
-      receivedIsMissionRequest = data[1] as bool;
-      receivedIsMissionAck = data[2] as bool;
+      iSMCountSendPort.send([receivedIsMissionRequest, receivedMissionSeq]);
+      iSMElementsSendPort.send(
+          [receivedIsMissionAck, receivedIsMissionRequest, receivedMissionSeq]);
+    }
+  });
+}
+
+Future<void> _sendMissionElements(List<dynamic> args) async {
+  var client1 = DBusClient.session();
+  var remoteObject1 =
+      DBusRemoteObject(client1, name: domen, path: DBusObjectPath(path));
+
+  bool receivedIsMissionAck = args[0];
+  bool receivedIsMissionRequest = args[1];
+  int receivedMissionSeq = args[2];
+  SendPort sendPort = args[3];
+
+  final port = ReceivePort();
+  sendPort.send(port.sendPort);
+
+  port.listen((message) {
+    if (message is List) {
+      receivedIsMissionAck = message[0];
+      receivedIsMissionRequest = message[1];
+      receivedMissionSeq = message[2];
+      debugPrint("IsNew: $receivedIsMissionRequest");
+    }
+  });
+
+  while (!receivedIsMissionAck) {
+    if (receivedIsMissionRequest) {
+      debugPrint("receivedMissionSeq: $receivedMissionSeq");
+      switch (receivedMissionSeq) {
+        case 0:
+          await sendMissionElement(
+              0, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
+          break;
+        case 1:
+          await sendMissionElement(
+              1, receivedMissionSeq, 0, 0, 8, client1, remoteObject1);
+          break;
+        case 2:
+          await sendMissionElement(2, receivedMissionSeq, 601193516, 302015796,
+              8, client1, remoteObject1);
+          break;
+        case 3:
+          await sendMissionElement(2, receivedMissionSeq, 601192354, 302013221,
+              8, client1, remoteObject1);
+          break;
+        case 4:
+          await sendMissionElement(
+              3, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
+          break;
+        default:
+      }
+      receivedIsMissionRequest = false;
+    }
+    await Future.delayed(Duration.zero);
+  }
+}
+
+Future<void> _sendMissionCount(List<dynamic> args) async {
+  var client1 = DBusClient.session();
+  var remoteObject1 =
+      DBusRemoteObject(client1, name: domen, path: DBusObjectPath(path));
+  int currentTimeMills = 0;
+  bool receivedIsMissionRequest = args[0];
+  int receivedMissionSeq = args[1];
+  SendPort sendPort = args[2];
+
+  final port = ReceivePort();
+  sendPort.send(port.sendPort);
+
+  port.listen((message) {
+    if (message is List) {
+      receivedIsMissionRequest = message[0];
+      receivedMissionSeq = message[1];
     }
   });
 
   await sendMissionCount(client1, remoteObject1);
   currentTimeMills = getCurrentTimeMillis();
-  // debugPrint("receivedIsMissionRequest: $receivedIsMissionRequest");
+
   while (!receivedIsMissionRequest) {
-    // debugPrint("receivedIsMissionRequest 1: $receivedIsMissionRequest");
     if (getCurrentTimeMillis() - currentTimeMills > defaultTimeout) {
+      debugPrint("receivedMissionSeq: $receivedMissionSeq");
       await sendMissionCount(client1, remoteObject1);
       currentTimeMills = getCurrentTimeMillis();
     }
-  }
-
-  // await sendMissionElement(
-  //     0, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
-  // currentTimeMills = getCurrentTimeMillis();
-
-  while (!receivedIsMissionAck) {
-    if (isNewReq) {
-      // debugPrint(
-      //     "receivedMissionSeq: $receivedMissionSeq time: ${getCurrentTimeMillis() - currentTimeMills}");
-      switch (receivedMissionSeq) {
-        case 0:
-          await sendMissionElement(
-              0, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
-          currentTimeMills = getCurrentTimeMillis();
-          break;
-        case 1:
-          await sendMissionElement(
-              1, receivedMissionSeq, 0, 0, 8, client1, remoteObject1);
-          currentTimeMills = getCurrentTimeMillis();
-          break;
-        case 2:
-          await sendMissionElement(2, receivedMissionSeq, 601193516, 302015796,
-              8, client1, remoteObject1);
-          currentTimeMills = getCurrentTimeMillis();
-          break;
-        case 3:
-          await sendMissionElement(3, receivedMissionSeq, 601192354, 302013221,
-              8, client1, remoteObject1);
-          currentTimeMills = getCurrentTimeMillis();
-          break;
-        case 4:
-          await sendMissionElement(
-              4, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
-          currentTimeMills = getCurrentTimeMillis();
-          break;
-        default:
-      }
-      isNewReq = false;
-    }
+    await Future.delayed(Duration.zero);
   }
 }
 
@@ -418,13 +460,32 @@ Future<List<MavlinkMessage>> updateData(List<int> newBytes) async {
       // debugPrint(
       //     "request_count: ${_bindings.request_count}, current_seq: ${_bindings.current_seq}");
 
-      // debugPrint("is_mission_request: ${_bindings.is_mission_request}");
       if (isReceivePort) {
+        debugPrint("IS_MISSION_REQUEST: ${_bindings.is_mission_request}");
+        debugPrint(
+            "--------------------------------------------------------------------");
+
+        bool isMissionAck = false;
+
+        if (_bindings.is_mission_ack == 1 &&
+            _bindings.rx_mission_ack.type == 13) {
+          isMissionAck = false;
+        } else if (_bindings.is_mission_ack == 1) {
+          isMissionAck = true;
+        }
+
         sendPort.send([
           _bindings.rx_mission_request.seq,
           _bindings.is_mission_request == 1 ? true : false,
-          _bindings.is_mission_ack == 1 ? true : false
+          isMissionAck
         ]);
+
+        debugPrint('Request seq: ${_bindings.rx_mission_request.seq}\n'
+            'targetComponent: ${_bindings.rx_mission_request.target_component}\n'
+            'targetSystem: ${_bindings.rx_mission_request.target_system}\n'
+            'missionType: ${_bindings.rx_mission_request.mission_type}');
+        debugPrint(
+            "--------------------------------------------------------------------");
 
         if (_bindings.is_mission_request == 1) {
           _bindings.is_mission_request = -1;
@@ -434,28 +495,29 @@ Future<List<MavlinkMessage>> updateData(List<int> newBytes) async {
           _bindings.is_mission_ack = -1;
         }
       }
-      // if (!isMissionSent) {
-      //   final sendPort = await receivePort.first as SendPort;
-      //   sendPort.send([currentTimeMillis, isMissionRequest, isMissionAck]);
+    } else if (res == 253) {
+      debugPrint(
+          'STATUSTEXT: ${convertFfiArrayToString(_bindings.rx_statustext.text, 50)}');
+      debugPrint(
+          "--------------------------------------------------------------------");
+    } else if (res == 47 && isReceivePort) {
+      debugPrint('Ack type: ${_bindings.rx_mission_ack.type}\n'
+          'Ack targetComponent: ${_bindings.rx_mission_ack.target_component}\n'
+          'Ack targetSystem: ${_bindings.rx_mission_ack.target_system}\n'
+          'Ack missionType: ${_bindings.rx_mission_ack.mission_type}');
+      debugPrint(
+          "--------------------------------------------------------------------");
 
-      // await Isolate.spawn(sendMission, receivePort.sendPort);
+      bool isMissionAck = false;
 
-      //   isMissionSent = true;
-      // }
+      if (_bindings.is_mission_ack == 1 &&
+          _bindings.rx_mission_ack.type == 13) {
+        isMissionAck = false;
+      } else if (_bindings.is_mission_ack == 1) {
+        isMissionAck = true;
+      }
 
-      // if (!currentSeq.contains(_bindings.current_seq)) {
-      //   currentSeq.add(_bindings.current_seq);
-      //   debugPrint("currentSeq: $currentSeq");
-      // }
-    }
-
-    if (res == 47) {
-      debugPrint("mission_ack");
-      sendPort.send([
-        _bindings.rx_mission_request.seq,
-        true,
-        _bindings.is_mission_ack == 1 ? true : false
-      ]);
+      sendPort.send([_bindings.rx_mission_request.seq, true, isMissionAck]);
     }
 
     isHeartbeatAlreadyRecived = _bindings.already_received_heartbeat == 1;
