@@ -5,6 +5,7 @@ import 'dart:isolate';
 import 'package:dbus/dbus.dart';
 import 'package:flutter/material.dart';
 import 'package:rtk_mavlink/mavlink_classes.dart';
+import 'package:rtk_mavlink/models.dart';
 
 import 'rtk_mavlink_bindings_generated.dart';
 
@@ -219,7 +220,7 @@ const int defaultTimeout = 1500;
 const domen = 'org.usb.UsbDriver';
 const path = '/org/usb/UsbDriver';
 
-Future<void> sendData(DBusRemoteObject remoteObject, List<int> list) async {
+Future<void> _sendData(DBusRemoteObject remoteObject, List<int> list) async {
   if (list.isEmpty) return;
 
   await remoteObject.callMethod(
@@ -231,7 +232,7 @@ Future<void> sendData(DBusRemoteObject remoteObject, List<int> list) async {
   );
 }
 
-List<int> parseArrayToList((Array<Uint8>, int) array) {
+List<int> _parseArrayToList((Array<Uint8>, int) array) {
   final List<int> list = [];
   for (var i = 0; i < array.$2; i++) {
     list.add(array.$1[i]);
@@ -240,71 +241,68 @@ List<int> parseArrayToList((Array<Uint8>, int) array) {
   return list;
 }
 
-Future<void> sendMissionCount(
-    DBusClient client1, DBusRemoteObject remoteObject1) async {
-  var missionCount = requestMissionCount(5); // количество миссий -1 будет
-  List<int> missionCountIntList = parseArrayToList(missionCount);
+Future<void> _sendStartMission(SendPort sendPort) async {
+  var client1 = DBusClient.session();
+  var remoteObject1 =
+      DBusRemoteObject(client1, name: domen, path: DBusObjectPath(path));
 
-  await sendData(remoteObject1, missionCountIntList);
+  var mode = requestMissionDoSetMode();
+  List<int> modeIntList = _parseArrayToList(mode);
+  await _sendData(remoteObject1, modeIntList);
+  debugPrint("Режим AUTO установлен: $modeIntList");
+
+  var missionStart = requestMissionStart();
+  List<int> missionStartIntList = _parseArrayToList(missionStart);
+  await _sendData(remoteObject1, missionStartIntList);
+  debugPrint("Миссия начата: $missionStartIntList");
+
+  var arm = requestCmdArmDisarm(1);
+  List<int> armIntList = _parseArrayToList(arm);
+  await _sendData(remoteObject1, armIntList);
+  debugPrint("Арм установлен: $armIntList");
+
+  Isolate.current.kill(priority: Isolate.immediate);
+}
+
+Future<void> sendMissionCount(DBusClient client1,
+    DBusRemoteObject remoteObject1, int missionCount) async {
+  var reqMissionCount =
+      requestMissionCount(missionCount); // количество миссий -1 будет
+  List<int> missionCountIntList = _parseArrayToList(reqMissionCount);
+
+  await _sendData(remoteObject1, missionCountIntList);
 
   debugPrint("Количество миссий установлено: $missionCountIntList");
 }
 
-Future<void> sendMissionElement(int type, int seq, int lat, int lon, int alt,
+Future<void> loadMissionElement(int type, int seq, int lat, int lon, int alt,
     DBusClient client1, DBusRemoteObject remoteObject1) async {
-  (Array<Uint8>, int) missionItemInt;
+  (Array<Uint8>, int) missionItemInt = (const Array<Uint8>(0), 0);
   List<int> missionItemIntList;
   switch (type) {
     case 0:
-      missionItemInt = requestMissionNavTakeoff(
-        seq,
-        lat,
-        lon,
-        alt,
-      );
-
-      missionItemIntList = parseArrayToList(missionItemInt);
-      await sendData(remoteObject1, missionItemIntList);
-      debugPrint("Фейк $missionItemIntList");
-      break;
     case 1:
-      missionItemInt = requestMissionNavTakeoff(
-        seq,
-        lat,
-        lon,
-        alt,
-      );
-
-      missionItemIntList = parseArrayToList(missionItemInt);
-      await sendData(remoteObject1, missionItemIntList);
-      debugPrint("Старт отправлен $missionItemIntList");
+      missionItemInt = requestMissionNavTakeoff(seq, lat, lon, alt);
+      debugPrint(type == 0 ? "Фейк" : "Старт отправлен");
       break;
     case 2:
-      missionItemInt = requestMissionNavWaypoint(
-        seq,
-        lat,
-        lon,
-        alt,
-      );
-
-      missionItemIntList = parseArrayToList(missionItemInt);
-      await sendData(remoteObject1, missionItemIntList);
-      debugPrint("Чекпоинт отправлен $missionItemIntList");
+      missionItemInt = requestMissionNavWaypoint(seq, lat, lon, alt);
+      debugPrint("Чекпоинт отправлен");
       break;
     case 3:
-      missionItemInt = requestMissionNavReturnToLaunch(
-        seq,
-      );
-
-      missionItemIntList = parseArrayToList(missionItemInt);
-      await sendData(remoteObject1, missionItemIntList);
-
-      debugPrint("На базу $missionItemIntList");
+      missionItemInt = requestMissionNavReturnToLaunch(seq);
+      debugPrint("На базу");
       break;
   }
+
+  missionItemIntList = _parseArrayToList(missionItemInt);
+  await _sendData(remoteObject1, missionItemIntList);
+  debugPrint("$missionItemIntList");
 }
 
-Future<void> sendMission(SendPort sendPort) async {
+Future<void> _sendMission(List<dynamic> args) async {
+  SendPort sendPort = args[0];
+  List<WaypointModelRtk> waypoints = args[1];
   final port = ReceivePort();
   sendPort.send(port.sendPort);
 
@@ -315,13 +313,18 @@ Future<void> sendMission(SendPort sendPort) async {
   final iSMCountRPort = ReceivePort();
   final iSMElementsRPort = ReceivePort();
 
-  await Isolate.spawn(_sendMissionCount,
-      [receivedIsMissionRequest, receivedMissionSeq, iSMCountRPort.sendPort]);
+  await Isolate.spawn(_sendMissionCount, [
+    receivedIsMissionRequest,
+    receivedMissionSeq,
+    iSMCountRPort.sendPort,
+    waypoints.length
+  ]);
   await Isolate.spawn(_sendMissionElements, [
     receivedIsMissionAck,
     receivedIsMissionRequest,
     receivedMissionSeq,
-    iSMElementsRPort.sendPort
+    iSMElementsRPort.sendPort,
+    waypoints
   ]);
 
   final iSMCountSendPort = await iSMCountRPort.first as SendPort;
@@ -344,14 +347,17 @@ Future<void> sendMission(SendPort sendPort) async {
 }
 
 Future<void> _sendMissionElements(List<dynamic> args) async {
-  var client1 = DBusClient.session();
-  var remoteObject1 =
-      DBusRemoteObject(client1, name: domen, path: DBusObjectPath(path));
+  var client = DBusClient.session();
+  var remoteObject =
+      DBusRemoteObject(client, name: domen, path: DBusObjectPath(path));
 
   bool receivedIsMissionAck = args[0];
   bool receivedIsMissionRequest = args[1];
   int receivedMissionSeq = args[2];
   SendPort sendPort = args[3];
+  List<WaypointModelRtk> waypoints = args[4];
+  waypoints.insert(0, WaypointModelRtk(latitude: 0, longitude: 0, altitude: 0));
+  waypoints.add(WaypointModelRtk(latitude: 0, longitude: 0, altitude: 0));
 
   final port = ReceivePort();
   sendPort.send(port.sendPort);
@@ -368,29 +374,25 @@ Future<void> _sendMissionElements(List<dynamic> args) async {
   while (!receivedIsMissionAck) {
     if (receivedIsMissionRequest) {
       debugPrint("receivedMissionSeq: $receivedMissionSeq");
-      switch (receivedMissionSeq) {
-        case 0:
-          await sendMissionElement(
-              0, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
-          break;
-        case 1:
-          await sendMissionElement(
-              1, receivedMissionSeq, 0, 0, 8, client1, remoteObject1);
-          break;
-        case 2:
-          await sendMissionElement(2, receivedMissionSeq, 601193516, 302015796,
-              8, client1, remoteObject1);
-          break;
-        case 3:
-          await sendMissionElement(2, receivedMissionSeq, 601192354, 302013221,
-              8, client1, remoteObject1);
-          break;
-        case 4:
-          await sendMissionElement(
-              3, receivedMissionSeq, 0, 0, 0, client1, remoteObject1);
-          break;
-        default:
+
+      int type;
+      if (receivedMissionSeq == 0 || receivedMissionSeq == 1) {
+        type = receivedMissionSeq; // 0 for takeoff, 1 for start
+      } else if (receivedMissionSeq == waypoints.length - 1) {
+        type = 3; // 3 for return to launch
+      } else {
+        type = 2; // 2 for waypoint
       }
+      await loadMissionElement(
+        type,
+        receivedMissionSeq,
+        waypoints[receivedMissionSeq].latitude,
+        waypoints[receivedMissionSeq].longitude,
+        waypoints[receivedMissionSeq].altitude,
+        client,
+        remoteObject,
+      );
+
       receivedIsMissionRequest = false;
     }
     await Future.delayed(Duration.zero);
@@ -405,6 +407,7 @@ Future<void> _sendMissionCount(List<dynamic> args) async {
   bool receivedIsMissionRequest = args[0];
   int receivedMissionSeq = args[1];
   SendPort sendPort = args[2];
+  int missionCount = args[3];
 
   final port = ReceivePort();
   sendPort.send(port.sendPort);
@@ -416,21 +419,25 @@ Future<void> _sendMissionCount(List<dynamic> args) async {
     }
   });
 
-  await sendMissionCount(client1, remoteObject1);
+  await sendMissionCount(
+      client1, remoteObject1, missionCount + 2); // + set home and rtl
   currentTimeMills = getCurrentTimeMillis();
 
   while (!receivedIsMissionRequest) {
     if (getCurrentTimeMillis() - currentTimeMills > defaultTimeout) {
       debugPrint("receivedMissionSeq: $receivedMissionSeq");
-      await sendMissionCount(client1, remoteObject1);
+      await sendMissionCount(client1, remoteObject1, missionCount + 2);
       currentTimeMills = getCurrentTimeMillis();
     }
     await Future.delayed(Duration.zero);
   }
 }
 
-late ReceivePort receivePort;
-late SendPort sendPort;
+late ReceivePort _sendMissionRPort;
+late ReceivePort _sendStartMissionRPort;
+
+late SendPort _sendMissionSPort;
+late SendPort _sendStartMissionSPort;
 
 int currentTimeMillis = 0;
 bool isReceivePort = false;
@@ -439,27 +446,35 @@ int getCurrentTimeMillis() {
   return DateTime.now().millisecondsSinceEpoch;
 }
 
-Future<void> startSendMission() async {
-  receivePort = ReceivePort();
-  await Isolate.spawn(sendMission, receivePort.sendPort);
-  sendPort = await receivePort.first as SendPort;
+Future<void> startSendMissionStatic() async {
+  _sendMissionRPort = ReceivePort();
+  await Isolate.spawn(_sendMission, [_sendMissionRPort.sendPort, []]);
+  _sendMissionSPort = await _sendMissionRPort.first as SendPort;
   isReceivePort = true;
+}
+
+Future<void> loadMission(List<WaypointModelRtk> waypoints) async {
+  _sendMissionRPort = ReceivePort();
+  await Isolate.spawn(_sendMission, [_sendMissionRPort.sendPort, waypoints]);
+  _sendMissionSPort = await _sendMissionRPort.first as SendPort;
+  isReceivePort = true;
+}
+
+Future<void> startMission() async {
+  _sendStartMissionRPort = ReceivePort();
+  await Isolate.spawn(_sendStartMission, _sendStartMissionRPort.sendPort);
+  _sendStartMissionSPort = await _sendStartMissionRPort.first as SendPort;
 }
 
 // Функция обновления данных
 Future<List<MavlinkMessage>> updateData(List<int> newBytes) async {
   List<MavlinkMessage> messages = [];
 
-  // final sendPort = await receivePort.first as SendPort;
-
   for (var i = 0; i < newBytes.length; i++) {
     // После обновления данных, производится обновление переменных внутри _bindings
     res = _bindings.update_data(newBytes[i]);
 
     if (res == 40) {
-      // debugPrint(
-      //     "request_count: ${_bindings.request_count}, current_seq: ${_bindings.current_seq}");
-
       if (isReceivePort) {
         debugPrint("IS_MISSION_REQUEST: ${_bindings.is_mission_request}");
         debugPrint(
@@ -474,7 +489,7 @@ Future<List<MavlinkMessage>> updateData(List<int> newBytes) async {
           isMissionAck = true;
         }
 
-        sendPort.send([
+        _sendMissionSPort.send([
           _bindings.rx_mission_request.seq,
           _bindings.is_mission_request == 1 ? true : false,
           isMissionAck
@@ -517,7 +532,8 @@ Future<List<MavlinkMessage>> updateData(List<int> newBytes) async {
         isMissionAck = true;
       }
 
-      sendPort.send([_bindings.rx_mission_request.seq, true, isMissionAck]);
+      _sendMissionSPort
+          .send([_bindings.rx_mission_request.seq, true, isMissionAck]);
     }
 
     isHeartbeatAlreadyRecived = _bindings.already_received_heartbeat == 1;
